@@ -1,0 +1,395 @@
+@media (min-width : 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width : 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width : 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 15px;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-size: cover;
+    width: 100vw;
+    height: calc(100vh - 10px);
+    transition: 0.3s;
+    height: 1vh;
+    overflow: hidden;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.button {
+    background-color: var(--sec-color);
+    color:white;
+    padding: 20px;
+    margin: 10px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+    width: 300px;
+}
+
+.sec-button {
+    background-color: transparent;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    transition: 0.3s;
+    cursor: pointer;
+    user-select: none;
+}
+
+.button:hover {
+    background-color: white;
+    color: var(--sec-color);
+}
+
+.sec-button:hover {
+    color: var(--sec-color);
+}
+
+input{
+    padding-left: 10px;
+}
+/* ############################################################# */
+.container{
+    margin: auto;
+}
+
+.header{
+    margin-top: 50px;
+    height: 2vh;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 80px;
+    cursor: pointer;
+}
+
+.header .links ul {
+    color: white;
+    margin: 0;
+    list-style: none;
+    min-width: 200px;
+    display: flex;
+    z-index: 999;
+}
+
+.header .links ul a {
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.header .links ul a:hover {
+    color: var(--sec-color);
+}
+
+div.img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    
+}
+
+.image{
+    width: 90%;
+    transition: 1s;
+}
+
+.image-transform{
+    transform: translate(200%, 80%);
+    transition: 1s;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    transform: translateY(-50%);
+    transition: 1s;
+}
+
+.card-transform{
+    transform: translate(-200%, 80%);
+    transition: 1s;
+}
+
+.home-body .card p{
+    padding: 50px;
+    font-size: 25px;
+    color: white;
+    font-weight: 300;
+}
+
+.home-body .card p span{
+    font-size: 35px;
+    font-weight: 600;
+    color: var(--sec-color);
+    text-transform: uppercase;
+}
+
+/* start login */
+.login-page{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: var(--border-radius);
+    background-color: #00aeef50;
+    width: 0;
+    height: 0;
+    filter: opacity(0);
+    transition: .5s;
+}
+
+.login-page h2,
+.visitor-page h2{
+    text-align: center;
+    background-color: var(--sec-color);
+    padding: 20px;
+    margin-top: 0;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25%;
+    transition: 1s;
+}
+
+label{
+    width: 70%;
+    display: block;
+    color: white;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.login-form input{
+    margin-bottom: 20px;
+    width: 80%;
+    height: 50px;
+    border-radius: var(--border-radius);
+    border: none;
+}
+
+.login-form input:focus{
+    outline: none;
+    border: var(--sec-color) solid 2px;
+}
+
+
+.login-form .login-btn{
+    margin-top: 20%;
+    text-decoration: none;
+    border: none;
+    line-height: 0.5;
+    
+}
+
+.visitor-page{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: var(--border-radius);
+    background-color: #ffffff50;
+    width: 0;
+    height: 0;
+    filter: opacity(0);
+    transition: 0.5s;
+}
+
+.visitor-page h2{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.complaint form label{
+    margin-left: 10%;
+    display: block;
+    font-weight: 500;
+}
+
+.complaint form input[type="text"]{
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+}
+
+.complaint form input[type="text"]:focus{
+    outline: none;
+    border: var(--sec-color) solid 2px;
+}
+
+.complaint form input{
+    width: 100%;
+    border: none;
+    margin: 10px;
+}
+
+.complaint-btn{
+    background-color: white;
+    color: var(--sec-color);
+    height: 50px;
+    line-height: 0.5;
+}
+
+.complaint-btn:hover{
+    background-color: var(--sec-color);
+    color: white;
+}
+
+.complaint form label{
+    margin-left: 10%;
+    font-weight: 500;
+    display: block;
+}
+
+.complaint form input[type="text"]{
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+}
+
+.complaint form input[type="text"]:focus{
+    outline: none;
+    border: var(--sec-color) solid 2px;
+}
+
+.complaint form input{
+    width: 100%;
+    border: none;
+    margin: 10px;
+}
+
+.complaint-btn{
+    background-color: white;
+    color: var(--sec-color);
+}
+
+.complaint-btn:hover{
+    background-color: var(--sec-color);
+    color: white;
+}
+
+.patient form{
+    margin-left: -10%;
+    margin-right: 10%;
+}
+
+.patient form label{
+    margin-left: 10%;
+    font-weight: 500;
+    display: block;
+}
+
+.patient form input[type="text"]{
+    height: 50px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+}
+
+.patient form input[type="text"]:focus{
+    outline: none;
+    border: var(--sec-color) solid 2px;
+}
+
+.patient form input{
+    width: 100%;
+    border: none;
+    margin: 10px;
+}
+
+.patient-btn{
+    background-color: white;
+    color: var(--sec-color);
+    height: 50px;
+    line-height: 0.5;
+}
+
+.patient-btn:hover{
+    background-color: var(--sec-color);
+    color: white;
+}
+
+.login-page-show{
+    width: 400px;
+    height: 600px;
+    transition: 1s;
+    z-index: -1;
+    filter: opacity(100%);
+}
+
+.visitor-page-show{
+    width: 800px;
+    height: 600px;
+    transition: 1s;
+    z-index: -1;
+    filter: opacity(100%);
+}
+
+.or{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.back{
+    z-index: 10000;
+}
+/* end login */
