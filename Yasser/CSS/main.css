@@ -19,7 +19,7 @@
 :root {
     --main-color: #2e3192;
     --sec-color: #00aeef;
-    --border-radius: 15px;
+    --border-radius: 5px;
 
 }
 
@@ -105,6 +105,34 @@ input{
     cursor: pointer;
 }
 
+.logo p{
+    color: var(--sec-color);
+    text-align: center;
+    margin-bottom: -10px;
+    font-size: 20px;
+    margin-top: 0;
+    transition: 0.3s;
+}
+
+.logo h2{
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    transition: 0.3s;
+}
+
+.logo:hover p{
+    color: white;
+    transform: translate(-100%,50%);
+}
+
+.logo:hover h2{
+    color: var(--sec-color);
+    transform: translateY(-30%);
+}
+
+
 .header .links ul {
     color: white;
     margin: 0;
@@ -187,6 +215,12 @@ div.img{
     height: 0;
     filter: opacity(0);
     transition: .5s;
+}
+
+.row{
+    width: 800px;
+    margin: 0 !important ;
+    display: none ;
 }
 
 .login-page h2,
@@ -389,7 +423,12 @@ label{
     color: white;
 }
 
-.back{
-    z-index: 10000;
+.show-visitor{
+    display: none;
 }
+
+.show-login{
+    display: none;
+}
+
 /* end login */
