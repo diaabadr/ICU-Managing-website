@@ -47,8 +47,8 @@ body {
 }
 
 ::selection{
-    color: var(--main-color);
-    background-color: white;
+    color: white;
+    background-color: var(--main-color);
 }
 
 .button {
@@ -109,6 +109,7 @@ input{
 .logo{
     width: 80px;
     cursor: pointer;
+    user-select: none;
 }
 
 .logo p{
@@ -146,6 +147,7 @@ input{
     min-width: 200px;
     display: flex;
     z-index: 999;
+    user-select: none;
 }
 
 .header .links ul a {
