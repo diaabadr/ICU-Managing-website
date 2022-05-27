@@ -7,8 +7,7 @@ let showLogin = document.querySelector(".show-login")
 
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains("home-btn")) {
-        window.open("../index.html", "_self")
-        console.log("Gooooooo")
+        location.assign("/")
     }
     if (e.target.classList.contains("back")) {
         nurse.classList.remove("image-transform")

@@ -171,6 +171,7 @@ div.img{
 .image{
     width: 90%;
     transition: 1s;
+    user-select: none;
 }
 
 .image-transform{
