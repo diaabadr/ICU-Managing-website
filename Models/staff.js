@@ -50,6 +50,10 @@ const staffSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
+  isFirstTime: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 module.exports = mongoose.exports("staff", staffSchema);
