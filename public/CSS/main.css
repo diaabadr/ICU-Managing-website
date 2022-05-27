@@ -28,10 +28,26 @@ html {
     scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(127, 127, 127);
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--sec-color);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-image: url("../images/background.jpg");
-    background-size: cover;
     background-size: cover;
     width: 100vw;
     height: calc(100vh - 10px);

@@ -1,0 +1,186 @@
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 5px;
+    --important-text: 35px;
+    --sec-text: 25px;
+    --icons-size: 45px
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: none;
+    background-color: #1b1d64;
+    background-size: cover;
+    width: 100vw;
+    height: calc(100vh - 10px);
+    transition: 0.3s;
+    height: 1vh;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+/* ############################################################# */
+
+/* start receptionist */
+.log-out{
+    color: var(--sec-color) !important;
+}
+
+.log-out:hover{
+    color: white !important;
+}
+
+.receptionist-patient-card,
+.receptionist-visitor-card{
+    width: 100%;
+    height: 800px;
+    background-color: white;
+    margin: 0px auto 0;
+    border-radius: var(--border-radius);
+    background-image: url(../images/res-pa-background.png);
+    background-size: cover;
+    position: relative;
+}
+
+.receptionist-patient-card{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-top: 40px;
+}
+
+.receptionist-visitor-card{
+    background-image: url(../images/res-vi-background.png);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.rec-pa-card,
+.rec-vi-card{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    font-size: var(--important-text);
+    color: white;
+    width: 350px;
+}
+
+.rec-vi-card{
+    left: 10%;
+}
+
+.rec-pa-card h2,
+.rec-vi-card h2{
+    margin-bottom: 150px;
+    text-transform: uppercase;
+    border-bottom: white solid 1px;
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.rec-vi-card h2{
+    border-bottom: var(--main-color) solid 1px;
+    color: var(--main-color);
+    width: 100%;
+}
+
+.rec-pa-card h2:hover,
+.rec-vi-card h2:hover{
+    padding-left: 70px;
+}
+
+.rec-pa-button,
+.rec-vi-button{
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: 0.3s;
+    background-color: var(--main-color);
+    background-image: none;
+    border: white solid 1px;
+    width: 350px;
+}
+
+.rec-vi-button{
+    background-color: white;
+    border: var(--main-color) solid 1px;
+}
+
+.icon-background{
+    background-color: white;
+    padding: 15px;
+    position: absolute;
+    left: 4%;
+    transition: 0.3s;
+    border-radius: var(--border-radius);
+    width: 100px;
+    text-align: center;
+}
+.rec-vi-button .icon-background{
+    background-color: var(--main-color);
+}
+
+.button svg {
+    font-size: var(--icons-size);
+    color: var(--main-color);
+}
+
+.rec-vi-button svg{
+    color: white;
+}
+
+.button span {
+    font-size: var(--sec-text);
+    text-align: center;
+    position: absolute;
+    left: 40%;
+    transition: 0.5s;
+    color: white;
+}
+
+.rec-vi-button span{
+    color: var(--main-color);
+}
+
+.rec-pa-button:hover,
+.rec-vi-button:hover{
+    background-color: white;
+    background-image: none;
+    color: var(--main-color);
+}
+
+.rec-vi-button:hover{
+    background-color: var(--main-color);
+}
+
+.rec-pa-button:hover .icon-background,
+.rec-vi-button:hover .icon-background{
+    background-color: var(--main-color);
+    transform: translateX(-50%);
+}
+
+.rec-vi-button:hover .icon-background{
+    background-color: white;
+}
+
+.rec-pa-button:hover svg{
+    color: white;
+}
+
+.rec-vi-button:hover svg{
+    color: var(--main-color);
+}
+
+.rec-pa-button:hover span,
+.rec-vi-button:hover span{
+    transform: translateX(-30%);
+    color: var(--main-color);
+}
+
+.rec-vi-button:hover span{
+    color: white;
+}
+/* end receptionist */
