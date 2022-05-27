@@ -39,7 +39,7 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 mongoose.connect(
-  "mongodb://localhost/ICU-Managing-website",
+  "mongodb://127.0.0.1/ICU-Managing-website",
   { useNewUrlParser: true },
   (error) => {
     if (error) console.log(error);
