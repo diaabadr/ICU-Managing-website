@@ -20,7 +20,8 @@
     --main-color: #2e3192;
     --sec-color: #00aeef;
     --border-radius: 5px;
-
+    --important-text: 35px;
+    --sec-text: 25px;
 }
 
 html {
@@ -197,13 +198,13 @@ div.img{
 
 .home-body .card p{
     padding: 50px;
-    font-size: 25px;
+    font-size: var(--sec-text);
     color: white;
     font-weight: 300;
 }
 
 .home-body .card p span{
-    font-size: 35px;
+    font-size: var(--important-text);
     font-weight: 600;
     color: var(--sec-color);
     text-transform: uppercase;
