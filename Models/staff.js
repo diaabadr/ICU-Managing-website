@@ -48,6 +48,7 @@ const staffSchema = mongoose.Schema({
   empID: {
     type: String,
     required: true,
+    unique: true,
   },
 });
 

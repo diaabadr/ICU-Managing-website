@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Message = mongoose.Schema({
   From: {
-    required: true,
+    required: false,
     type: {
       docEmail: String,
       docName: String,
@@ -15,6 +15,9 @@ const Message = mongoose.Schema({
   msg: {
     type: String,
     required: true,
+  },
+  isSeen: {
+    type: required,
   },
 });
 
