@@ -345,7 +345,22 @@ label{
     border-radius: var(--border-radius);
 }
 
+.complaint .complaint-text{
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius: var(--border-radius);
+    margin-left: 4%;
+    width: 100%;
+    margin-top: 2%;
+    resize: none;
+}
+
 .complaint form input[type="text"]:focus{
+    outline: none;
+    border: var(--sec-color) solid 2px;
+}
+
+.complaint .complaint-text:focus{
     outline: none;
     border: var(--sec-color) solid 2px;
 }
