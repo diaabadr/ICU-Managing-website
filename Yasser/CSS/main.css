@@ -43,17 +43,22 @@ body {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    user-select: none;
+}
+
+::selection{
+    color: var(--main-color);
+    background-color: white;
 }
 
 .button {
-    background-color: var(--sec-color);
-    color:white;
+    background-image: linear-gradient(45deg,var(--sec-color) 0%,var(--main-color));
+    color: white;
     padding: 20px;
     margin: 10px;
     font-size: 20px;
     text-align: center;
     border-radius: var(--border-radius);
+    background-size: 150% auto;
     transition: 0.3s;
     cursor: pointer;
     user-select: none;
@@ -74,8 +79,8 @@ body {
 }
 
 .button:hover {
-    background-color: white;
-    color: var(--sec-color);
+    background-position: right center;
+    color: white;
 }
 
 .sec-button:hover {
@@ -351,7 +356,7 @@ label{
 
 .complaint-btn{
     background-color: white;
-    color: var(--sec-color);
+    color: white;
 }
 
 .complaint-btn:hover{
@@ -370,13 +375,15 @@ label{
     display: block;
 }
 
-.patient form input[type="text"]{
+.patient form input[type="text"],
+.patient form input[type="number"]{
     height: 50px;
     margin-bottom: 20px;
     border-radius: var(--border-radius);
 }
 
-.patient form input[type="text"]:focus{
+.patient form input[type="text"]:focus,
+.patient form input[type="number"]:focus{
     outline: none;
     border: var(--sec-color) solid 2px;
 }
@@ -389,7 +396,7 @@ label{
 
 .patient-btn{
     background-color: white;
-    color: var(--sec-color);
+    color: white;
     height: 50px;
     line-height: 0.5;
 }
