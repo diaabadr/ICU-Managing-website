@@ -28,6 +28,5 @@ document.addEventListener("click", function (e) {
         homeCard.classList.add("card-transform")
         visitorPage.classList.add("visitor-page-show")
         showVisitor.style.display = "block"
-        
     }
 })
