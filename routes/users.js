@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
 router.get("/profile", (req, res, next) => {
   const employee = req.user;
   if (employee.empPosition == "Receptionist") {
-    res.render("./user/login");
+    res.render("./user/receptionist");
   } else if (employee.empPosition == "Nurse") {
     res.render("./user/nurse");
   } else if (employee.empPosition == "Doctor") {
