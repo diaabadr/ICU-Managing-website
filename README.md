@@ -14,4 +14,4 @@
 >- nodemon (press enter)
 >- open http://127.0.0.1:3000/ in the browser 
 >- :memo: **Note:** You can find the users data who are in the database in file add.js.
-> :memo: **Note:** Every time you pull any modification make (npm install) in the terminal to check that all packages are downloaded.
+>- :warning: **Warning:** Every time you pull any modification make (npm install) in the terminal to check that all packages are downloaded.
