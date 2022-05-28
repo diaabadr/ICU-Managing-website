@@ -9,6 +9,9 @@ document.addEventListener("click", function (e) {
   if (e.target.classList.contains("home-btn")) {
     location.assign("/");
   }
+  if (e.target.classList.contains("login-back")) {
+    location.assign("/")
+  }
   if (e.target.classList.contains("back")) {
     nurse.classList.remove("image-transform");
     homeCard.classList.remove("card-transform");
