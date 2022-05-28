@@ -1,0 +1,285 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 5px;
+}
+
+body {
+    height: 150vh;
+    background: var(--main-color);
+    padding: 20px;
+}
+
+.search-patient {
+    width: 325px;
+    height: 320px;
+    background: var(--sec-color);
+    border-radius: var(--border-radius);
+    transform: translate(535px, 300px);
+    position: absolute;
+    display: none;
+}
+
+.show-button {
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercas;
+    background-color: var(--sec-color);
+    outline: none;
+    border: none;
+    width: 300px;
+    height: 50px;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    color: #fff;
+    position: absolute;
+    transform: translate(550px, 100px);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 0.75);
+}
+
+.add-button {
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercas;
+    background-color: var(--sec-color);
+    outline: none;
+    border: none;
+    width: 300px;
+    height: 50px;
+    padding: 15px 93px;
+    border-radius: var(--border-radius);
+    color: #fff;
+    position: absolute;
+    transform: translate(550px, 200px);
+    box-shadow: 6px 6px 29px -4px rgba(0, 0, 0, 0.75);
+
+}
+
+.show-button:hover {
+    background: linear-gradient(-135deg, var(--main-color), var(--sec-color));
+}
+
+.add-button:hover {
+    background: linear-gradient(-135deg, var(--main-color), var(--sec-color));
+}
+
+.container {
+    width: 700px;
+    background: var(--sec-color);
+    padding: 25px 30px;
+    border-radius: var(--border-radius);
+    transform: translate(350px, 300px);
+    position: absolute;
+    display: none;
+}
+
+
+.container .title,
+.search-patient .search-patient-title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.search-patient .search-patient-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, var(--main-color), var(--sec-color));
+}
+
+.container .title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, var(--main-color), var(--sec-color));
+}
+
+.container form .patient-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.search-patient .search-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .patient-details .input-box {
+    width: calc(100% / 2 - 20px);
+    margin-bottom: 15px;
+}
+
+form .patient-details #address {
+    width: 100%;
+    height: 200px;
+}
+
+.patient-details .input-box .details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.patient-details .input-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 15px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.patient-details .input-box input:focus,
+.patient-details .input-box input:valid {
+    border-color: #000;
+
+}
+
+.search-patient .search-details .details input {
+    height: 45px;
+    width: 300px;
+    outline: none;
+    border-radius: var(--border-radius);
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    margin-left: 10px;
+    font-size: 15px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.search-patient .details input:focus,
+.search-patient .details input:valid {
+    border-color: #000;
+}
+
+
+
+form .date-details {
+    display: flex;
+    margin: 20px 0;
+    width: 50%;
+    justify-content: space-between;
+
+}
+
+form .date-details .date-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form .date-details input {
+    height: 30px;
+    width: 100px;
+    margin-right: 10px;
+    background: #fff;
+    border-radius: var(--border-radius);
+}
+
+form .gender-details .gender-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form .gender-details .category {
+    display: flex;
+    width: 30%;
+    margin: 14px 0;
+    justify-content: space-between;
+}
+
+.gender-details .category label {
+    display: flex;
+    align-items: center;
+}
+
+.gender-details .category .dot {
+    height: 18px;
+    width: 18px;
+    background: #d9d9d9;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 5px solid transparent;
+    transition: all 0.3s ease;
+}
+
+#dot-1:checked~.category label .one,
+#dot-2:checked~.category label .two {
+    border-color: #d9d9d9;
+    background: #9b59b6;
+}
+
+form input[type="radio"] {
+    display: none;
+}
+
+form .button {
+    height: 45px;
+    margin: 45px 0;
+}
+
+form .button input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    letter-spacing: 1px;
+    color: #fff;
+    background: var(--main-color);
+}
+
+form .button input:hover {
+    background: linear-gradient(-135deg, var(--main-color), var(--sec-color));
+}
+
+@media (max-width:584px) {
+    .container {
+        max-width: 100%;
+    }
+
+    form .patient-details .input-box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    form .gender-details .category {
+        width: 100%;
+    }
+
+    .container form .patient-details {
+        height: 450px;
+        overflow-y: scroll;
+    }
+
+    .patient-details::-webkit-scrollbar {
+        width: 0;
+    }
+
+    form .date-details {
+        width: 100%;
+    }
+}
