@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <input type="button" class="show-button" id="show-button" value="Search For The Patient First">
+    <input type="button" class="add-button" id="add-button" value="Add Patient">
+    <div class="search-patient">
+        <div class="search-patient-title" style="margin:15px 10px;">Search For A Patient!</div>
+        <div class="search-details">
+            <form action="" class="details">
+                <input type="text" name="" id="" placeholder="Enter patient SSN" required>
+                <div class="button">
+                    <input type="button" value="Search">
+                </div>
+                <div class="button">
+                    <input type="button" value="Close" id="close-search-form">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">Adding Patient</div>
+        <form action="post">
+            <div class="patient-details">
+                <div class="input-box">
+                    <span class="details">First Name</span>
+                    <input type="text" name="" id="" placeholder="Enter your first name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Last Name</span>
+                    <input type="text" name="" id="" placeholder="Enter your last name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">SSN</span>
+                    <input type="text" name="" id="" placeholder="Enter your social number" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" name="" id="" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box" id="address">
+                    <span class="details">Address</span>
+                    <input type="text" name="" id="" placeholder="Enter your address" required style="height: 160px;">
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone Number</span>
+                    <input type="text" name="" id="" placeholder="Enter your number" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Room Number</span>
+                    <input type="text" name="" id="" placeholder="Enter room number" required>
+                </div>
+            </div>
+            <div class="date-details">
+                <span class="date-title">Birth Date</span>
+                <input type="date" name="" id="">
+            </div>
+            <div class="date-details">
+                <span class="date-title">Arrival Date</span>
+                <input type="date" name="" id="">
+            </div>
+            <div class="date-details">
+                <span class="date-title">Last Entering Date</span>
+                <input type="date" name="" id="">
+            </div>
+            <div class="gender-details">
+                <input type="radio" name="gender" id="dot-1">
+                <input type="radio" name="gender" id="dot-2">
+                <span class="gender-title">Gender</span>
+                <div class="category">
+                    <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">Male</span>
+                    </label>
+                    <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                    </label>
+                </div>
+            </div>
+            <div class="button">
+                <input type="button" value="Confirm">
+            </div>
+            <div class="button">
+                <input type="button" value="Close" id="close-add-form">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("show-button").addEventListener("click", function () {
+            document.querySelector(".search-patient").style.display = "block";
+        })
+
+        document.getElementById("close-search-form").addEventListener("click", function () {
+            document.querySelector(".search-patient").style.display = "none";
+        })
+    </script>
+    <script>
+        document.getElementById("add-button").addEventListener("click", function () {
+            document.querySelector(".container").style.display = "block";
+        })
+        document.getElementById("close-add-form").addEventListener("click", function () {
+            document.querySelector(".container").style.display = "none";
+        })
+    </script>
+</body>
+
+</html>
