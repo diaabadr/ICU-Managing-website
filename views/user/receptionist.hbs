@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Receptionist</title>
     <link rel="stylesheet" href="../CSS/all.min.css" />
+    <link rel="stylesheet" href="../CSS/style.css" />
     <link rel="stylesheet" href="../CSS/main.css" />
     <link rel="stylesheet" href="../CSS/receptionist.css" />
     <link rel="stylesheet" href="../CSS/Normalize.css" />
@@ -35,35 +36,155 @@
         </div>  
     </div>
     <div class="receptionist-patient-card">
-        <div class="rec-pa-card">
+        <div class="rec-pa-card scroll">
             <h2>Patient</h2>
-            <form action="addPatient" method="get">
-                <button class="button rec-pa-button">
-                    <div class="icon-background">
-                        <i class="fa-solid fa-user-plus"></i>
+                <button class="button rec-pa-button rec-pa-button-btn">
+                    <div class="icon-background rec-pa-button-btn">
+                        <i class="fa-solid fa-user-plus rec-pa-button-btn"></i>
                     </div>
-                    <span> Add Patient </span>
+                    <span class="rec-pa-button-btn"> Add Patient </span>
                 </button>
-            </form>
-            <form action="checkPatient" method="get">
-                <button class="button rec-pa-button">
-                    <div class="icon-background">
-                        <i class="fa-solid fa-hospital-user"></i>
+                <button class="button rec-pa-button rec-pach-button-btn">
+                    <div class="icon-background rec-pach-button-btn">
+                        <i class="fa-solid fa-hospital-user rec-pach-button-btn"></i>
                     </div>
-                    <span> Check Patient </span>
+                    <span class=" rec-pach-button-btn"> Check Patient </span>
                 </button>
+        </div>
+        <div class="rec-pa-form">
+            <form action="post">
+                <div class="patient-details">
+                    <div class="input-box">
+                        <span class="details">First Name</span>
+                        <input type="text" name="" id="" placeholder="Enter first name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Last Name</span>
+                        <input type="text" name="" id="" placeholder="Enter last name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">SSN</span>
+                        <input type="text" name="" id="" placeholder="Enter social number" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="text" name="" id="" placeholder="Enter email" required>
+                    </div>
+                    <div class="input-box" id="address">
+                        <span class="details">Address</span>
+                        <input type="text" name="" id="" placeholder="Enter address" required style="">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="text" name="" id="" placeholder="Enter number" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Room Number</span>
+                        <input type="text" name="" id="" placeholder="Enter room number" required>
+                    </div>
+                </div>
+                <div class="date-details">
+                    <span class="date-title">Birth Date</span>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="date-details">
+                    <span class="date-title">Arrival Date</span>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="date-details">
+                    <span class="date-title">Last Entering Date</span>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="gender-details">
+                    <input type="radio" name="gender" id="dot-1">
+                    <input type="radio" name="gender" id="dot-2">
+                    <span class="gender-title">Gender</span>
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="button rec-form-btn">Confirm</div>
+                <div class="button rec-form-btn rec-form-btn-close">Close</div>
             </form>
+        </div>
+        <div class="rec-pach-form">
+            <div class="rec-pach-search">
+                <div class="input-box input-ssn">
+                    <span class="details">SSN</span>
+                    <input type="text" name="" id="" placeholder="Enter social number" required>
+                </div>
+                <div class="btns">
+                    <div class="button rec-form-btn rec-form-search-btn">Search</div>
+                    <div class="button rec-form-btn rec-form-btn-close rec-form-search-btn-close">Close</div>
+                </div>
+            </div>
+            <div class="rec-pach-result">
+                <div class="patient-data">
+                    <h2>Name</h2>
+                    <h3>Abdelrhman Yasser</h3>
+                </div>
+                <div class="patient-data">
+                    <h2>Room Number</h2>
+                    <h3>Room 5</h3>
+                </div>
+                <div class="patient-data">
+                    <h2>Arrival Date</h2>
+                    <h3>16/5/2020</h3>
+                </div>
+                <div class="result-btns">
+                    <div class="button rec-form-btn rec-form-btn-close rec-form-result-btn-close">Close</div>
+                    <div class="sec-button rec-form-btn rec-form-btn-back rec-form-result-btn-back">Back</div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="receptionist-visitor-card">
-        <div class="rec-vi-card">
+        <div class="rec-vi-card scroll">
             <h2>visitor</h2>
-            <div class="button rec-vi-button">
-                <div class="icon-background">
-                    <i class="fa-solid fa-person"></i>
+            <button class="button rec-vi-button rec-vi-button-btn ">
+                <div class="icon-background rec-vi-button-btn">
+                    <i class="fa-solid fa-person rec-vi-button-btn"></i>
                 </div>
-                <span> New Visitor </span>
-            </div>
+                <span class=" rec-vi-button-btn"> New Visitor </span>
+            </button>
+        </div>
+        <div class="rec-vi-form ">
+            <form action="post">
+                <div class="patient-details">
+                    <div class="input-box">
+                        <span class="details">First Name</span>
+                        <input type="text" name="" id="" placeholder="Enter first name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Last Name</span>
+                        <input type="text" name="" id="" placeholder="Enter last name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">SSN</span>
+                        <input type="text" name="" id="" placeholder="Enter social number" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Phone Number</span>
+                        <input type="text" name="" id="" placeholder="Enter number" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Room Number</span>
+                        <input type="text" name="" id="" placeholder="Enter room number" required>
+                    </div>
+                </div>
+                    <div class="btns">
+                        <div class="button rec-form-btn">Save</div>
+                        <div class="button rec-form-btn rec-visitor-form-btn-close">Close</div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     </div>

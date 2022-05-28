@@ -13,7 +13,6 @@ body {
     background-color: #1b1d64;
     background-size: cover;
     width: 100vw;
-    height: calc(100vh - 10px);
     transition: 0.3s;
     height: 1vh;
     overflow-x: hidden;
@@ -73,6 +72,96 @@ body {
     filter: opacity(0);
 }
 
+.rec-pa-form,
+.rec-pach-form{
+    position: absolute;
+    top: 45%;
+    right: 8%;
+    color: white;
+    width: 500px;
+    transition: 1s;
+    transform: translate(150%, -50%);
+    filter: opacity(40%);
+    height: 80vh;
+    overflow: scroll;
+    background-color: var(--main-color);
+    padding: 20px;
+    overflow-x: hidden;
+    border: 2px solid white;
+    border-radius: var(--border-radius);
+}
+
+.rec-vi-form{
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    color: var(--main-color);
+    width: 500px;
+    transition: 1s;
+    transform: translate(-150%, -50%);
+    filter: opacity(100%);
+    height: 80vh;
+    overflow: scroll;
+    background-color: white;
+    padding: 20px;
+    overflow-x: hidden;
+    border: 2px solid var(--main-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.rec-vi-form-show{
+    transform: translate(0%, -50%);
+}
+
+.rec-pach-form{
+    overflow: hidden;
+}
+.rec-pach-form-show{
+    filter: opacity(100%);
+    transform: translate(0%, -50%);
+}
+
+.rec-pach-search,
+.rec-pach-result{
+    transition: 1s;
+    transform: translate(0,0);
+}
+
+.rec-pach-result{
+    transform: translate(150%,-75%);
+    
+}
+
+.rec-pach-result-show{
+    transform: translate(0%,-75%);
+}
+
+.rec-pach-result h2{
+    border-bottom: 1px var(--sec-color) solid;
+    font-size: 20px;
+    margin: 0;
+    width: 200px;
+}
+
+.rec-pach-result h3{
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.patient-data{
+    margin-bottom: 30px;
+}
+
+.rec-pach-search-hide{
+    transform: translate(-150%,0%);
+}
+
+.rec-pa-form-show{
+    transform: translate(0, -50%);
+    filter: opacity(100);
+}
+
 .rec-vi-card{
     left: 10%;
     transform: translate(-150%,-50%);
@@ -92,6 +181,7 @@ body {
     border-bottom: white solid 1px;
     padding: 20px;
     transition: 0.3s;
+    cursor: default;
 }
 
 .rec-vi-card h2{
@@ -199,4 +289,8 @@ body {
     color: white;
 }
 
+.rec-form-btn{
+    width: 100%;
+    margin-left:0 ;
+}
 /* end receptionist */
