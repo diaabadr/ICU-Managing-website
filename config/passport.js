@@ -34,7 +34,24 @@ passport.use(
             );
           } else {
             console.log("wsalt");
-            if (!emp.comparePassword(password)) {
+            if (emp.isFirstTime == true) {
+              const updating = {
+                empPassword: new Staff().hashPassword(password),
+                isFirstTime: false,
+              };
+              Staff.updateOne(
+                { empEmail: emp.empEmail },
+                { $set: updating },
+                (error, result) => {
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    console.log(result);
+                  }
+                }
+              );
+              return done(null, emp);
+            } else if (!emp.comparePassword(password)) {
               console.log("!password");
               return done(
                 null,

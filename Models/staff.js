@@ -16,7 +16,7 @@ const staffSchema = mongoose.Schema({
   },
   empPassword: {
     type: String,
-    required: true,
+    required: false,
   },
   empGender: {
     type: String,
