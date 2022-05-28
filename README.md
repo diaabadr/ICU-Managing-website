@@ -5,10 +5,10 @@
 3- open project folder on vs code
 4- open the terminal 
 5- in terminal, type:
-    1- npm install (press enter)
-    2- npm install nodemon -g 
-    3- cd addingStaff (press enter)
-    4- node add
-    5- cd <project original path) (اللي كان موجود قبل ما نغير لفايل اضافة الاستاف)
-    6- nodemon
-    7- open http://127.0.0.1:3000/ in the browser 
+    - npm install (press enter)
+    - npm install nodemon -g 
+    - cd addingStaff (press enter)
+    - node add
+    - cd <project original path) (اللي كان موجود قبل ما نغير لفايل اضافة الاستاف)
+    - nodemon
+    - open http://127.0.0.1:3000/ in the browser 
