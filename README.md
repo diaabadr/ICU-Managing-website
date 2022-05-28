@@ -6,9 +6,9 @@
 4. open the terminal 
 5. in terminal, type:
 >- npm install (press enter)
-- npm install nodemon -g 
-- cd addingStaff (press enter)
-- node add
-- cd <project original path) (اللي كان موجود قبل ما نغير لفايل اضافة الاستاف)
-- nodemon
-- open http://127.0.0.1:3000/ in the browser 
+>- npm install nodemon -g 
+>- cd addingStaff (press enter)
+>- node add
+>- cd <project original path) (اللي كان موجود قبل ما نغير لفايل اضافة الاستاف)
+>- nodemon
+>- open http://127.0.0.1:3000/ in the browser 
