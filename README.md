@@ -6,8 +6,8 @@
 4. open the terminal
 5. :memo: **Note:** backend just start from here. 
 6. in terminal, type:
->- npm install (press enter)
 >- npm install nodemon -g (press enter)
+>>- npm install (press enter)
 >- cd addingStaff (press enter)
 >- node add (press enter)
 >- cd <project original path) (اللي كان موجود قبل ما نغير لفايل اضافة الاستاف) (press enter)
