@@ -1,3 +1,11 @@
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 5px;
+    --important-text: 35px;
+    --sec-text: 25px;
+}
+
 .login-page{
     width: 400px;
     height: 600px;
@@ -10,6 +18,10 @@
 
 .error{
     text-align: center;
-    color: red;
+    color: white;
     margin-bottom: -35px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 0;
+    user-select: none;
 }
