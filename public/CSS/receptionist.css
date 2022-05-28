@@ -34,7 +34,7 @@ body {
 .receptionist-patient-card,
 .receptionist-visitor-card{
     width: 100%;
-    height: 800px;
+    height: 100vh;
     background-color: white;
     margin: 0px auto 0;
     border-radius: var(--border-radius);
@@ -60,14 +60,29 @@ body {
     position: absolute;
     top: 50%;
     right: 10%;
-    transform: translateY(-50%);
+    transform: translate(0,-50%);
     font-size: var(--important-text);
     color: white;
     width: 350px;
+    transition: 1s;
+    filter: opacity(100);
+}
+
+.rec-pa-card-hide{
+    transform: translate(150%, -50%);
+    filter: opacity(0);
 }
 
 .rec-vi-card{
     left: 10%;
+    transform: translate(-150%,-50%);
+    transition: 1s;
+    filter: opacity(0);
+}
+
+.rec-vi-card-show{
+    transform: translate(0, -50%);
+    filter: opacity(100);
 }
 
 .rec-pa-card h2,
@@ -183,4 +198,5 @@ body {
 .rec-vi-button:hover span{
     color: white;
 }
+
 /* end receptionist */

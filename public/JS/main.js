@@ -4,7 +4,8 @@ let loginPage = document.querySelector(".login-page");
 let visitorPage = document.querySelector(".visitor-page");
 let showVisitor = document.querySelector(".show-visitor");
 let showLogin = document.querySelector(".show-login");
-
+let visitorCardShow = document.querySelector(".rec-vi-card")
+let patientCardHide = document.querySelector(".rec-pa-card")
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("home-btn")) {
     location.assign("/");
@@ -33,3 +34,13 @@ document.addEventListener("click", function (e) {
     showVisitor.style.display = "block";
   }
 });
+
+window.onscroll = function() {
+  if (this.scrollY > 700) {
+    visitorCardShow.classList.add("rec-vi-card-show")
+    patientCardHide.classList.add("rec-pa-card-hide")
+  } else {
+    visitorCardShow.classList.remove("rec-vi-card-show")
+    patientCardHide.classList.remove("rec-pa-card-hide")
+  }
+}

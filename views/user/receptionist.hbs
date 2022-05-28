@@ -20,35 +20,39 @@
 <body>
     <div class="container">
         <div class="header">
-<div class="logo home-btn">
-    <p class="home-btn">New Life</p>
-    <h2 class="home-btn">ICU</h2>
-</div>
-<div class="links">
-    <ul class="links">
-    <li><a href="#">Department</a></li>
-    <li><a href="#">Contact US</a></li>
-    <li><a href="#">About US</a></li>
-    <li><a href="/" class="log-out">Log Out</a></li>
-    </ul>
-</div>
-        </div>
+            <div class="logo home-btn">
+                <p class="home-btn">New Life</p>
+                <h2 class="home-btn">ICU</h2>
+            </div>
+            <div class="links">
+                <ul class="links">
+                <li><a href="#">Department</a></li>
+                <li><a href="#">Contact US</a></li>
+                <li><a href="#">About US</a></li>
+                <li><a href="#" class="log-out">Log Out</a></li>
+                </ul>
+            </div>
+        </div>  
     </div>
     <div class="receptionist-patient-card">
         <div class="rec-pa-card">
             <h2>Patient</h2>
-            <div class="button rec-pa-button">
-                <div class="icon-background">
-                    <i class="fa-solid fa-user-plus"></i>
-                </div>
-                <span> Add Patient </span>
-            </div>
-            <div class="button rec-pa-button">
-                <div class="icon-background">
-                    <i class="fa-solid fa-hospital-user"></i>
-                </div>
-                <span> Check Patient </span>
-            </div>
+            <form action="addPatient" method="get">
+                <button class="button rec-pa-button">
+                    <div class="icon-background">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <span> Add Patient </span>
+                </button>
+            </form>
+            <form action="checkPatient" method="get">
+                <button class="button rec-pa-button">
+                    <div class="icon-background">
+                        <i class="fa-solid fa-hospital-user"></i>
+                    </div>
+                    <span> Check Patient </span>
+                </button>
+            </form>
         </div>
     </div>
     <div class="receptionist-visitor-card">

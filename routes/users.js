@@ -47,4 +47,12 @@ router.post(
   })
 );
 
+router.get("/addPatient", (req, res, next) => {
+  res.render("./user/doctor")
+})
+router.get("/checkPatient", (req, res, next) => {
+  res.render("./user/nurse")
+})
+
 module.exports = router;
+
