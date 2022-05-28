@@ -50,11 +50,11 @@
     <div class="login-page">
       <div class="show-login">
         <h2>LOGIN</h2>
-        <form action="/users/login" method="post" class="login-form">
+        <form action="users/login" method="post" class="login-form">
           <label for="email">Email</label>
-          <input required type="email" name="" id="email" />
+          <input required type="email" name="email" id="email" />
           <label for="password">Password</label>
-          <input required type="password" name="" id="password" />
+          <input required type="password" name="password" id="password" />
           <button
             type="submit"
             value="LOGIN"
@@ -71,7 +71,14 @@
           <div class="col-5 complaint">
             <form action="" method="get">
               <label for="complaint">Have a Complaint?</label>
-              <textarea name="Complaints" class="complaint-text" id="text-area" cols="30" rows="10" maxlength="300"></textarea>
+              <textarea
+                name="Complaints"
+                class="complaint-text"
+                id="text-area"
+                cols="30"
+                rows="10"
+                maxlength="300"
+              ></textarea>
               <input
                 type="submit"
                 value="Submit"

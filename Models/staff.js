@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+const bCrypt = require("bcrypt");
 const staffSchema = mongoose.Schema({
   empName: {
     type: String,
@@ -8,16 +8,13 @@ const staffSchema = mongoose.Schema({
   empSSN: {
     type: String,
     required: true,
+    unique: true,
   },
   empEmail: {
     type: String,
     required: true,
   },
   empPassword: {
-    type: String,
-    required: true,
-  },
-  empPosition: {
     type: String,
     required: true,
   },
@@ -36,9 +33,9 @@ const staffSchema = mongoose.Schema({
   empAddress: {
     required: true,
     type: {
-      houseNo: Number,
-      street: String,
-      city: String,
+      houseNo: { type: Number },
+      street: { type: String },
+      city: { type: String },
     },
   },
   empPhone: {
@@ -54,6 +51,18 @@ const staffSchema = mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  empPosition: {
+    type: String,
+    required: false,
+  },
 });
 
-module.exports = mongoose.exports("staff", staffSchema);
+staffSchema.methods.hashPassword = function (password) {
+  return bCrypt.hashSync(password, bCrypt.genSaltSync(5), null);
+};
+
+staffSchema.methods.comparePassword = function (password) {
+  return bCrypt.compareSync(password, this.empPassword);
+};
+
+module.exports = mongoose.model("staff", staffSchema);
