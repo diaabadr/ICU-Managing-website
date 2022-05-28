@@ -22,7 +22,7 @@ router.get("/profile", (req, res, next) => {
 router.get("/login", (req, res, next) => {
   var errors = req.flash("loginErrors");
   console.log(errors);
-  res.render("../views/index.hbs", { errorMessages: errors });
+  res.render("./user/login", { errorMessages: errors });
 });
 router.post(
   "/login",
@@ -42,7 +42,7 @@ router.post(
   },
   passport.authenticate("local-signin", {
     successRedirect: "profile",
-    failureRedirect: "/",
+    failureRedirect: "login",
     failureFlash: true,
   })
 );

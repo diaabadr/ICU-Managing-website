@@ -1,0 +1,15 @@
+.login-page{
+    width: 400px;
+    height: 600px;
+    filter: opacity(100);
+}
+
+.show-login{
+    display: block;
+}
+
+.error{
+    text-align: center;
+    color: red;
+    margin-bottom: -35px;
+}
