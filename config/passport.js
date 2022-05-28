@@ -39,7 +39,7 @@ passport.use(
               return done(
                 null,
                 false,
-                req.flash("loginErrors", "wrong password")
+                req.flash("loginErrors", "Wrong Password")
               );
             } else {
               console.log("success");
