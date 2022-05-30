@@ -129,12 +129,12 @@ body {
 }
 
 .rec-pach-result{
-    transform: translate(150%,-75%);
+    transform: translate(150%,-65%);
     
 }
 
 .rec-pach-result-show{
-    transform: translate(0%,-75%);
+    transform: translate(0%,-65%);
 }
 
 .rec-pach-result h2{

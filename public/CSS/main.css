@@ -473,4 +473,17 @@ label{
     display: none;
 }
 
+.error {
+    text-align: center;
+    color: white;
+    margin-bottom: -35px;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 0;
+    user-select: none;
+}
+
+.search-error{
+    margin-top: 10px;
+}
 /* end login */

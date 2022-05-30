@@ -1,4 +1,4 @@
-const Staff = require("../Models/staff");
+var Staff = require("../Models/staff");
 
 const mongoose = require("mongoose");
 mongoose.connect(
