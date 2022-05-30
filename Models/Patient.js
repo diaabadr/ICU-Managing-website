@@ -35,10 +35,6 @@ const patientSchema = mongoose.Schema({
     type: String,
     required: false,
   },
-  pSecondNum: {
-    type: String,
-    required: false,
-  },
   isExist: {
     type: Boolean,
     required: true,

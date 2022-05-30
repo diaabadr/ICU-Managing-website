@@ -92,7 +92,7 @@ router.post("/check", (req, res, next) => {
 });
 
 router.post("/addPatient", (req, res, next) => {
-  console.log(req.body);
+  
 });
 
 module.exports = router;
