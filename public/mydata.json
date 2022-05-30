@@ -1,7 +1,1 @@
-[
-    {"ssn":"101010","name":"Diaa","room":"Room 1","arrDate":"10/2/2020"},
-    {"ssn":"121212","name":"Abdelrhman","room":"Room 2","arrDate":"22/5/2019"},
-    {"ssn":"131313","name":"Hassan","room":"Room 3","arrDate":"7/4/2021"}
-
-
-]
+[{"ssn":"151515","name":"Ahmed Hamdy","room":2,"arrDate":"2022-04-15T22:00:00.000Z"}]

@@ -4,8 +4,9 @@ const visitingSchema = mongoose.Schema({
   patientSSN: {
     type: String,
     required: true,
+    unique: true,
   },
-  visitDate: {
+  arrivalDate: {
     type: Date,
     required: true,
   },

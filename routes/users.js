@@ -2,7 +2,8 @@ var express = require("express");
 var router = express.Router();
 const { check, validationResult } = require("express-validator");
 const passport = require("passport");
-
+const patients = require("../Models/Patient");
+const fs = require("fs");
 router.get("/", (req, res, next) => {
   res.render("index");
 });
@@ -50,9 +51,48 @@ router.post(
 // router.get("/addPatient", (req, res, next) => {
 //   res.render("./user/doctor")
 // })
-router.get("/checkPatient", (req, res, next) => {
-  res.render("./user/nurse")
-})
+let pArray = [];
+router.post("/check", (req, res, next) => {
+  console.log("diaaa");
+  console.log(req.body.SSN);
+  patients.findOne({ pSSN: req.body.SSN }, (error, patient) => {
+    if (error) {
+      console.log(error);
+    } else {
+      if (patient) {
+        p = {
+          ssn: patient.pSSN,
+          name: patient.pName,
+          room: patient.roomNum,
+          arrDate: patient.arrivalDate,
+        };
+        pArray.push(p);
+        console.log(p);
+        var js = JSON.stringify(pArray);
+        fs.writeFile(
+          __dirname + "/../public/mydata.json",
+          js,
+          "utf8",
+          (error, res) => {}
+        );
+        pArray.pop();
+        res.redirect("/users/profile");
+      } else {
+        console.log("Notfound");
+        fs.writeFile(
+          __dirname + "/../public/mydata.json",
+          JSON.stringify(pArray),
+          "utf8",
+          (error, result) => {}
+        );
+        res.redirect("/users/profile");
+      }
+    }
+  });
+});
+
+router.post("/addPatient", (req, res, next) => {
+  console.log(req.body);
+});
 
 module.exports = router;
-

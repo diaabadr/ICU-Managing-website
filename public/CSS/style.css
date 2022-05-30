@@ -211,10 +211,6 @@ form .gender-details .category {
     background: #9b59b6;
 }
 
-form input[type="radio"] {
-    display: none;
-}
-
 
 
 form .button input {

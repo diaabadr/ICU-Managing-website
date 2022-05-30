@@ -20,18 +20,14 @@ const patientSchema = mongoose.Schema({
     required: true,
   },
   pAddress: {
-    required: true,
-    type: {
-      houseNo: Number,
-      street: String,
-      city: String,
-    },
+    required: false,
+    type: String,
   },
   pbloodType: {
     type: String,
     required: false,
   },
-  lastEnteringDate: {
+  arrivalDate: {
     type: Date,
     required: true,
   },
@@ -45,6 +41,10 @@ const patientSchema = mongoose.Schema({
   },
   isExist: {
     type: Boolean,
+    required: true,
+  },
+  roomNum: {
+    type: Number,
     required: true,
   },
 });
