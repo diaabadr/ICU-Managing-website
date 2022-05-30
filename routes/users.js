@@ -4,8 +4,9 @@ const { check, validationResult } = require("express-validator");
 const passport = require("passport");
 const patients = require("../Models/Patient");
 const fs = require("fs");
-const rooms=require("../Models/rooms");
-const history=require("../Models/visitinghistory");
+const rooms = require("../Models/rooms");
+const history = require("../Models/visitinghistory");
+let pArray = [];
 router.get("/", (req, res, next) => {
   res.render("index");
 });
@@ -53,7 +54,7 @@ router.post(
 // router.get("/addPatient", (req, res, next) => {
 //   res.render("./user/doctor")
 // })
-let pArray = [];
+
 router.post("/check", (req, res, next) => {
   console.log("diaaa");
   console.log(req.body.SSN);
@@ -75,94 +76,113 @@ router.post("/check", (req, res, next) => {
           __dirname + "/../public/mydata.json",
           js,
           "utf8",
-          (error, res) => {}
+          (error, res) => {
+            if (error) console.log(error);
+          }
         );
         pArray.pop();
         res.redirect("/users/profile");
       } else {
-        console.log("Notfound");
         fs.writeFile(
           __dirname + "/../public/mydata.json",
           JSON.stringify(pArray),
           "utf8",
-          (error, result) => {}
+          (error, result) => {
+            if (error) console.log(error);
+          }
         );
         res.redirect("/users/profile");
       }
     }
   });
 });
-let room;
 router.post("/addPatient", (req, res, next) => {
- rooms.findOne({isBusy:false ,departement:req.body.departement},(error,result)=>{
-   if(error)
-   {
-     console.log(error);
-   }else 
-   {
-     if(result)
-     {  
-        const patient=new patients({
-          pName:req.body.fName+' '+req.body.lName,
-          pSSN:req.body.pSSN,
-          pGender:req.body.pGender,
-          pAddress:req.body.pAddress,
-          roomNum:result.roomNum,
-          pfirstNum:req.body.pNumber,
-          pbirthDate:new Date(req.body.pDate),
-          arrivalDate:new Date(),
-          isExist:true,
-        });
-        patient.save((err,newPatient)=>
-        {
-        if(err)
-        {
-          console.log(err);  
-        }else 
-        {
-         console.log(newPatient);
-         rooms.updateOne({roomNum:newPatient.roomNum},{$set:{isBusy:true}},(er,roomUpdated)=>{
-          if(er)
-          {
-            console.log(er);
-          }else 
-          {
-            console.log(roomUpdated);
-          }
-        });
-      
-        const vHistory=new history({
-          roomNum:newPatient.roomNum,
-          arrivalDate:newPatient.arrivalDate,
-          patientSSN:req.body.pSNN,
-          companionInfo:{
-            companionName: req.body.compName,
-            companionSSN: req.body.comSSN,
-            companionPhone:req.body.compPhone,
-          },
-        });
-        vHistory.save((errr,ress)=>{
-          if(errr)
-          {
-            console.log(errr);
-          }
-          else{
-            console.log(ress);
-            res.render('./user/doctor');
-            //when yasser prepare this page
-          }
-        });
+  rooms.findOne(
+    { isBusy: false, departement: req.body.departments },
+    (error, result) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(req.body.bDate);
+        console.log(result);
+        console.log(req.body.lName);
+        if (result) {
+          const patient = new patients({
+            pName: req.body.fName + " " + req.body.lName,
+            pSSN: req.body.pSSN,
+            pGender: req.body.gender,
+            pAddress: req.body.pAddress,
+            roomNum: result.roomNum,
+            pfirstNum: req.body.pNumber,
+            pbirthDate: new Date(req.body.bDate),
+            arrivalDate: new Date(),
+            isExist: true,
+          });
+          patient.save((err, newPatient) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(newPatient);
+              rooms.updateOne(
+                { roomNum: newPatient.roomNum },
+                { $set: { isBusy: true } },
+                (er, roomUpdated) => {
+                  if (er) {
+                    console.log(er);
+                  } else {
+                    console.log(roomUpdated);
+                  }
+                }
+              );
+
+              const vHistory = new history({
+                roomNum: newPatient.roomNum,
+                arrivalDate: newPatient.arrivalDate,
+                patientSSN: req.body.pSSN,
+                companionInfo: {
+                  companionName: req.body.compName,
+                  companionSSN: req.body.comSSN,
+                  companionPhone: req.body.compPhone,
+                },
+              });
+              vHistory.save((errr, ress) => {
+                if (errr) {
+                  console.log(errr);
+                } else {
+                  console.log(ress);
+                  res.render("./user/doctor");
+                  var a="";
+                  for(var i=0;i<10;i++)
+                  {
+                    a+=newPatient.arrivalDate
+                  }
+                  
+                  let obj = {
+                    ssn: newPatient.pSSN,
+                    name: newPatient.pName,
+                    room: newPatient.roomNum,
+                    arrDate: a,
+                  };
+                  pArray.push(obj);
+                  fs.writeFile(
+                    __dirname + "/../public/mydata.json",
+                    JSON.stringify(pArray),
+                    "utf8",
+                    (error, result) => {
+                      if (error) console.log(error);
+                    }
+                  );
+                  //when yasser prepare this page
+                }
+              });
+            }
+          });
+        } else {
+          res.render("./user/nurse");
         }
-        });
-        
-        
-     }
-     else 
-     {
-       res.render('./user/nurse');
-     }
-   }
- });
+      }
+    }
+  );
 });
 
 module.exports = router;
