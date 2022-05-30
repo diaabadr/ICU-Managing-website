@@ -1,5 +1,4 @@
 var rooms = require("../Models/rooms");
-
 const mongoose = require("mongoose");
 mongoose.connect(
   "mongodb://127.0.0.1/ICU-Managing-website",
@@ -9,37 +8,55 @@ mongoose.connect(
     else console.log("Connected");
   }
 );
-const roomArray = [];
-for (var i = 1; i < 11; i++) {
+// rooms.remove({ isBusy: false }, (error, result) => {
+//   console.log(result);
+//   console.log("done");
+// });
+
+let roomArray = [];
+for (var i = 1; i < 4; i++) {
   const room = new rooms({
     roomNum: i,
     isBusy: false,
+    departement: "Medical intensive care unit",
   });
-  roomArray
+  roomArray.push(room);
 }
 
+for (var i = 4; i < 7; i++) {
+  const room = new rooms({
+    roomNum: i,
+    isBusy: false,
+    departement: "Surgical intensive care unit",
+  });
+  roomArray.push(room);
+}
+for (var i = 7; i < 10; i++) {
+  const room = new rooms({
+    roomNum: i,
+    isBusy: false,
+    departement: "Pediatric intensive care unit",
+  });
+  roomArray.push(room);
+}
+for (var i = 10; i < 13; i++) {
+  const room = new rooms({
+    roomNum: i,
+    isBusy: false,
+    departement: "Neonatal intensive care unit",
+  });
+  roomArray.push(room);
+}
 var done = 0;
-for (var i = 0; i < staff.length; i++) {
+for (var i = 0; i < roomArray.length; i++) {
   console.log(i);
-  const pos = staff[i].empEmail.substring(staff[i].empEmail.indexOf("@") + 1);
-  if (pos == "doctor.com") {
-    console.log("doctor");
-    staff[i].empPosition = "Doctor";
-  } else if (pos == "nurse.com") {
-    console.log("Nurse");
-    staff[i].empPosition = "Nurse";
-  } else if (pos == "recept.com") {
-    console.log("recep");
-    staff[i].empPosition = "Receptionist";
-  }
-
-  staff[i].save((error, result) => {
+  roomArray[i].save((error, result) => {
     if (error) console.log(error);
     else {
       console.log(result);
       done++;
     }
-    if (done == staff.length) {
+    if (done == roomArray.length) {
       console.log("dis");
       mongoose.disconnect();
     }
