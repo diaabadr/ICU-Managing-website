@@ -18,7 +18,7 @@ for (var i = 1; i < 4; i++) {
   const room = new rooms({
     roomNum: i,
     isBusy: false,
-    departement: "Medical intensive care unit",
+    departement: "Medical",
   });
   roomArray.push(room);
 }
@@ -27,7 +27,7 @@ for (var i = 4; i < 7; i++) {
   const room = new rooms({
     roomNum: i,
     isBusy: false,
-    departement: "Surgical intensive care unit",
+    departement: "Surgical",
   });
   roomArray.push(room);
 }
@@ -35,7 +35,7 @@ for (var i = 7; i < 10; i++) {
   const room = new rooms({
     roomNum: i,
     isBusy: false,
-    departement: "Pediatric intensive care unit",
+    departement: "Pediatric",
   });
   roomArray.push(room);
 }
@@ -43,7 +43,7 @@ for (var i = 10; i < 13; i++) {
   const room = new rooms({
     roomNum: i,
     isBusy: false,
-    departement: "Neonatal intensive care unit",
+    departement: "Neonatal",
   });
   roomArray.push(room);
 }

@@ -4,6 +4,8 @@ const { check, validationResult } = require("express-validator");
 const passport = require("passport");
 const patients = require("../Models/Patient");
 const fs = require("fs");
+const rooms=require("../Models/rooms");
+const history=require("../Models/visitinghistory");
 router.get("/", (req, res, next) => {
   res.render("index");
 });
@@ -90,9 +92,77 @@ router.post("/check", (req, res, next) => {
     }
   });
 });
-
+let room;
 router.post("/addPatient", (req, res, next) => {
-  
+ rooms.findOne({isBusy:false ,departement:req.body.departement},(error,result)=>{
+   if(error)
+   {
+     console.log(error);
+   }else 
+   {
+     if(result)
+     {  
+        const patient=new patients({
+          pName:req.body.fName+' '+req.body.lName,
+          pSSN:req.body.pSSN,
+          pGender:req.body.pGender,
+          pAddress:req.body.pAddress,
+          roomNum:result.roomNum,
+          pfirstNum:req.body.pNumber,
+          pbirthDate:new Date(req.body.pDate),
+          arrivalDate:new Date(),
+          isExist:true,
+        });
+        patient.save((err,newPatient)=>
+        {
+        if(err)
+        {
+          console.log(err);  
+        }else 
+        {
+         console.log(newPatient);
+         rooms.updateOne({roomNum:newPatient.roomNum},{$set:{isBusy:true}},(er,roomUpdated)=>{
+          if(er)
+          {
+            console.log(er);
+          }else 
+          {
+            console.log(roomUpdated);
+          }
+        });
+      
+        const vHistory=new history({
+          roomNum:newPatient.roomNum,
+          arrivalDate:newPatient.arrivalDate,
+          patientSSN:req.body.pSNN,
+          companionInfo:{
+            companionName: req.body.compName,
+            companionSSN: req.body.comSSN,
+            companionPhone:req.body.compPhone,
+          },
+        });
+        vHistory.save((errr,ress)=>{
+          if(errr)
+          {
+            console.log(errr);
+          }
+          else{
+            console.log(ress);
+            res.render('./user/doctor');
+            //when yasser prepare this page
+          }
+        });
+        }
+        });
+        
+        
+     }
+     else 
+     {
+       res.render('./user/nurse');
+     }
+   }
+ });
 });
 
 module.exports = router;
