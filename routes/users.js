@@ -91,8 +91,8 @@ router.post("/check", (req, res, next) => {
   });
 });
 
-router.post("/addPatient", (req, res, next) => {
-  
+router.get("/addPatient", (req, res, next) => {
+  res.render("./user/patientAdded")
 });
 
 module.exports = router;
