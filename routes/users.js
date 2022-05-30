@@ -54,5 +54,9 @@ router.get("/checkPatient", (req, res, next) => {
   res.render("./user/nurse")
 })
 
+router.post("/addPatient", (req, res, next) => {
+  console.log(req.body.gender);
+});
+
 module.exports = router;
 

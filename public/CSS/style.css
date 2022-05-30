@@ -85,7 +85,8 @@
     margin: 20px 0 12px 0;
 }
 
-form .patient-details .input-box {
+form .patient-details .input-box,
+.companion-data .input-box {
     width: 100%;
     margin-bottom: 15px;
 }
@@ -96,7 +97,8 @@ form .patient-details #address {
 
 .patient-details .input-box .details,
 .rec-pach-form .input-box .details,
-.rec-vi-form .input-box .details {
+.rec-vi-form .input-box .details,
+.companion-data .input-box .details {
     display: block;
     font-weight: 500;
     margin-bottom: 10px;
@@ -105,7 +107,8 @@ form .patient-details #address {
 
 .patient-details .input-box input,
 .rec-pach-form .input-box input,
-.rec-vi-form .input-box input{
+.rec-vi-form .input-box input,
+.companion-data .input-box input{
     height: 45px;
     width: 100%;
     outline: none;
@@ -212,7 +215,7 @@ form .gender-details .category {
 }
 
 form input[type="radio"] {
-    display: none;
+    display: block;
 }
 
 
@@ -234,3 +237,16 @@ form .button input:hover {
     background: linear-gradient(-135deg, var(--main-color), var(--sec-color));
 }
 
+.companion-data{
+    display: none;
+}
+
+.gender-details,
+.companion-details{
+    display: flex;
+    margin-bottom: 15px;
+}
+input[type="radio"],
+input[type="checkbox"]{
+    margin-right: 10px;
+}

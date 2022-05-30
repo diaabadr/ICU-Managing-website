@@ -152,3 +152,18 @@ window.onscroll = function() {
       }
       }
 }
+
+let companion = document.getElementById("companion")
+let companionBtn = document.querySelector(".rec-form-btn-change")
+let companionData = document.querySelector(".companion-data")
+
+ 
+companion.addEventListener('change', function() {
+  if (this.checked) {
+    console.log("Checkbox is checked..");
+    companionData.style.display = "block"
+  } else {
+    console.log("Checkbox is not checked..");
+    companionData.style.display = "none"
+  }
+});
