@@ -108,7 +108,8 @@ form .patient-details #address {
 .patient-details .input-box input,
 .rec-pach-form .input-box input,
 .rec-vi-form .input-box input,
-.companion-data .input-box input{
+.companion-data .input-box input,
+select{
     height: 45px;
     width: 100%;
     outline: none;
@@ -249,4 +250,11 @@ form .button input:hover {
 input[type="radio"],
 input[type="checkbox"]{
     margin-right: 10px;
+}
+
+option{
+    width: 100%;
+    background-color: white;
+    outline: none;
+    color: var(--main-color);
 }
