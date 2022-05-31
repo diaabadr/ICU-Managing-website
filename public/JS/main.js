@@ -106,12 +106,13 @@ myRequest.send();
 
 myRequest.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
-    var patient = JSON.parse(this.responseText);
 
-    searchSSN.addEventListener("input", function () {
-      searchReasult.innerHTML = ''
-      searchError.innerHTML = ''
-      for (i = 0; i < patient.length; i++) {
+    if (this.responseText != '') {
+      var patient = JSON.parse(this.responseText)
+      searchSSN.addEventListener("input", function () {
+        searchReasult.innerHTML = ''
+        searchError.innerHTML = ''
+        for (i = 0; i < patient.length; i++) {
           if (patient[i].name.includes(searchSSN.value) && searchSSN.value != '') {
             console.log(searchSSN.value)
             console.log(patient[i].name)
@@ -121,46 +122,51 @@ myRequest.onreadystatechange = function () {
             result.innerHTML = patient[i].name
             searchReasult.append(result)
             searchReasult.style.display = "block"
-          } 
-      }
-      document.addEventListener("click", function (e) {
+          }
+        }
+        document.addEventListener("click", function (e) {
           if (e.target.classList.contains("result")) {
             searchSSN.value = e.target.innerHTML
             searchReasult.style.display = "none"
           }
-      })
+        })
       });
 
-    function patientcheck() {
-      var found = false;
-      for (var i = 0; !found && i < patient.length; i++) {
-        if (searchSSN.value == patient[i].name) {
-          found = true;
-          console.log("found");
-        }
-      }
-      if (found) {
-        for (var l = 0; l < patient.length; l++) {
-          if (searchSSN.value == patient[l].name) {
-            patientCheckSearchHide.classList.add("rec-pach-search-hide");
-            patientCheckResultShow.classList.add("rec-pach-result-show");
-            patientName.innerHTML = patient[l].name;
-            patientRoom.innerHTML = "Room" + " "+ patient[l].room;
-            patientArrDate.innerHTML = patient[l].arrDate;
-            searchError.innerHTML = "";
+      function patientcheck() {
+        var found = false
+        for (var i = 0; !found && i < patient.length; i++) {
+          if (searchSSN.value == patient[i].name) {
+            found = true;
+            console.log("found");
           }
         }
-      } else {
-        searchError.innerHTML = "Patient Not Found";
+        if (found) {
+          for (var l = 0; l < patient.length; l++) {
+            if (searchSSN.value == patient[l].name) {
+              patientCheckSearchHide.classList.add("rec-pach-search-hide");
+              patientCheckResultShow.classList.add("rec-pach-result-show");
+              patientName.innerHTML = patient[l].name;
+              patientRoom.innerHTML = "Room" + " " + patient[l].room;
+              patientArrDate.innerHTML = patient[l].arrDate;
+              searchError.innerHTML = "";
+            }
+          }
+        } else {
+          searchError.innerHTML = "Patient Not Found";
+        }
       }
-    }
+    
+    
 
       
     
     document.addEventListener("click", function (e) {
       if (e.target.classList.contains("rec-form-search-btn")) {
-        if (searchSSN.value === "") {
-          searchError.innerHTML = "Please Insert SSN";
+        if (patient.length === 0) {
+          searchError.innerHTML = "Goooooo";
+        }
+        else if (searchSSN.value === "") {
+          searchError.innerHTML = "Please Insert Patient Name";
         } else {
           searchError.innerHTML = "";
           patientcheck();
@@ -176,8 +182,17 @@ myRequest.onreadystatechange = function () {
         }
       }
     });
+  } else {
+    
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("rec-form-search-btn")) {
+            searchError.innerHTML = "our Patients are totally cured";
+        }
+      })
+      
   }
-};
+  }
+}
 
 window.onscroll = function () {
   if (patientCardHide.classList.contains("scroll")) {

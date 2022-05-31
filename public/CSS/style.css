@@ -275,6 +275,7 @@ option{
     color: white;
     padding: 20px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 #search-result:hover{
@@ -290,4 +291,8 @@ option{
 #result{
     background-color: var(--main-color);
     display: none;
+    max-height: 200px;
+    overflow: scroll;
+    overflow-x: hidden;
+    transition: 0.5s;
 }
