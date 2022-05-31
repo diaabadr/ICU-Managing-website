@@ -9,10 +9,7 @@ addPatient = function (req, res, next) {
       if (error) {
         console.log(error);
       } else {
-        console.log(req.body.bDate);
-        console.log(result);
-        console.log(req.body.lName);
-
+        const date = new Date();
         if (result) {
           patients.findOne({ pSSN: req.body.pSSN }, (error, found) => {
             if (error) {
@@ -27,7 +24,7 @@ addPatient = function (req, res, next) {
                       pAddress: req.body.pAddress,
                       pfirstNum: req.body.pNumber,
                       roomNum: result.roomNum,
-                      arrivalDate: new Date(),
+                      arrivalDate: date,
                     },
                   },
                   (error, existPatient) => {
@@ -47,7 +44,7 @@ addPatient = function (req, res, next) {
                   roomNum: result.roomNum,
                   pfirstNum: req.body.pNumber,
                   pbirthDate: new Date(req.body.bDate),
-                  arrivalDate: new Date(),
+                  arrivalDate: date,
                   isExist: true,
                 });
                 patient.save((err, newPatient) => {
@@ -72,7 +69,7 @@ addPatient = function (req, res, next) {
               );
               const vHistory = new history({
                 roomNum: result.roomNum,
-                arrivalDate: new Date(),
+                arrivalDate: date,
                 patientSSN: req.body.pSSN,
                 companionInfo: {
                   companionName: req.body.compName,
@@ -110,17 +107,17 @@ addPatient = function (req, res, next) {
                           };
                           pArray.push(obj);
                         }
-                          fs.writeFile(
-                            __dirname + "/../public/mydata.json",
-                            JSON.stringify(pArray),
-                            "utf-8",
-                            (err, resu) => {
-                              if (err) console.log(err);
-                              else {
-                                console.log(resu);
-                              }
+                        fs.writeFile(
+                          __dirname + "/../public/mydata.json",
+                          JSON.stringify(pArray),
+                          "utf-8",
+                          (err, resu) => {
+                            if (err) console.log(err);
+                            else {
+                              console.log(resu);
                             }
-                          );
+                          }
+                        );
                       }
                     }
                   );
