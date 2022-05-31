@@ -52,7 +52,7 @@
                 </button>
         </div>
         <div class="rec-pa-form">
-            <form action="addPatient" method="get">
+            <form action="addPatient" method="post">
                 <div class="patient-details">
                     <div class="input-box">
                         <span class="details">First Name</span>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Phone Number</span>
-                        <input type="text" name="pNumber" id="" placeholder="Enter number" required>
+                        <input type="text" name="pNumber" id="" placeholder="Enter number" required minlength="11"maxlength="13">
                     </div>
                     <div class="input-box">
                         <span class="details">Department</span>
@@ -108,11 +108,11 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Companion SSN</span>
-                        <input type="text" name="comSSN" id="" placeholder="Enter Companion social number">
+                        <input type="text" name="comSSN" id="" placeholder="Enter Companion social number"minlength="14" maxlength="14">
                     </div>
                     <div class="input-box">
                         <span class="details">Companion Phone Number</span>
-                        <input type="text" name="compPhone" id="" placeholder="Enter Companion number">
+                        <input type="text" name="compPhone" id="" placeholder="Enter Companion number" minlength="11"maxlength="13">
                     </div>
                 </div>
                 <button class="button rec-form-btn rec-form-btn-change">Confirm</button>
@@ -178,11 +178,11 @@
                     </div>
                     <div class="input-box">
                         <span class="details">SSN</span>
-                        <input type="text" name="" id="" placeholder="Enter social number" required>
+                        <input type="text" name="" id="" placeholder="Enter social number" required minlength="14" maxlength="14">
                     </div>
                     <div class="input-box">
                         <span class="details">Phone Number</span>
-                        <input type="text" name="" id="" placeholder="Enter number" required>
+                        <input type="text" name="" id="" placeholder="Enter number" required minlength="11" maxlength="13">
                     </div>
                     <div class="input-box">
                         <span class="details">Room Number</span>

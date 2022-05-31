@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Receptionist</title>
     <link rel="stylesheet" href="../CSS/all.min.css" />
     <link rel="stylesheet" href="../CSS/style.css" />
@@ -15,51 +14,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
     />
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <div class="logo home-btn">
-                <p class="home-btn">New Life</p>
-                <h2 class="home-btn">ICU</h2>
-            </div>
-            <div class="links">
-                <ul class="links">
-                <li><a href="#">Department</a></li>
-                <li><a href="#">Contact US</a></li>
-                <li><a href="#">About US</a></li>
-                <li><a href="#" class="log-out">Log Out</a></li>
-                </ul>
-            </div>
-        </div>  
+      <div class="header">
+        <div class="logo home-btn">
+          <p class="home-btn">New Life</p>
+          <h2 class="home-btn">ICU</h2>
+        </div>
+        <div class="links">
+          <ul class="links">
+            <li><a href="#">Department</a></li>
+            <li><a href="#">Contact US</a></li>
+            <li><a href="#">About US</a></li>
+            <li><a href="#" class="log-out">Log Out</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-        <div class="patient-add-card">
-            <dic class="container">
-                <div class="sp-header">Patient Added</div>
-                <div class="pName pdata">
-                    <h2>Name: <span>Abdelrhman Yasser</span></h2>
-                    <div class="border"></div>
-                    <h2>SSN: <span>12345678912345</span> </h2>
-                    <div class="border"></div>
-                    <h2>Address: <span>1. ElWga3 Street</span> </h2>
-                    <div class="border"></div>
-                    <h2>Phone Number: <span>+201111111111</span> </h2>
-                    <div class="border"></div>
-                    <h2>Department: <span>Medical</span> </h2>
-                    <div class="border"></div>
-                    <h2>Room No. <span>5</span> </h2>
-                </div>
-                <button class="button">Back</button>
-            </dic>
+    <div class="patient-add-card">
+      <dic class="container">
+        <div class="sp-header">Patient Added</div>
+        <div class="pName pdata">
+          <h2>Name: <span>{{patient.name}}</span></h2>
+          <div class="border"></div>
+          <h2>SSN: <span>{{patient.SSN}}</span> </h2>
+          <div class="border"></div>
+          <h2>Address: <span>{{patient.address}}</span> </h2>
+          <div class="border"></div>
+          <h2>Phone Number: <span>{{patient.phone}}</span> </h2>
+          <div class="border"></div>
+          <h2>Department: <span>{{patient.department}}</span> </h2>
+          <div class="border"></div>
+          <h2>Room No. <span>{{patient.room}}</span> </h2>
         </div>
-        <div class="no-room">
-            <h2 class="error-message sp-header">No Room Avaliable</h2>
-        </div>
-</body>
-<script src="../JS/all.min.js"></script>
-<script src="../JS/main.js"></script>
-<script src="../JS/bootstrap.bundle.min.js"></script>
+        <form action="receptionist" method="get"><button class="button">Back</button></form>
+      </dic>
+    </div>
+    <div class="no-room">
+      <h2 class="error-message sp-header">No Room Avaliable</h2>
+    </div>
+  </body>
+  <script src="../JS/all.min.js"></script>
+  <script src="../JS/main.js"></script>
+  <script src="../JS/bootstrap.bundle.min.js"></script>
 </html>

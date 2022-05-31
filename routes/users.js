@@ -14,7 +14,7 @@ router.get("/", (req, res, next) => {
 router.get("/profile", (req, res, next) => {
   const employee = req.user;
   if (employee.empPosition == "Receptionist") {
-    res.redirect("reciptionist");
+    res.redirect("receptionist");
   } else if (employee.empPosition == "Nurse") {
     res.render("./user/nurse");
   } else if (employee.empPosition == "Doctor") {
@@ -24,7 +24,7 @@ router.get("/profile", (req, res, next) => {
   }
 });
 
-router.get("/reciptionist", (req, res, next) => {
+router.get("/receptionist", (req, res, next) => {
   res.render("../views/user/receptionist");
 });
 router.get("/login", (req, res, next) => {
@@ -164,6 +164,7 @@ router.post("/addPatient", (req, res, next) => {
                   companionPhone: req.body.compPhone,
                 },
               });
+
               vHistory.save((errr, ress) => {
                 if (errr) {
                   console.log(errr);
@@ -213,7 +214,15 @@ router.post("/addPatient", (req, res, next) => {
 
                   //when yasser prepare this page
                 }
-                res.render("./user/doctor");
+                let patientData = {
+                  name: req.body.fName + " " + req.body.lName,
+                  SSN: req.body.pSSN,
+                  address: req.body.pAddress,
+                  phone: req.body.pNumber,
+                  department: req.body.departments,
+                  room: result.roomNum,
+                };
+                res.render("./user/patientAdded", { patient: patientData });
               });
             }
           });
