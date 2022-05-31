@@ -60,11 +60,11 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Last Name</span>
-                        <input type="text" name="sName" id="" placeholder="Enter last name" required>
+                        <input type="text" name="lName" id="" placeholder="Enter last name" required>
                     </div>
                     <div class="input-box">
                         <span class="details">SSN</span>
-                        <input type="text" name="pSSN" id="" placeholder="Enter social number" required>
+                        <input type="text" name="pSSN" id="" placeholder="Enter social number" required minlength="14" maxlength="14">
                     </div>
                     <div class="input-box" id="address">
                         <span class="details">Address</span>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="date-details">
                     <span class="date-title">Birth Date</span>
-                    <input type="date" name="bDate" id="">
+                    <input type="date" name="bDate" id="" required>
                 </div>
                 <div class="gender-details">
                     <input type="radio" id="male" name="gender" value="Male">
@@ -166,7 +166,7 @@
             </button>
         </div>
         <div class="rec-vi-form ">
-            <form action="addPatient" method="post">
+            <form action="" method="post">
                 <div class="patient-details">
                     <div class="input-box">
                         <span class="details">First Name</span>
