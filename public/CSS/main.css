@@ -107,6 +107,21 @@ body {
 input{
     padding-left: 10px;
 }
+
+.sp-header{
+    text-align: center;
+    margin: auto;
+    font-size: var(--important-text);
+    color: var(--sec-color);
+    font-weight: 700;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+button{
+    outline: none;
+    border: none;
+}
 /* ############################################################# */
 .container{
     margin: auto;
