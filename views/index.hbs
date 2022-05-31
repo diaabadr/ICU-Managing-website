@@ -88,14 +88,14 @@
           </div>
           <div class="col-2 or">or</div>
           <div class="col-5 patient">
-            <form action="" method="get">
+            <form action="checkSSN" method="post">
               <label for="patient">Check Your Patient</label>
               <input
-                required
                 type="text"
-                name=""
+                name="SSN"
                 id="patient"
                 placeholder="Enter Patient SSN"
+                 required minlength="14" maxlength="14"
               />
               <input type="submit" value="Check" class="button patient-btn" />
             </form>
