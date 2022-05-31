@@ -14,6 +14,9 @@ const roomSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  pSSN: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("rooms", roomSchema);
