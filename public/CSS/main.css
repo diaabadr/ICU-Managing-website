@@ -498,7 +498,8 @@ label{
     user-select: none;
 }
 
-.search-error{
+.search-error,
+.checkout-error{
     margin-top: 10px;
 }
 /* end login */

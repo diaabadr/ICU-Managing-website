@@ -98,7 +98,8 @@ form .patient-details #address {
 .patient-details .input-box .details,
 .rec-pach-form .input-box .details,
 .rec-vi-form .input-box .details,
-.companion-data .input-box .details {
+.companion-data .input-box .details,
+.paCheckout .input-box .details{
     display: block;
     font-weight: 500;
     margin-bottom: 10px;
@@ -109,7 +110,8 @@ form .patient-details #address {
 .rec-pach-form .input-box input,
 .rec-vi-form .input-box input,
 .companion-data .input-box input,
-select{
+select,
+.paCheckout .input-box input{
     height: 45px;
     width: 100%;
     outline: none;
@@ -257,4 +259,35 @@ option{
     background-color: white;
     outline: none;
     color: var(--main-color);
+}
+
+.option-selected{
+    color: var(--sec-color);
+    font-weight: 700;
+}
+
+.room-error{
+    margin-top: 10px !important;
+    margin-bottom: -10px !important;
+}
+
+#search-result{
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+}
+
+#search-result:hover{
+    background-color: #18194a;
+}
+
+#search-result:first-child{
+    margin-top: 0;
+}
+#search-result:last-child{
+    margin-bottom: 0;
+}
+#result{
+    background-color: var(--main-color);
+    display: none;
 }

@@ -73,7 +73,8 @@ body {
 }
 
 .rec-pa-form,
-.rec-pach-form{
+.rec-pach-form,
+.paCheckout{
     position: absolute;
     top: 45%;
     right: 8%;
@@ -89,6 +90,15 @@ body {
     overflow-x: hidden;
     border: 2px solid white;
     border-radius: var(--border-radius);
+}
+
+.paCheckout{
+    overflow: hidden;
+}
+
+.paCheckout-show{
+    transform: translate(0%, -50%);
+    filter: opacity(100%);
 }
 
 .rec-vi-form{
