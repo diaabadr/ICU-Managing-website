@@ -97,7 +97,7 @@ let patientRoom = document.querySelector(".patient-room");
 let patientArrDate = document.querySelector(".patient-arrDate");
 let searchError = document.querySelector(".search-error");
 let checkOutError = document.querySelector(".checkout-error");
-let searchReasult = document.getElementById("result")
+let searchReasult = document.getElementById("result");
 
 let myRequest = new XMLHttpRequest();
 
@@ -106,34 +106,37 @@ myRequest.send();
 
 myRequest.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
-
-    if (this.responseText != '') {
-      var patient = JSON.parse(this.responseText)
+    if (this.responseText != "") {
+      console.log(this.responseText);
+      var patient = JSON.parse(this.responseText);
       searchSSN.addEventListener("input", function () {
-        searchReasult.innerHTML = ''
-        searchError.innerHTML = ''
+        searchReasult.innerHTML = "";
+        searchError.innerHTML = "";
         for (i = 0; i < patient.length; i++) {
-          if (patient[i].name.includes(searchSSN.value) && searchSSN.value != '') {
-            console.log(searchSSN.value)
-            console.log(patient[i].name)
-            const result = document.createElement('div')
-            result.id = `search-result`
-            result.className = `result ${i}`
-            result.innerHTML = patient[i].name
-            searchReasult.append(result)
-            searchReasult.style.display = "block"
+          if (
+            patient[i].name.includes(searchSSN.value) &&
+            searchSSN.value != ""
+          ) {
+            console.log(searchSSN.value);
+            console.log(patient[i].name);
+            const result = document.createElement("div");
+            result.id = `search-result`;
+            result.className = `result ${i}`;
+            result.innerHTML = patient[i].name;
+            searchReasult.append(result);
+            searchReasult.style.display = "block";
           }
         }
         document.addEventListener("click", function (e) {
           if (e.target.classList.contains("result")) {
-            searchSSN.value = e.target.innerHTML
-            searchReasult.style.display = "none"
+            searchSSN.value = e.target.innerHTML;
+            searchReasult.style.display = "none";
           }
-        })
+        });
       });
 
       function patientcheck() {
-        var found = false
+        var found = false;
         for (var i = 0; !found && i < patient.length; i++) {
           if (searchSSN.value == patient[i].name) {
             found = true;
@@ -155,44 +158,37 @@ myRequest.onreadystatechange = function () {
           searchError.innerHTML = "Patient Not Found";
         }
       }
-    
-    
 
-      
-    
-    document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("rec-form-search-btn")) {
-        if (patient.length === 0) {
-          searchError.innerHTML = "Goooooo";
-        }
-        else if (searchSSN.value === "") {
-          searchError.innerHTML = "Please Insert Patient Name";
-        } else {
-          searchError.innerHTML = "";
-          patientcheck();
-        }
-      }
-      if (e.target.classList.contains("rec-form-checkOut-btn")) {
-        if (checkOutSSN.value === "") {
-          checkOutError.innerHTML = "Please Insert SSN";
-        } else if (checkOutSSN.value.length != 14) {
-          checkOutError.innerHTML = "Incorrect SSN";
-        } else {
-          checkOutError.innerHTML = "";
-        }
-      }
-    });
-  } else {
-    
       document.addEventListener("click", function (e) {
         if (e.target.classList.contains("rec-form-search-btn")) {
-            searchError.innerHTML = "our Patients are totally cured";
+          if (patient.length === 0) {
+            searchError.innerHTML = "Goooooo";
+          } else if (searchSSN.value === "") {
+            searchError.innerHTML = "Please Insert Patient Name";
+          } else {
+            searchError.innerHTML = "";
+            patientcheck();
+          }
         }
-      })
-      
+        if (e.target.classList.contains("rec-form-checkOut-btn")) {
+          if (checkOutSSN.value === "") {
+            checkOutError.innerHTML = "Please Insert SSN";
+          } else if (checkOutSSN.value.length != 14) {
+            checkOutError.innerHTML = "Incorrect SSN";
+          } else {
+            checkOutError.innerHTML = "";
+          }
+        }
+      });
+    } else {
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("rec-form-search-btn")) {
+          searchError.innerHTML = "our Patients are totally cured";
+        }
+      });
+    }
   }
-  }
-}
+};
 
 window.onscroll = function () {
   if (patientCardHide.classList.contains("scroll")) {
@@ -225,8 +221,7 @@ companion.addEventListener("change", function () {
   }
 });
 
-
-let checkRoom = document.getElementById("departments")
+let checkRoom = document.getElementById("departments");
 checkRoom.addEventListener("change", function () {
-  console.log(checkRoom.value)
+  console.log(checkRoom.value);
 });

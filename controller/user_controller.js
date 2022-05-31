@@ -110,19 +110,17 @@ addPatient = function (req, res, next) {
                           };
                           pArray.push(obj);
                         }
-                        console.log(pArray);
-                        console.log(pArray);
-                        fs.writeFile(
-                          __dirname + "/../public/mydata.json",
-                          JSON.stringify(pArray),
-                          "utf-8",
-                          (err, resu) => {
-                            if (err) console.log(err);
-                            else {
-                              console.log(resu);
+                          fs.writeFile(
+                            __dirname + "/../public/mydata.json",
+                            JSON.stringify(pArray),
+                            "utf-8",
+                            (err, resu) => {
+                              if (err) console.log(err);
+                              else {
+                                console.log(resu);
+                              }
                             }
-                          }
-                        );
+                          );
                       }
                     }
                   );
