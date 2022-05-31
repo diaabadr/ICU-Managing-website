@@ -6,7 +6,7 @@ const patients = require("../Models/Patient");
 const fs = require("fs");
 const rooms = require("../Models/rooms");
 const history = require("../Models/visitinghistory");
-let pArray = [];
+
 router.get("/", (req, res, next) => {
   res.render("index");
 });
@@ -14,7 +14,7 @@ router.get("/", (req, res, next) => {
 router.get("/profile", (req, res, next) => {
   const employee = req.user;
   if (employee.empPosition == "Receptionist") {
-    res.render("./user/receptionist");
+    res.redirect("reciptionist");
   } else if (employee.empPosition == "Nurse") {
     res.render("./user/nurse");
   } else if (employee.empPosition == "Doctor") {
@@ -22,6 +22,10 @@ router.get("/profile", (req, res, next) => {
   } else if (employee.empPosition == "Admin") {
     res.render("./user/admin");
   }
+});
+
+router.get("/reciptionist", (req, res, next) => {
+  res.render("../views/user/receptionist");
 });
 router.get("/login", (req, res, next) => {
   var errors = req.flash("loginErrors");
@@ -56,8 +60,6 @@ router.post(
 // })
 
 router.post("/check", (req, res, next) => {
-  console.log("diaaa");
-  console.log(req.body.SSN);
   patients.findOne({ pSSN: req.body.SSN }, (error, patient) => {
     if (error) {
       console.log(error);
@@ -69,9 +71,8 @@ router.post("/check", (req, res, next) => {
           room: patient.roomNum,
           arrDate: patient.arrivalDate,
         };
-        pArray.push(p);
-        console.log(p);
-        var js = JSON.stringify(pArray);
+
+        var js = JSON.stringify(p);
         fs.writeFile(
           __dirname + "/../public/mydata.json",
           js,
@@ -80,17 +81,8 @@ router.post("/check", (req, res, next) => {
             if (error) console.log(error);
           }
         );
-        pArray.pop();
         res.redirect("/users/profile");
       } else {
-        fs.writeFile(
-          __dirname + "/../public/mydata.json",
-          JSON.stringify(pArray),
-          "utf8",
-          (error, result) => {
-            if (error) console.log(error);
-          }
-        );
         res.redirect("/users/profile");
       }
     }
@@ -106,25 +98,53 @@ router.post("/addPatient", (req, res, next) => {
         console.log(req.body.bDate);
         console.log(result);
         console.log(req.body.lName);
+
         if (result) {
-          const patient = new patients({
-            pName: req.body.fName + " " + req.body.lName,
-            pSSN: req.body.pSSN,
-            pGender: req.body.gender,
-            pAddress: req.body.pAddress,
-            roomNum: result.roomNum,
-            pfirstNum: req.body.pNumber,
-            pbirthDate: new Date(req.body.bDate),
-            arrivalDate: new Date(),
-            isExist: true,
-          });
-          patient.save((err, newPatient) => {
-            if (err) {
-              console.log(err);
+          patients.findOne({ pSSN: req.body.pSSN }, (error, found) => {
+            if (error) {
+              console.log(error);
             } else {
-              console.log(newPatient);
+              if (found) {
+                patients.updateOne(
+                  { pSSN: req.body.pSSN },
+                  {
+                    $set: {
+                      isExist: true,
+                      roomNum: result.roomNum,
+                      arrivalDate: new Date(),
+                    },
+                  },
+                  (error, existPatient) => {
+                    if (error) {
+                      console.log(error);
+                    } else {
+                      console.log(existPatient);
+                    }
+                  }
+                );
+              } else {
+                const patient = new patients({
+                  pName: req.body.fName + " " + req.body.lName,
+                  pSSN: req.body.pSSN,
+                  pGender: req.body.gender,
+                  pAddress: req.body.pAddress,
+                  roomNum: result.roomNum,
+                  pfirstNum: req.body.pNumber,
+                  pbirthDate: new Date(req.body.bDate),
+                  arrivalDate: new Date(),
+                  isExist: true,
+                });
+                patient.save((err, newPatient) => {
+                  if (err) {
+                    console.log(err);
+                  } else {
+                    console.log(newPatient);
+                  }
+                });
+              }
+
               rooms.updateOne(
-                { roomNum: newPatient.roomNum },
+                { roomNum: result.roomNum },
                 { $set: { isBusy: true } },
                 (er, roomUpdated) => {
                   if (er) {
@@ -134,10 +154,9 @@ router.post("/addPatient", (req, res, next) => {
                   }
                 }
               );
-
               const vHistory = new history({
-                roomNum: newPatient.roomNum,
-                arrivalDate: newPatient.arrivalDate,
+                roomNum: result.roomNum,
+                arrivalDate: new Date(),
                 patientSSN: req.body.pSSN,
                 companionInfo: {
                   companionName: req.body.compName,
@@ -150,30 +169,51 @@ router.post("/addPatient", (req, res, next) => {
                   console.log(errr);
                 } else {
                   console.log(ress);
-                  res.render("./user/doctor");
-                  var a="";
-                  for(var i=0;i<10;i++)
-                  {
-                    a+=newPatient.arrivalDate
-                  }
-                  
-                  let obj = {
-                    ssn: newPatient.pSSN,
-                    name: newPatient.pName,
-                    room: newPatient.roomNum,
-                    arrDate: a,
-                  };
-                  pArray.push(obj);
-                  fs.writeFile(
-                    __dirname + "/../public/mydata.json",
-                    JSON.stringify(pArray),
-                    "utf8",
+
+                  patients.find(
+                    { isExist: true },
+                    "pSSN pName arrivalDate roomNum",
                     (error, result) => {
                       if (error) console.log(error);
+                      else {
+                        // console.log(result);
+                        let pArray = [];
+                        for (var j = 0; j < result.length; j++) {
+                          const d = result[j].arrivalDate;
+                          var str = d.toString();
+                          var a = "";
+                          for (var i = 3; i < 15; i++) {
+                            a += str[i];
+                          }
+                          let obj = {
+                            ssn: result[j].pSSN,
+                            name: result[j].pName,
+                            room: result[j].roomNum,
+                            arrDate: a,
+                          };
+                          pArray.push(obj);
+                        }
+                        console.log(pArray);
+                        console.log(pArray);
+                        fs.writeFile(
+                          __dirname + "/../public/mydata.json",
+                          JSON.stringify(pArray),
+                          "utf-8",
+                          (err, resu) => {
+                            if (err) console.log(err);
+                            else {
+                              console.log("dadadadadadada");
+                              console.log(resu);
+                            }
+                          }
+                        );
+                      }
                     }
                   );
+
                   //when yasser prepare this page
                 }
+                res.render("./user/doctor");
               });
             }
           });
