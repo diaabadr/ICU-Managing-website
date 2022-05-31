@@ -88,6 +88,8 @@ router.post("/check", (req, res, next) => {
     }
   });
 });
+
+
 router.post("/addPatient", (req, res, next) => {
   rooms.findOne(
     { isBusy: false, departement: req.body.departments },
@@ -227,7 +229,7 @@ router.post("/addPatient", (req, res, next) => {
             }
           });
         } else {
-          res.render("./user/nurse");
+          res.render("./user/doctor");
         }
       }
     }
