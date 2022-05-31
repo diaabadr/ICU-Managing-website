@@ -50,6 +50,12 @@
                     </div>
                     <span class=" rec-pach-button-btn"> Check Patient </span>
                 </button>
+                <button class="button rec-pa-button rec-paCheckout-button-btn">
+                    <div class="icon-background rec-paCheckout-button-btn">
+                        <i class="fa-solid fa-right-from-bracket rec-paCheckout-button-btn"></i>
+                    </div>
+                    <span class=" rec-paCheckout-button-btn"> Check Out </span>
+                </button>
         </div>
         <div class="rec-pa-form">
             <form action="addPatient" method="post">
@@ -77,7 +83,7 @@
                     <div class="input-box">
                         <span class="details">Department</span>
                         <select id="departments" required name="departments">
-                        <option selected="selected">
+                        <option selected="selected" hidden disabled class="option-selected">
                             Select Department
                         </option>
                             <option value="Medical">Medical</option>
@@ -85,6 +91,7 @@
                             <option value="Pediatric">Pediatric</option>
                             <option value="Neonatal">Neonatal</option>
                         </select> 
+                        <div class="error room-error">No Room Avaliable</div>
                     </div>
                 </div>
                 <div class="date-details">
@@ -124,9 +131,11 @@
                 <div class="input-box input-ssn">
                     <iframe name="votar" style="display:none;"></iframe>
                     <form action="" method="get" target="votar">
-                        <span class="details">SSN</span>
-                        <input type="text" name="" id="search-ssn" class="search-ssn" placeholder="Enter social number" required>
+                        <span class="details">Name</span>
+                        <input type="text" name="" id="search-ssn" class="search-ssn" placeholder="Enter Patient Name" required>
+                        <div class="list-group" id="result"></div>
                         <div class="error search-error"></div>
+                        
                     </div>
                     <div class="btns">
                         <div class="button rec-form-btn rec-form-search-btn">Search</div>
@@ -153,6 +162,23 @@
                 </div>
             </div>
             
+        </div>
+        <div class="paCheckout">
+            
+            <div class="rec-pach-search">
+                <div class="input-box input-ssn">
+                    <form action="" method="get" target="votar">
+                        <span class="details">SSN</span>
+                        <input type="text" name="" id="checkout-ssn" class="checkout-ssn" placeholder="Enter social number" required>
+                        <div class="error checkout-error"></div>
+                    </div>
+                    <div class="btns">
+                        <div class="button rec-form-btn rec-form-checkOut-btn">Check Out</div>
+                        <div class="button rec-form-btn rec-form-btn-close rec-form-search-btn-close">Close</div>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
     <div class="receptionist-visitor-card">

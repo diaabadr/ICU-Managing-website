@@ -8,6 +8,7 @@ let visitorCardShow = document.querySelector(".rec-vi-card");
 let patientCardHide = document.querySelector(".rec-pa-card");
 let recVisitor = document.querySelector(".receptionist-visitor-card");
 let patientFormShow = document.querySelector(".rec-pa-form");
+let patientCheckoutFormShow = document.querySelector(".paCheckout");
 let visitorFormShow = document.querySelector(".rec-vi-form");
 let patientCheckFormShow = document.querySelector(".rec-pach-form");
 let patientCheckSearchHide = document.querySelector(".rec-pach-search");
@@ -60,13 +61,21 @@ document.addEventListener("click", function (e) {
     patientCheckFormShow.classList.add("rec-pach-form-show");
     patientCardHide.classList.remove("scroll");
   }
+  if (e.target.classList.contains("rec-paCheckout-button-btn")) {
+    patientCardHide.classList.add("rec-pa-card-hide");
+    patientCheckoutFormShow.classList.add("paCheckout-show");
+    patientCardHide.classList.remove("scroll");
+  }
   if (e.target.classList.contains("rec-form-btn-close")) {
     patientCardHide.classList.remove("rec-pa-card-hide");
     patientFormShow.classList.remove("rec-pa-form-show");
     patientCheckFormShow.classList.remove("rec-pach-form-show");
+    patientCheckoutFormShow.classList.remove("paCheckout-show");
     patientCardHide.classList.add("scroll");
     searchError.innerHTML = "";
     searchSSN.value = "";
+    checkOutError.innerHTML = "";
+    checkOutSSN.value = "";
   }
 
   if (e.target.classList.contains("rec-form-result-btn-close")) {
@@ -82,10 +91,13 @@ document.addEventListener("click", function (e) {
 });
 
 let searchSSN = document.getElementById("search-ssn");
+let checkOutSSN = document.getElementById("checkout-ssn");
 let patientName = document.querySelector(".patient-name");
 let patientRoom = document.querySelector(".patient-room");
 let patientArrDate = document.querySelector(".patient-arrDate");
 let searchError = document.querySelector(".search-error");
+let checkOutError = document.querySelector(".checkout-error");
+let searchReasult = document.getElementById("result")
 
 let myRequest = new XMLHttpRequest();
 
@@ -95,21 +107,45 @@ myRequest.send();
 myRequest.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
     var patient = JSON.parse(this.responseText);
+
+    searchSSN.addEventListener("input", function () {
+      searchReasult.innerHTML = ''
+      searchError.innerHTML = ''
+      for (i = 0; i < patient.length; i++) {
+          if (patient[i].name.includes(searchSSN.value) && searchSSN.value != '') {
+            console.log(searchSSN.value)
+            console.log(patient[i].name)
+            const result = document.createElement('div')
+            result.id = `search-result`
+            result.className = `result ${i}`
+            result.innerHTML = patient[i].name
+            searchReasult.append(result)
+            searchReasult.style.display = "block"
+          } 
+      }
+      document.addEventListener("click", function (e) {
+          if (e.target.classList.contains("result")) {
+            searchSSN.value = e.target.innerHTML
+            searchReasult.style.display = "none"
+          }
+      })
+      });
+
     function patientcheck() {
       var found = false;
       for (var i = 0; !found && i < patient.length; i++) {
-        if (searchSSN.value == patient[i].ssn) {
+        if (searchSSN.value == patient[i].name) {
           found = true;
           console.log("found");
         }
       }
       if (found) {
         for (var l = 0; l < patient.length; l++) {
-          if (searchSSN.value == patient[l].ssn) {
+          if (searchSSN.value == patient[l].name) {
             patientCheckSearchHide.classList.add("rec-pach-search-hide");
             patientCheckResultShow.classList.add("rec-pach-result-show");
             patientName.innerHTML = patient[l].name;
-            patientRoom.innerHTML = patient[l].room;
+            patientRoom.innerHTML = "Room" + " "+ patient[l].room;
             patientArrDate.innerHTML = patient[l].arrDate;
             searchError.innerHTML = "";
           }
@@ -118,15 +154,25 @@ myRequest.onreadystatechange = function () {
         searchError.innerHTML = "Patient Not Found";
       }
     }
+
+      
+    
     document.addEventListener("click", function (e) {
       if (e.target.classList.contains("rec-form-search-btn")) {
         if (searchSSN.value === "") {
           searchError.innerHTML = "Please Insert SSN";
-        } else if (searchSSN.value.length != 14) {
-          searchError.innerHTML = "Incorrect SSN";
         } else {
           searchError.innerHTML = "";
           patientcheck();
+        }
+      }
+      if (e.target.classList.contains("rec-form-checkOut-btn")) {
+        if (checkOutSSN.value === "") {
+          checkOutError.innerHTML = "Please Insert SSN";
+        } else if (checkOutSSN.value.length != 14) {
+          checkOutError.innerHTML = "Incorrect SSN";
+        } else {
+          checkOutError.innerHTML = "";
         }
       }
     });
@@ -162,4 +208,10 @@ companion.addEventListener("change", function () {
     console.log("Checkbox is not checked..");
     companionData.style.display = "none";
   }
+});
+
+
+let checkRoom = document.getElementById("departments")
+checkRoom.addEventListener("change", function () {
+  console.log(checkRoom.value)
 });
