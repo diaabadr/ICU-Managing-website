@@ -30,6 +30,27 @@ router.post("/visitor", (req, res, next) => {
   res.redirect("receptionist");
 });
 router.get("/receptionist", (req, res, next) => {
+  rooms.find(
+    { isBusy: false },
+    "roomNum departement",
+    (error, availableRooms) => {
+      if (error) {
+        console.log(error);
+      } else {
+        fs.writeFile(
+          __dirname + "/../public/availableRooms.json",
+          JSON.stringify(availableRooms),
+          "utf-8",
+          (err, resu) => {
+            if (err) console.log(err);
+            else {
+              console.log(resu);
+            }
+          }
+        );
+      }
+    }
+  );
   res.render("../views/user/receptionist");
 });
 router.get("/login", (req, res, next) => {
@@ -92,7 +113,6 @@ router.post("/addVisitor", (req, res, next) => {
       }
     }
   });
-  const visitor = new visitors({});
 });
 
 module.exports = router;
