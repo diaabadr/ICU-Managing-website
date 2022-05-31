@@ -8,6 +8,7 @@ const rooms = require("../Models/rooms");
 const history = require("../Models/visitinghistory");
 const controller = require("../controller/user_controller");
 const visitors = require("../Models/visitors");
+const { updateOne } = require("../Models/Patient");
 router.get("/", (req, res, next) => {
   res.render("index");
 });
@@ -84,19 +85,20 @@ router.post("/check", controller.checkPatient);
 router.post("/addPatient", controller.addPatient);
 
 router.post("/addVisitor", (req, res, next) => {
-  patients.findOne({ roomNum: req.body.roomNum }, (error, room) => {
+  patients.findOne({ roomNum: req.body.roomNum }, (error, patient) => {
     if (error) {
       console.log(error);
     } else {
-      if (room) {
-        if (room.isBusy) {
+      if (patient) {
+        console.log("ana gettt");
+        if (patient.isExist) {
           const visitor = new visitors({
             vName: req.body.fName + " " + req.body.lName,
             vSSN: req.body.vSSN,
-            pSSN: room.pSSN,
+            pSSN: patient.pSSN,
             vPhone: req.body.vPhone,
             visitingDate: new Date(),
-            pRoom: room.roomNum,
+            pRoom: patient.roomNum,
           });
           visitor.save((error, resu) => {
             if (error) console.log(error);
@@ -110,6 +112,24 @@ router.post("/addVisitor", (req, res, next) => {
         }
       } else {
         // room doesn't exist
+      }
+    }
+  });
+});
+
+router.put("/checkout", (req, res, next) => {
+  patients.findOne({ pSSN: req.body.pSSN }, (error, result) => {
+    if (error) {
+      console.log(error);
+    } else {
+      if (result) {
+        patients.updateOne(
+          { pSSN: req.body.pSSN },
+          { $set: { isExist: false } },
+          (err, patUpdated) => {}
+        );
+      } else {
+        //patient not found
       }
     }
   });
