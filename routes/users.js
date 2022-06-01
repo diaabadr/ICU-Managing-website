@@ -10,6 +10,7 @@ const controller = require("../controller/user_controller");
 const visitors = require("../Models/visitors");
 const { updateOne } = require("../Models/Patient");
 const { config } = require("process");
+let flage = false;
 router.get("/", (req, res, next) => {
   res.render("index");
 });
@@ -93,8 +94,11 @@ router.get("/receptionist", (req, res, next) => {
       }
     }
   );
-
-  res.render("./user/receptionist", { chec: false });
+  if (flage) {
+    res.render("./user/receptionist", { chec: true });
+  } else {
+    res.render("./user/receptionist", { chec: false });
+  }
 });
 router.get("/login", (req, res, next) => {
   var errors = req.flash("loginErrors");
@@ -126,7 +130,7 @@ router.post(
 router.post("/check", controller.checkPatient);
 router.post("/addPatient", controller.addPatient);
 
-router.post("/receptionist", (req, res, next) => {
+router.post("/addVisitor", (req, res, next) => {
   patients.findOne({ roomNum: req.body.roomNum }, (error, patient) => {
     if (error) {
       console.log(error);
@@ -145,7 +149,8 @@ router.post("/receptionist", (req, res, next) => {
             if (error) console.log(error);
             else {
               console.log(resu);
-              res.render("./user/receptionist", { chec: true });
+              flage = true;
+              res.redirect(`receptionist`);
             }
           });
         } else {
