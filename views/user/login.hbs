@@ -34,12 +34,16 @@
       <div class="login-page">
         <div class="show-login">
           <h2>LOGIN</h2>
+            <p class="error">{{errorMessages}}</p>
           <form action="login" method="post" class="login-form">
             <label for="email">Email</label>
             <input required type="email" name="email" id="email" />
             <label for="password">Password</label>
             <input required type="password" name="password" id="password" />
-            <p class="error">{{errorMessages}}</p>
+            <div class="show-pass">
+            <input type="checkbox" onclick="showPassword()" name="show-pass" id="show-pass">
+            <label for="show-pass">Show Password</label>
+            </div>
             <button
               type="submit"
               value="LOGIN"

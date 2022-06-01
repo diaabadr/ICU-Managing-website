@@ -122,6 +122,20 @@ button{
     outline: none;
     border: none;
 }
+
+input[type="checkbox"]{
+    width: 15px !important;
+    height: 15px !important;
+}
+
+.show-pass{
+    display: flex;
+    width: 200px;
+    justify-content: space-around;
+    left: 50px;
+    position: absolute;
+    top: 59%;
+}
 /* ############################################################# */
 .container{
     margin: auto;
@@ -181,13 +195,19 @@ button{
     user-select: none;
 }
 
-.header .links ul a {
+.header .links ul a,
+.header .links ul .log-out {
     color: white;
     margin: 5px;
     padding: 10px;
     display: block;
     text-decoration: none;
     transition: 0.3s;
+    background-color: transparent;
+}
+
+.header .links ul .log-out{
+    cursor: pointer;
 }
 
 .header .links ul a:hover {
@@ -287,6 +307,7 @@ label{
     color: white;
     margin-bottom: 5px;
     font-weight: 500;
+    user-select: none;
 }
 
 .login-form input{
@@ -503,3 +524,67 @@ label{
     margin-top: 10px;
 }
 /* end login */
+
+.cancel-page{
+    background-color: rgba(0, 0, 0, 0.499);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    transition: 1s;
+}
+
+.cancel-card{
+    background-color: var(--main-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    color: white;
+    width: 0;
+    height: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    filter: opacity(0%);
+    transition: 1s;
+    z-index: 1;
+    border: 1px solid white;
+}
+
+.cancel-page-show{
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.cancel-card-show{
+    transition: 0.5s;
+    width: 400px;
+    height: 300px;
+    filter: opacity(100%);
+}
+
+.cancel-card-contains{
+    display: none;
+    filter: opacity(0);
+    transition: 5s;
+}
+
+.cancel-card-contains-show{
+    transition: 5s;
+    display: block;
+    filter: opacity(100%);
+}
+
+.log-out-btn{
+    color: white;
+}
+
+.rec-vi-form .error{
+    color: var(--main-color);
+}
