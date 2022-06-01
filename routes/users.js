@@ -9,14 +9,18 @@ const history = require("../Models/visitinghistory");
 const controller = require("../controller/user_controller");
 const visitors = require("../Models/visitors");
 const { updateOne } = require("../Models/Patient");
+const { config } = require("process");
 router.get("/", (req, res, next) => {
   res.render("index");
 });
 /* GET users listing. */
-router.get("/profile", isSignin, (req, res, next) => {
+router.get("/profile", (req, res, next) => {
   const employee = req.user;
   if (employee.empPosition == "Receptionist") {
-    res.redirect("receptionist");
+    {
+      console.log("diaaaa");
+      res.redirect("receptionist");
+    }
   } else if (employee.empPosition == "Nurse") {
     res.render("./user/nurse");
   } else if (employee.empPosition == "Doctor") {
@@ -26,11 +30,11 @@ router.get("/profile", isSignin, (req, res, next) => {
   }
 });
 
-router.post("/visitor", (req, res, next) => {
-  console.log(req.body);
-  res.redirect("receptionist");
-});
-router.get("/receptionist",isSignin, (req, res, next) => {
+// router.post("/visitor", (req, res, next) => {
+//   console.log(req.body);
+//   res.redirect("receptionist");
+// });
+router.get("/receptionist", (req, res, next) => {
   rooms.find(
     { isBusy: false },
     "roomNum departement",
@@ -89,7 +93,8 @@ router.get("/receptionist",isSignin, (req, res, next) => {
       }
     }
   );
-  res.render("../views/user/receptionist");
+
+  res.render("./user/receptionist", { chec: false });
 });
 router.get("/login", (req, res, next) => {
   var errors = req.flash("loginErrors");
@@ -121,7 +126,7 @@ router.post(
 router.post("/check", controller.checkPatient);
 router.post("/addPatient", controller.addPatient);
 
-router.post("/addVisitor", (req, res, next) => {
+router.post("/receptionist", (req, res, next) => {
   patients.findOne({ roomNum: req.body.roomNum }, (error, patient) => {
     if (error) {
       console.log(error);
@@ -140,7 +145,7 @@ router.post("/addVisitor", (req, res, next) => {
             if (error) console.log(error);
             else {
               console.log(resu);
-              // render new page
+              res.render("./user/receptionist", { chec: true });
             }
           });
         } else {
@@ -186,7 +191,7 @@ router.post("/checkout", (req, res, next) => {
                           console.log(error);
                         } else {
                           console.log(updatedHistory);
-                          res.render("./user/receptionist", { name: "diaa" });
+
                           // render here
                         }
                       }
