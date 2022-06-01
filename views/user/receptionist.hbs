@@ -25,17 +25,26 @@
                 <p class="home-btn">New Life</p>
                 <h2 class="home-btn">ICU</h2>
             </div>
-            <form action="logout" method="get">
             <div class="links">
                 <ul class="links">
-                <li><a href="#">Department</a></li>
+                <li><a href="#" class="dep">Department</a></li>
                 <li><a href="#">Contact US</a></li>
                 <li><a href="#">About US</a></li>
                 <li><button href="#" class="log-out">Log Out</button></li>
                 </ul>
             </div>
-            </form>
         </div>  
+    </div>
+    <div class="cancel-card">
+        <div class="cancel-card-contains">
+            <h2>Are You Sure?</h2>
+            <div class="btns">
+                <form action="logout" method="get">
+                    <button class="button log-out-btn">Log Out</button>
+                </form>
+                <div class="button cancel">Cancel</div>
+            </div>
+        </div>
     </div>
     <div class="receptionist-patient-card">
         <div class="rec-pa-card scroll">
@@ -194,31 +203,32 @@
             </button>
         </div>
         <div class="rec-vi-form ">
-            <form action="addVisitor" method="post" >
+            <form action="addPatient" method="post" target="votar" >
                 <div class="patient-details">
                     <div class="input-box">
                         <span class="details">First Name</span>
-                        <input type="text" name="fName" id="" placeholder="Enter first name" required>
+                        <input type="text" name="fName" id="vfname" placeholder="Enter first name" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Last Name</span>
-                        <input type="text" name="lName" id="" placeholder="Enter last name" required>
+                        <input type="text" name="lName" id="vlname" placeholder="Enter last name" required>
                     </div>
                     <div class="input-box">
                         <span class="details">SSN</span>
-                        <input type="text" name="vSSN" id="" placeholder="Enter social number" required minlength="14" maxlength="14">
+                        <input type="text" name="vSSN" id="vSSN" placeholder="Enter social number" required minlength="14" maxlength="14">
                     </div>
                     <div class="input-box">
                         <span class="details">Phone Number</span>
-                        <input type="text" name="vPhone" id="" placeholder="Enter number" required minlength="11" maxlength="13">
+                        <input type="text" name="vPhone" id="vPhone" placeholder="Enter number" required minlength="11" maxlength="13">
                     </div>
                     <div class="input-box">
                         <span class="details">Room Number</span>
-                        <input type="text" name="roomNum" id="" placeholder="Enter room number" required>
+                        <input type="text" name="roomNum" id="vRN" placeholder="Enter room number" required>
                     </div>
+                    <div class="visitor-added error"></div>
                 </div>
                     <div class="btns">
-                        <button class="button rec-form-btn">Save</button>
+                        <button class="button rec-form-btn rec-form-save-btn">Save</button>
                         <div class="button rec-form-btn rec-visitor-form-btn-close">Close</div>
                     </div>
                 </div>
