@@ -70,6 +70,7 @@ addPatient = function (req, res, next) {
               const vHistory = new history({
                 roomNum: result.roomNum,
                 arrivalDate: date,
+                vDepartment:req.body.departments,
                 patientSSN: req.body.pSSN,
                 companionInfo: {
                   companionName: req.body.compName,
@@ -77,7 +78,6 @@ addPatient = function (req, res, next) {
                   companionPhone: req.body.compPhone,
                 },
               });
-
               vHistory.save((errr, ress) => {
                 if (errr) {
                   console.log(errr);
