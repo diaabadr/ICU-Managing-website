@@ -25,3 +25,5 @@ const visitorsSchema = mongoose.Schema({
     required: true,
   },
 });
+
+module.exports = mongoose.model("Visitors", visitorsSchema);

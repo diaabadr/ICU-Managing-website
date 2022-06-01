@@ -83,45 +83,6 @@ addPatient = function (req, res, next) {
                   console.log(errr);
                 } else {
                   console.log(ress);
-
-                  patients.find(
-                    { isExist: true },
-                    "pSSN pName arrivalDate roomNum",
-                    (error, result) => {
-                      if (error) console.log(error);
-                      else {
-                        // console.log(result);
-                        let pArray = [];
-                        for (var j = 0; j < result.length; j++) {
-                          const d = result[j].arrivalDate;
-                          var str = d.toString();
-                          var a = "";
-                          for (var i = 3; i < 15; i++) {
-                            a += str[i];
-                          }
-                          let obj = {
-                            ssn: result[j].pSSN,
-                            name: result[j].pName,
-                            room: result[j].roomNum,
-                            arrDate: a,
-                          };
-                          pArray.push(obj);
-                        }
-                        fs.writeFile(
-                          __dirname + "/../public/mydata.json",
-                          JSON.stringify(pArray),
-                          "utf-8",
-                          (err, resu) => {
-                            if (err) console.log(err);
-                            else {
-                              console.log(resu);
-                            }
-                          }
-                        );
-                      }
-                    }
-                  );
-
                   //when yasser prepare this page
                 }
                 let patientData = {

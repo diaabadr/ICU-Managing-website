@@ -13,7 +13,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 /* GET users listing. */
-router.get("/profile", (req, res, next) => {
+router.get("/profile", isSignin, (req, res, next) => {
   const employee = req.user;
   if (employee.empPosition == "Receptionist") {
     res.redirect("receptionist");
@@ -46,6 +46,43 @@ router.get("/receptionist", (req, res, next) => {
             if (err) console.log(err);
             else {
               console.log(resu);
+              patients.find(
+                { isExist: true },
+                "pSSN pName arrivalDate roomNum",
+                (error, result) => {
+                  if (error) console.log(error);
+                  else {
+                    // console.log(result);
+                    let pArray = [];
+                    for (var j = 0; j < result.length; j++) {
+                      const d = result[j].arrivalDate;
+                      var str = d.toString();
+                      var a = "";
+                      for (var i = 3; i < 15; i++) {
+                        a += str[i];
+                      }
+                      let obj = {
+                        ssn: result[j].pSSN,
+                        name: result[j].pName,
+                        room: result[j].roomNum,
+                        arrDate: a,
+                      };
+                      pArray.push(obj);
+                    }
+                    fs.writeFile(
+                      __dirname + "/../public/mydata.json",
+                      JSON.stringify(pArray),
+                      "utf-8",
+                      (err, resu) => {
+                        if (err) console.log(err);
+                        else {
+                          console.log(resu);
+                        }
+                      }
+                    );
+                  }
+                }
+              );
             }
           }
         );
@@ -90,7 +127,6 @@ router.post("/addVisitor", (req, res, next) => {
       console.log(error);
     } else {
       if (patient) {
-        console.log("ana gettt");
         if (patient.isExist) {
           const visitor = new visitors({
             vName: req.body.fName + " " + req.body.lName,
@@ -117,16 +153,49 @@ router.post("/addVisitor", (req, res, next) => {
   });
 });
 
-router.put("/checkout", (req, res, next) => {
-  patients.findOne({ pSSN: req.body.pSSN }, (error, result) => {
+router.post("/checkout", (req, res, next) => {
+  patients.findOne({ pSSN: req.body.pSSN, isExist: true }, (error, patient) => {
     if (error) {
       console.log(error);
     } else {
-      if (result) {
+      if (patient) {
         patients.updateOne(
           { pSSN: req.body.pSSN },
           { $set: { isExist: false } },
-          (err, patUpdated) => {}
+          (err, patUpdated) => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log(patUpdated);
+              rooms.updateOne(
+                { roomNum: patient.roomNum },
+                { $set: { isBusy: false } },
+                (error, roomUpdated) => {
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    console.log(roomUpdated);
+                    history.updateOne(
+                      {
+                        pSSN: patient.pSSN,
+                        arrivalDate: patient.arrivalDate,
+                      },
+                      { $set: { leavingDate: new Date() } },
+                      (error, updatedHistory) => {
+                        if (error) {
+                          console.log(error);
+                        } else {
+                          console.log(updatedHistory);
+                          res.render("./user/receptionist", { name: "diaa" });
+                          // render here
+                        }
+                      }
+                    );
+                  }
+                }
+              );
+            }
+          }
         );
       } else {
         //patient not found
@@ -134,5 +203,21 @@ router.put("/checkout", (req, res, next) => {
     }
   });
 });
+
+router.get("/logout", (req, res, next) => {
+  req.logOut((error, next) => {
+    if (error) {
+      return next(error);
+    } else res.redirect("/");
+  });
+});
+
+function isSignin(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect("login");
+    return;
+  }
+  next();
+}
 
 module.exports = router;

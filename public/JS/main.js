@@ -106,7 +106,7 @@ myRequest.send();
 
 myRequest.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
-    if (this.responseText != "") {
+    if (JSON.parse(this.responseText).length != 0) {
       var patient = JSON.parse(this.responseText);
       searchSSN.addEventListener("input", function () {
         searchReasult.innerHTML = "";
@@ -221,7 +221,7 @@ companion.addEventListener("change", function () {
 });
 
 let checkRoom = document.getElementById("departments");
-let roomError = document.querySelector(".room-error")
+let roomError = document.querySelector(".room-error");
 let checkRooms = new XMLHttpRequest();
 
 checkRooms.open("GET", "../../availableRooms.json", true);
@@ -232,20 +232,20 @@ checkRooms.onreadystatechange = function () {
     if (this.responseText != "") {
       var Rooms = JSON.parse(this.responseText);
       checkRoom.addEventListener("change", function () {
-        var rooms = 0
+        var rooms = 0;
         for (i = 0; i < Rooms.length; i++) {
           if (checkRoom.value === Rooms[i].departement) {
-          rooms += 1
+            rooms += 1;
+          }
         }
-        } 
         if (rooms === 0) {
-          roomError.innerHTML = "No Room Avaliable"
+          roomError.innerHTML = "No Room Avaliable";
         } else if (rooms === 1) {
-          roomError.innerHTML = rooms + " Room Avaliable"
+          roomError.innerHTML = rooms + " Room Avaliable";
         } else {
-          roomError.innerHTML = rooms + " Rooms Avaliable"
+          roomError.innerHTML = rooms + " Rooms Avaliable";
         }
       });
     }
   }
-}
+};
