@@ -5,6 +5,10 @@ const visitingSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  vDepartment:{
+    type:String,
+    required:true,
+  },
   arrivalDate: {
     type: Date,
     required: true,

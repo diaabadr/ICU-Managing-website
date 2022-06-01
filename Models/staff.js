@@ -3,16 +3,21 @@ const bCrypt = require("bcrypt");
 const staffSchema = mongoose.Schema({
   empName: {
     type: String,
-    requires: true,
+    required: true,
+  },
+  empDepartment:{
+    type: String,
+    required:false,
   },
   empSSN: {
     type: String,
-    required: true,
+    required: true,  
     unique: true,
   },
   empEmail: {
     type: String,
     required: true,
+    unique:true,
   },
   empPassword: {
     type: String,

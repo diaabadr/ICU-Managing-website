@@ -30,7 +30,7 @@ router.post("/visitor", (req, res, next) => {
   console.log(req.body);
   res.redirect("receptionist");
 });
-router.get("/receptionist", isSignin, (req, res, next) => {
+router.get("/receptionist",isSignin, (req, res, next) => {
   rooms.find(
     { isBusy: false },
     "roomNum departement",
