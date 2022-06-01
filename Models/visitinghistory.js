@@ -19,7 +19,13 @@ const visitingSchema = mongoose.Schema({
     type: String,
   },
   report: {
-    type: String,
+    type: {
+      pName: String,
+      docName: String,
+      repDate: String,
+      repContent: String,
+    },
+    required: false,
   },
   roomNum: {
     type: Number,

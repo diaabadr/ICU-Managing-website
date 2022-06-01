@@ -69,7 +69,7 @@
         <div class="row">
           <h2>VISITOR</h2>
           <div class="col-5 complaint">
-            <form action="" method="get">
+            <form action="complaint" method="post">
               <label for="complaint">Have a Complaint?</label>
               <textarea
                 name="Complaints"
@@ -95,7 +95,9 @@
                 name="SSN"
                 id="patient"
                 placeholder="Enter Patient SSN"
-                 required minlength="14" maxlength="14"
+                required
+                minlength="14"
+                maxlength="14"
               />
               <input type="submit" value="Check" class="button patient-btn" />
             </form>

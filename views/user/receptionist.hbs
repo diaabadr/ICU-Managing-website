@@ -25,14 +25,16 @@
                 <p class="home-btn">New Life</p>
                 <h2 class="home-btn">ICU</h2>
             </div>
+            <form action="logout" method="get">
             <div class="links">
                 <ul class="links">
                 <li><a href="#">Department</a></li>
                 <li><a href="#">Contact US</a></li>
                 <li><a href="#">About US</a></li>
-                <li><a href="#" class="log-out">Log Out</a></li>
+                <li><button href="#" class="log-out">Log Out</button></li>
                 </ul>
             </div>
+            </form>
         </div>  
     </div>
     <div class="receptionist-patient-card">
@@ -132,7 +134,7 @@
                     <iframe name="votar" style="display:none;"></iframe>
                     <form action="" method="get" target="votar">
                         <span class="details">Name</span>
-                        <input type="text" name="" id="search-ssn" class="search-ssn" placeholder="Enter Patient Name" required>
+                        <input type="text" name="" id="search-ssn" class="search-ssn" placeholder="Enter Patient Name" required minlength="14" maxlength="14">
                         <div class="list-group" id="result"></div>
                         <div class="error search-error"></div>
                         
@@ -167,13 +169,13 @@
             
             <div class="rec-pach-search">
                 <div class="input-box input-ssn">
-                    <form action="" method="get" target="votar">
+                    <form action="checkout" method="post" target="votar">
                         <span class="details">SSN</span>
-                        <input type="text" name="" id="checkout-ssn" class="checkout-ssn" placeholder="Enter social number" required>
+                        <input type="text" name="pSSN" id="checkout-ssn" class="checkout-ssn" placeholder="Enter social number" required minlength="14",maxlength="14">
                         <div class="error checkout-error"></div>
                     </div>
                     <div class="btns">
-                        <div class="button rec-form-btn rec-form-checkOut-btn">Check Out</div>
+                        <button class="button rec-form-btn rec-form-checkOut-btn">Check Out</button>
                         <div class="button rec-form-btn rec-form-btn-close rec-form-search-btn-close">Close</div>
                     </form>
                 </div>
