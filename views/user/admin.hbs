@@ -1,1 +1,139 @@
-<h1>I'm ADMIN</h1>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adding a new staff member</title>
+    <link rel="stylesheet" href="../CSS/style2.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-title-container">
+        <span class="form-title">Adding a new member</span>
+      </div>
+      <div class="form-container">
+        <form action="" class="form-parts">
+          <div class="essential-details">
+            <div class="input-box">
+              <span class="input-name">First Name</span>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Enter first name"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">Last Name</span>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Enter last name"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">SSN</span>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Enter SSN"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">Email</span>
+              <input
+                type="email"
+                class="input-field"
+                placeholder="Enter email"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">Address</span>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Enter address"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">Phone</span>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Enter phone"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">Position</span>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Enter position"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">ID</span>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Enter id"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">Salary</span>
+              <input
+                type="text"
+                class="input-field"
+                placeholder="Enter salary"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <span class="input-name">Password</span>
+              <input
+                type="password"
+                class="input-field"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+          </div>
+          <div class="gender-details">
+            <div class="gender-type">
+              <input type="radio" name="gender" id="male" />
+              <label for="male" class="gender-male">Male</label>
+            </div>
+            <div class="gender-type">
+              <input type="radio" name="gender" id="female" />
+              <label for="female" class="gender-male">Female</label>
+            </div>
+          </div>
+          <div class="starting-date-details">
+            <span class="date-name">Starting Date</span>
+            <input type="date" name="" id="" />
+          </div>
+          <div class="button">
+            <input type="button" value="Submit" />
+            <input type="button" value="Close" id="close-button" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("close-button").addEventListener("click", function
+      () { document.querySelector(".container").style.display = "none"; })
+    </script>
+
+  </body>
+
+</html>

@@ -230,4 +230,7 @@ function isSignin(req, res, next) {
   next();
 }
 
+router.get("/admin", (req, res, next) => {
+  res.render("./user/admin");
+});
 module.exports = router;
