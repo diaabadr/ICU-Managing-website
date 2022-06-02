@@ -107,7 +107,7 @@ router.post("/addVisitor", (req, res, next) => {
             }
           });
         } else {
-          message = "room is empty";
+          message = "Room is Empty!";
           flage = true;
           res.redirect("/receptionist");
         }
@@ -163,7 +163,7 @@ router.post("/checkout", (req, res, next) => {
         );
       } else {
         flage = true;
-        message = "there is No patient with that SSN";
+        message = "There is No Patient with that SSN";
         res.redirect("/receptionist");
       }
     }
