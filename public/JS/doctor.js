@@ -91,9 +91,11 @@ window.addEventListener("load", function (e) {
                             if (patients[l].Medicines != "") {
                                 document.querySelector("#medicines").value = patients[l].Medicines;
                                 document.querySelector("#medicines").setAttribute("readonly","readonly")
+                                document.querySelector("#medicines").setAttribute("title","Double Click to Edit")
                             }
                             document.addEventListener("dblclick", function (e) { 
                                 if (e.target.classList.contains("medicines")) {
+                                    document.querySelector("#medicines").removeAttribute("title","Double Click to Edit")
                                     document.querySelector("#medicines").removeAttribute("readonly")
                                 }
                             })
