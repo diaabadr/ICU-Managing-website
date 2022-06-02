@@ -25,6 +25,9 @@ router.get("/profile", isSignin, (req, res, next) => {
     res.render("./user/admin");
   }
 });
+router.post("/users/addVisitor", (req) => {
+  console.log("ana geeeeeeeeeeeeeeeeeeeeet")
+})
 
 router.post("/visitor", (req, res, next) => {
   console.log(req.body);

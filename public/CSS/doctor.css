@@ -1,0 +1,262 @@
+body{
+    background-image: url("../images/doctor-background.png");
+}
+
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 5px;
+    --important-text: 35px;
+    --sec-text: 25px;
+    --icons-size: 45px
+}
+
+.sp-header{
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 50px;
+    background-color: var(--sec-color);
+    color: var(--main-color);
+    border-radius: var(--border-radius);
+    width: 45%;
+    margin-top: 0;
+    margin-right: 50%;
+    border-top-right-radius:0 ;
+    border-top-left-radius: 0;
+    user-select: none;
+    transition: 0.5s;
+    min-width: fit-content;
+}
+
+.sp-header:hover{
+    width: 100%;
+}
+
+.patients{
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    border: 1px solid var(--sec-color);
+    border-radius: var(--border-radius);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    resize:both;
+    max-width: 1000px;
+    min-width: 800px;
+    max-height: 800px;
+    min-height: 600px;
+}
+
+.patient{
+    background-color: #2e319259;
+    margin: 20px auto 10px !important;
+    border-radius: var(--border-radius);
+    transition: 0.3s;
+    cursor: pointer;
+    transform: translateX(0%);
+    width: 95%;
+}
+
+.patient-hide{
+    transform: translateX(150%);
+}
+
+.patient h3{
+    color: var(--main-color);
+    transition: 0.3s;
+}
+.patient h2{
+    color: white;
+    transition: 0.3s;
+}
+
+.patient:hover{
+    background-color: var(--main-color);
+}
+.patient:hover h3{
+    color: white;
+}
+.patient:hover h2{
+    color: var(--sec-color);
+}
+
+.contains{
+    transform: translateX(0);
+    filter: opacity(100%);
+    transition: 1s;
+    max-height: 500px;
+}
+.contains-hide{
+    transform: translateX(-150%);
+    filter: opacity(0);
+}
+
+.report{
+    position: absolute;
+    top: 0;
+    transform: translateX(150%);
+    filter: opacity(0);
+    transition: 1s;
+    width: 100%;
+    background-color: var(--main-color);
+}
+
+.report-show{
+    transform: translateX(0);
+    filter: opacity(100%);
+}
+.prevent-click{
+pointer-events: none;
+}
+
+.first-row-container{
+    justify-content: space-between;
+    width: 90%;
+    margin: auto !important;
+}
+
+.report .first-row{
+    background-color: #222468;
+    border-radius: var(--border-radius);
+    padding: 0;
+    height: 200px;
+}
+
+.report-data{
+    text-align: center;
+    font-size: var(--important-text);
+    color: white;
+    margin: 0;
+    line-height: 0;
+}
+
+.prog-all{
+    width: 90%;
+    margin: auto;
+}
+
+.prog-container{
+    width: 100%;
+    height: 50px;
+    background-color: #222468;
+    margin: 10px auto;
+    position: relative;
+}
+
+.prog-container:hover .prog-ratio-text{
+    font-size: var(--sec-text);
+}
+
+.prog-ratio{
+    width: 0%;
+    height: 100%;
+    background-color: var(--sec-color);
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.prog-ratio-text{
+    color: white;
+    display: inline-block;
+    position: absolute;
+    bottom: 10%;
+    right: 3%;
+    transition: 0.3s;
+}
+
+.prog-header{
+    text-align: left;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    width: 45%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    user-select: none;
+    transition: 0.5s;
+    font-size: var(--important-text);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+#bp,
+#bg{
+    width: 90%;
+    margin: auto;
+}
+
+select{
+    width: 90%;
+    margin: 10px 5% !important;
+    background-color: #222468;
+    color: white;
+    outline: none;
+    border: none;
+}
+select option{
+    background-color: var(--main-color);
+    color: white;
+    padding-bottom: 10px !important;
+    border-radius: var(--border-radius);
+}
+
+.input-box{
+    width: 90%;
+    margin: 10px auto;
+}
+
+input[type="text"]{
+    width: 100%;
+    margin-right: 10px;
+    background-color: #222468;
+    color: white;
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    outline: none;
+    border: none;
+    height: 45px;
+}
+
+input[type="text"]::placeholder{
+    color: rgb(120, 127, 178);
+}
+
+.details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: white;
+    padding-left: 20px;
+}
+
+.complaint-text {
+    height: 300px;
+    border-radius: var(--border-radius);
+    margin-left: 4%;
+    width: 90%;
+    margin-top: 2%;
+    resize: none;
+    margin: 10px 5%;
+}
+
+label{
+    padding-left:calc(5% + 20px);
+}
+
+.complaint-text:focus{
+    outline: none;
+    border: solid 2px var(--sec-color);
+}
+
+.btns{
+    width: 90%;
+    position: relative;
+    margin: 0;
+}
+
+.save-button{
+    right: 0;
+    margin: 0 0 0 60%;
+}

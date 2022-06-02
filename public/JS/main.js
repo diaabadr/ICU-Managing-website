@@ -199,33 +199,17 @@ myRequest.onreadystatechange = function () {
     }
   }
 };
+
+let addVisitorForm = document.querySelector("#add-visitor")
 let visitorAdded = document.querySelector(".visitor-added")
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("rec-form-save-btn")) {
-    if (document.getElementById("vfname").value == '') {
-      visitorAdded.innerHTML = "Please insert First Name"
-    }
-    else if (document.getElementById("vlname").value == '') {
-      visitorAdded.innerHTML = "Please insert Last Name"
-    }
-    else if (document.getElementById("vSSN").value == '') {
-      visitorAdded.innerHTML = "Please insert SSN"
-    }
-    else if (document.getElementById("vPhone").value == '') {
-      visitorAdded.innerHTML = "Please insert Phone Number"
-    }
-    else if (document.getElementById("vRN").value == '') {
-      visitorAdded.innerHTML = "Please insert Room Number"
-    } else {
-      visitorAdded.innerHTML = "Patient Added Sucessfully"
+function Gooooo() {
+      visitorAdded.innerHTML = "Visitor Added Sucessfully"
       document.getElementById("vfname").value = ''
       document.getElementById("vlname").value = ''
       document.getElementById("vSSN").value = ''
       document.getElementById("vPhone").value = ''
       document.getElementById("vRN").value = ''
     }
-  }
-})
 
 window.onscroll = function () {
   if (patientCardHide.classList.contains("scroll")) {
@@ -296,3 +280,6 @@ function showPassword() {
     x.type = "password";
   }
 } 
+
+
+
