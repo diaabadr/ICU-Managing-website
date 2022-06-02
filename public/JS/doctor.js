@@ -3,6 +3,8 @@ let paAge = document.querySelector(".pa-report-age")
 let paRoom = document.querySelector(".pa-report-room")
 let paProgRatio = document.querySelector(".prog-ratio")
 let paProgRatioText = document.querySelector(".prog-ratio-text")
+let nurseMessage = document.querySelector(".nurse-message")
+let messageIcon = document.querySelector(".message-icon");
 
 
 let doctorPatients = new XMLHttpRequest();
@@ -17,6 +19,20 @@ window.addEventListener("load", function (e) {
                 var patients = JSON.parse(this.responseText);
                 for (i = 0; i < patients.length; i++) {
                     let patient = document.createElement('div')
+                    if (patients[i].nuresMessage != "") {
+                        let icon = document.createElement("i");
+                        icon.className = "message-icon fa-solid fa-message";
+                        patient.append(icon);
+                    }
+                    if (
+                        patients[i].bloodType === "" ||
+                        patients[i].Medicines === "" ||
+                        patients[i].ID === "" 
+                    ) {
+                        let icon = document.createElement("i");
+                        icon.className = "complele-icon fa-solid fa-clipboard-list";
+                        patient.append(icon);
+                    } 
                     patient.setAttribute(`data-pNum`, i )
                     patient.className = "patient patient-button row"
                     let name = document.createElement('div')
@@ -61,8 +77,29 @@ window.addEventListener("load", function (e) {
                 if (e.target.classList.contains("patient-button")) {
                     patiensHide.classList.add("contains-hide")
                     reportShow.classList.add("report-show")
-                    for (l = 0; l < patients.length; l++ ) {
+                    for (l = 0; l < patients.length; l++) {
                         if (e.target.querySelector(".name h2").innerHTML === patients[l].name) {
+                            if (patients[l].bloodType != "") {
+                                document.querySelector("#blood-type").value = patients[l].bloodType;
+                                document.querySelector("#blood-type").setAttribute("disabled",true)
+                                document.querySelector("#blood-type").setAttribute("readonly","readonly")
+                            }
+                            if (patients[l].ID != "") {
+                                document.querySelector("#ID").value = patients[l].ID;
+                                document.querySelector("#ID").setAttribute("readonly","readonly")
+                            }
+                            if (patients[l].Medicines != "") {
+                                document.querySelector("#medicines").value = patients[l].Medicines;
+                                document.querySelector("#medicines").setAttribute("readonly","readonly")
+                                document.querySelector("#medicines").setAttribute("title","Double Click to Edit")
+                            }
+                            document.addEventListener("dblclick", function (e) { 
+                                if (e.target.classList.contains("medicines")) {
+                                    document.querySelector("#medicines").removeAttribute("title","Double Click to Edit")
+                                    document.querySelector("#medicines").removeAttribute("readonly")
+                                }
+                            })
+
                             paName.innerHTML = patients[l].name
                             paAge.innerHTML = patients[l].age
                             paRoom.innerHTML = patients[l].room
@@ -192,13 +229,20 @@ window.addEventListener("load", function (e) {
                                 chart2.draw(dataPG, options);
                             
                             
-
+                            if (patients[l].nuresMessage != "") {
+                                nurseMessage.style.display = "block"
+                                nurseMessage.classList.remove("nurse-message-hide")
+                                nurseMessage.querySelector("p").innerHTML = patients[l].nuresMessage
+                            }
+                            
                         }
                     }
                 }
+                
                 if (e.target.classList.contains("report-back")) {
                     patiensHide.classList.remove("contains-hide")
                     reportShow.classList.remove("report-show")
+                    const myTimeout = setTimeout(hideMessage, 500);
                 }
             })
         }
@@ -206,7 +250,9 @@ window.addEventListener("load", function (e) {
 }
 })
 
-
+function hideMessage() {
+    nurseMessage.style.display = "none"
+}
 
 
 
