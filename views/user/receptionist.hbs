@@ -36,13 +36,13 @@
         </div>  
     </div>
     {{#if chec}}
-        <div>visitor added successfully</div>
+        <div>{{message}}</div>
     {{/if}}
     <div class="cancel-card">
         <div class="cancel-card-contains">
             <h2>Are You Sure?</h2>
             <div class="btns">
-                <form action="logout" method="get">
+                <form action="receptionist/logout" method="get">
                     <button class="button log-out-btn">Log Out</button>
                 </form>
                 <div class="button cancel">Cancel</div>
@@ -72,7 +72,7 @@
                 </button>
         </div>
         <div class="rec-pa-form">
-            <form action="addPatient" method="post">
+            <form action="receptionist/addPatient" method="post">
                 <div class="patient-details">
                     <div class="input-box">
                         <span class="details">First Name</span>
@@ -181,7 +181,7 @@
             
             <div class="rec-pach-search">
                 <div class="input-box input-ssn">
-                    <form action="checkout" method="post" target="votar">
+                    <form action="receptionist/checkout" method="post">
                         <span class="details">SSN</span>
                         <input type="text" name="pSSN" id="checkout-ssn" class="checkout-ssn" placeholder="Enter social number" required minlength="14",maxlength="14">
                         <div class="error checkout-error"></div>
@@ -206,7 +206,7 @@
             </button>
         </div>
         <div class="rec-vi-form ">
-            <form action="addVisitor" method="post" >
+            <form action="/receptionist/addVisitor" method="post" >
                 <div class="patient-details">
                     <div class="input-box">
                         <span class="details">First Name</span>

@@ -5,19 +5,19 @@ const staffSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  empDepartment:{
+  empDepartment: {
     type: String,
-    required:false,
+    required: false,
   },
   empSSN: {
     type: String,
-    required: true,  
+    required: true,
     unique: true,
   },
   empEmail: {
     type: String,
     required: true,
-    unique:true,
+    unique: true,
   },
   empPassword: {
     type: String,
@@ -59,6 +59,10 @@ const staffSchema = mongoose.Schema({
   empPosition: {
     type: String,
     required: false,
+  },
+  isLogged: {
+    type: Boolean,
+    default: false,
   },
 });
 
