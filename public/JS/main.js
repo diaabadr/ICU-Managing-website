@@ -199,6 +199,19 @@ myRequest.onreadystatechange = function () {
     }
   }
 };
+
+
+// let addVisitorForm = document.querySelector("#add-visitor")
+// let visitorAdded = document.querySelector(".visitor-added")
+// function Gooooo() {
+//       visitorAdded.innerHTML = "Visitor Added Sucessfully"
+//       document.getElementById("vfname").value = ''
+//       document.getElementById("vlname").value = ''
+//       document.getElementById("vSSN").value = ''
+//       document.getElementById("vPhone").value = ''
+//       document.getElementById("vRN").value = ''
+//     }
+
 // let visitorAdded = document.querySelector(".visitor-added")
 // document.addEventListener("click", function (e) {
 //   if (e.target.classList.contains("rec-form-save-btn")) {
@@ -226,6 +239,7 @@ myRequest.onreadystatechange = function () {
 //     }
 //   }
 // })
+
 
 window.onscroll = function () {
   if (patientCardHide.classList.contains("scroll")) {
@@ -296,3 +310,6 @@ function showPassword() {
     x.type = "password";
   }
 } 
+
+
+

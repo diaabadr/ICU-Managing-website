@@ -136,6 +136,20 @@ input[type="checkbox"]{
     position: absolute;
     top: 59%;
 }
+
+.log-out {
+    color: var(--sec-color) !important;
+}
+
+.log-out:hover {
+    color: white !important;
+}
+
+.report-back{
+    position: fixed;
+    top: 0;
+    right: 0;
+}
 /* ############################################################# */
 .container{
     margin: auto;
