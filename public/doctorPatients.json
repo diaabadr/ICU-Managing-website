@@ -5,6 +5,10 @@
     "prog": "95%",
     "room": 11,
     "bp":[90,95,92,100,110,105,115],
+    "bloodType":"A+",
+    "ID":"Dor Bard Mn Marw7a",
+    "Medicines":"cometrix",
+    "nuresMessage":"Hello abdo Yasser",
     "bs":[125,128,120,115,118,120,115]
   },
   {
@@ -13,6 +17,10 @@
     "room": 2,
     "prog": "68%",
     "bp":[80,95,92,92,100,105,100],
+    "bloodType":"",
+    "ID":"",
+    "Medicines":"",
+    "nuresMessage":"Hello Ammar Said",
     "bs":[130,125,120,128,127,130,132]
   },
   {
@@ -20,6 +28,10 @@
     "age": 22,
     "room": 1,
     "bp":[90,95,90,92,95,90,98],
+    "bloodType":"",
+    "ID":"",
+    "Medicines":"",
+    "nuresMessage":"Hello Abdelrhman Yasser",
     "bs":[131,132,135,130,125,120,122],
     "prog": "70%"
   },
@@ -28,6 +40,10 @@
     "age": 50,
     "room": 3,
     "bp":[95,98,99,96,100,105,108],
+    "bloodType":"",
+    "ID":"",
+    "Medicines":"",
+    "nuresMessage":"",
     "bs":[130,128,125,120,120,118,116],
     "prog": "82%"
   },
@@ -36,6 +52,10 @@
     "age": 35,
     "room": 10,
     "bp":[90,95,92,100,110,105,115],
+    "bloodType":"",
+    "ID":"",
+    "Medicines":"",
+    "nuresMessage":"Hello Youssef Yasser",
     "bs":[128,125,124,123,122,118,115],
     "prog": "85%"
   },
@@ -44,6 +64,10 @@
     "age": 15,
     "room": 6,
     "bp":[80,80,82,85,86,80,85],
+    "bloodType":"",
+    "ID":"",
+    "Medicines":"",
+    "nuresMessage":"",
     "bs":[130,132,130,140,145,148,145],
     "prog": "10%"
   }

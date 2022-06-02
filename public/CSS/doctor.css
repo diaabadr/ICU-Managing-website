@@ -80,6 +80,12 @@ body{
 .patient:hover h2{
     color: var(--sec-color);
 }
+.patient:hover .message-icon{
+    color: white;
+}
+.patient:hover .complele-icon{
+    color: white;
+}
 
 .contains{
     transform: translateX(0);
@@ -188,17 +194,29 @@ pointer-events: none;
 
 select{
     width: 90%;
-    margin: 10px 5% !important;
+    margin: 0px 5% !important;
     background-color: #222468;
     color: white;
     outline: none;
     border: none;
 }
+select:read-only{
+    background-color: #222468;
+    color: white;
+    opacity: 1;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
 select option{
     background-color: var(--main-color);
     color: white;
     padding-bottom: 10px !important;
     border-radius: var(--border-radius);
+}
+
+input:read-only{
+    cursor: default;
 }
 
 .input-box{
@@ -229,6 +247,7 @@ input[type="text"]::placeholder{
     font-size: 15px;
     color: white;
     padding-left: 20px;
+    margin-top: 30px;
 }
 
 .complaint-text {
@@ -243,6 +262,7 @@ input[type="text"]::placeholder{
 
 label{
     padding-left:calc(5% + 20px);
+    margin-top: 30px;
 }
 
 .complaint-text:focus{
@@ -259,4 +279,51 @@ label{
 .save-button{
     right: 0;
     margin: 0 0 0 60%;
+}
+
+.nurse-message{
+    margin-bottom: 30px;
+    height: fit-content !important;
+    position: relative;
+    padding-bottom: 60px !important;
+    transition: 0.5s;
+    filter: opacity(1);
+    display: none;
+}
+
+.nurse-message-hide{
+    filter: opacity(0);
+}
+
+.nurse-message p{
+    line-height: 1.2;
+    text-align: left;
+    font-size: 18px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+.nurse-message .done-btn{
+    position: absolute;
+    bottom: 5%;
+    right: 2%;
+}
+
+.message-icon{
+    color: var(--main-color);
+    position: absolute;
+    top: 25%;
+    right: -45%;
+    transition: 0.3s;
+    pointer-events: none;
+    font-size: 20px;
+}
+.complele-icon{
+    color: var(--main-color);
+    position: absolute;
+    bottom: 25%;
+    right: -45%;
+    transition: 0.3s;
+    pointer-events: none;
+    font-size: 20px;
 }
