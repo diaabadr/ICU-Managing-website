@@ -2,13 +2,15 @@ const passport = require("passport");
 
 const localStrategy = require("passport-local").Strategy;
 const Staff = require("../Models/staff");
-passport.serializeUser((emp, done) => {
-  return done(null, emp.id);
+passport.serializeUser((user, done) => {
+  return done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-  Staff.findById(id, (error, emp) => {
-    return done(error, emp);
+  Staff.findById(id, (error, user) => {
+    if (error) {
+      console.log(error);
+    } else return done(error, user);
   });
 });
 passport.use(
@@ -20,12 +22,12 @@ passport.use(
       passReqToCallback: true,
     },
     (req, email, password, done) => {
-      Staff.findOne({ empEmail: email }, (error, emp) => {
+      Staff.findOne({ empEmail: email }, (error, user) => {
         if (error) {
           console.log("error");
           return done(error, false);
         } else {
-          if (!emp) {
+          if (!user) {
             console.log("!user");
             return done(
               null,
@@ -34,24 +36,35 @@ passport.use(
             );
           } else {
             console.log("wsalt");
-            if (emp.isFirstTime == true) {
+            if (user.isFirstTime == true) {
               const updating = {
                 empPassword: new Staff().hashPassword(password),
                 isFirstTime: false,
               };
               Staff.updateOne(
-                { empEmail: emp.empEmail },
+                { empEmail: user.empEmail },
                 { $set: updating },
                 (error, result) => {
                   if (error) {
                     console.log(error);
                   } else {
                     console.log(result);
+                    Staff.updateOne(
+                      { empEmail: user.empEmail },
+                      { $set: { isLogged: true } },
+                      (error, result) => {
+                        if (error) {
+                          console.log(error);
+                        } else {
+                          console.log(result)
+                          return done(null, user);
+                        }
+                      }
+                    );
                   }
                 }
               );
-              return done(null, emp);
-            } else if (!emp.comparePassword(password)) {
+            } else if (!user.comparePassword(password)) {
               console.log("!password");
               return done(
                 null,
@@ -60,7 +73,18 @@ passport.use(
               );
             } else {
               console.log("success");
-              return done(null, emp);
+              Staff.updateOne(
+                { empEmail: email },
+                { $set: { isLogged: true } },
+                (error, result) => {
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    console.log(result)
+                    return done(null, user);
+                  }
+                }
+              );
             }
           }
         }
