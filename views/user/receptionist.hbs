@@ -35,6 +35,9 @@
             </div>
         </div>  
     </div>
+    {{#if chec}}
+        <div>visitor added successfully</div>
+    {{/if}}
     <div class="cancel-card">
         <div class="cancel-card-contains">
             <h2>Are You Sure?</h2>
@@ -203,8 +206,7 @@
             </button>
         </div>
         <div class="rec-vi-form ">
-            <iframe name="votar2" style="display:none;"></iframe>
-            <form action="addVisitor" method="post" target="votar2" id="add-visitor" >
+            <form action="addVisitor" method="post" >
                 <div class="patient-details">
                     <div class="input-box">
                         <span class="details">First Name</span>
