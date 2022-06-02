@@ -22,13 +22,7 @@ body {
 /* ############################################################# */
 
 /* start receptionist */
-.log-out{
-    color: var(--sec-color) !important;
-}
 
-.log-out:hover{
-    color: white !important;
-}
 
 .receptionist-patient-card,
 .receptionist-visitor-card{

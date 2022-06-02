@@ -30,6 +30,9 @@ router.get("/profile", (req, res, next) => {
     res.render("./user/admin");
   }
 });
+router.post("/users/addVisitor", (req) => {
+  console.log("ana geeeeeeeeeeeeeeeeeeeeet")
+})
 
 router.get("/login", (req, res, next) => {
   var errors = req.flash("loginErrors");

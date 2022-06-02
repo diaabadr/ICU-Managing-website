@@ -1,0 +1,74 @@
+body {
+    background-image: url("../images/nurse-background.png");
+}
+
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 5px;
+    --important-text: 35px;
+    --sec-text: 25px;
+    --icons-size: 45px
+}
+
+.sp-header {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 50px;
+    background-color: var(--sec-color);
+    color: var(--main-color);
+    border-radius: var(--border-radius);
+    width: 200px;
+    margin-top: 0;
+    margin-right: 70%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    user-select: none;
+    transition: 0.5s;
+}
+
+.sp-header:hover {
+    width: 100%;
+}
+
+.patients {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    border: 1px solid var(--sec-color);
+    border-radius: var(--border-radius);
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.patient {
+    background-color: #2e319259;
+    margin: 20px 10px 10px !important;
+    border-radius: var(--border-radius);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.patient h3 {
+    color: var(--main-color);
+    transition: 0.3s;
+}
+
+.patient h2 {
+    color: white;
+    transition: 0.3s;
+}
+
+.patient:hover {
+    background-color: var(--main-color);
+}
+
+.patient:hover h3 {
+    color: white;
+}
+
+.patient:hover h2 {
+    color: var(--sec-color);
+}
