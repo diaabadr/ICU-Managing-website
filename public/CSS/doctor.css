@@ -327,3 +327,7 @@ label{
     pointer-events: none;
     font-size: 20px;
 }
+
+.report-pa-ssn{
+    display: none;
+}

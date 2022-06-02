@@ -79,6 +79,7 @@ window.addEventListener("load", function (e) {
                     reportShow.classList.add("report-show")
                     for (l = 0; l < patients.length; l++) {
                         if (e.target.querySelector(".name h2").innerHTML === patients[l].name) {
+                            document.querySelector(".report-pa-ssn").value = patients[l].ssn
                             if (patients[l].bloodType != "") {
                                 document.querySelector("#blood-type").value = patients[l].bloodType;
                                 document.querySelector("#blood-type").setAttribute("disabled",true)
@@ -86,17 +87,22 @@ window.addEventListener("load", function (e) {
                             }
                             if (patients[l].ID != "") {
                                 document.querySelector("#ID").value = patients[l].ID;
+                                document.querySelector("#ID").setAttribute("disabled",true)
                                 document.querySelector("#ID").setAttribute("readonly","readonly")
                             }
                             if (patients[l].Medicines != "") {
                                 document.querySelector("#medicines").value = patients[l].Medicines;
+                                document.querySelector("#ID").setAttribute("disabled",true)
                                 document.querySelector("#medicines").setAttribute("readonly","readonly")
+                                document.querySelector("#medicines").setAttribute("disabled",true)
                                 document.querySelector("#medicines").setAttribute("title","Double Click to Edit")
                             }
                             document.addEventListener("dblclick", function (e) { 
                                 if (e.target.classList.contains("medicines")) {
+                                    document.querySelector("#ID").removeAttribute("disabled",true)
                                     document.querySelector("#medicines").removeAttribute("title","Double Click to Edit")
                                     document.querySelector("#medicines").removeAttribute("readonly")
+                                    document.querySelector("#medicines").removeAttribute("disabled",true)
                                 }
                             })
 
@@ -243,6 +249,18 @@ window.addEventListener("load", function (e) {
                     patiensHide.classList.remove("contains-hide")
                     reportShow.classList.remove("report-show")
                     const myTimeout = setTimeout(hideMessage, 500);
+                    document.querySelector("#blood-type").value = "";
+                    document.querySelector("#blood-type").removeAttribute("disabled",true)
+                    document.querySelector("#blood-type").removeAttribute("readonly","readonly")
+                    document.querySelector("#ID").value = "";
+                    document.querySelector("#ID").removeAttribute("disabled",true)
+                    document.querySelector("#ID").removeAttribute("readonly","readonly")
+                    document.querySelector("#medicines").value = "";
+                    document.querySelector("#ID").removeAttribute("disabled",true)
+                    document.querySelector("#medicines").removeAttribute("readonly","readonly")
+                    document.querySelector("#medicines").removeAttribute("title", "Double Click to Edit")
+                    document.querySelector("#medicines").removeAttribute("disabled",true)
+
                 }
             })
         }
