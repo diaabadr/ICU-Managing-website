@@ -101,7 +101,7 @@ body{
 .report{
     position: absolute;
     top: 0;
-    transform: translateX(150%);
+    transform: translateX(-150%);
     filter: opacity(0);
     transition: 1s;
     width: 100%;
@@ -321,7 +321,7 @@ label{
     color: var(--main-color);
     position: absolute;
     top: 5%;
-    right: -45%;
+    right: -42%;
     transition: 0.3s;
     pointer-events: none;
     font-size: 20px;

@@ -88,6 +88,11 @@ window.addEventListener("load", function (e) {
                                         document.querySelector(".docMessage").append(messageP)
                                     }
                                     docMessage.classList.remove("nurse-message-hide")
+                                    if (patients[l].docMessage.length === 1) {
+                                    document.querySelector(".nurse-message .sp-header").innerHTML = "Nurse Message"
+                                } else {
+                                    document.querySelector(".nurse-message .sp-header").innerHTML = "Nurse Messages"
+                                }
                                 }
                             }
                         }
