@@ -2,108 +2,7 @@ const patients = require("../Models/Patient");
 const rooms = require("../Models/rooms");
 const history = require("../Models/visitinghistory");
 const fs = require("fs");
-addPatient = function (req, res, next) {
-  rooms.findOne(
-    { isBusy: false, departement: req.body.departments },
-    (error, result) => {
-      if (error) {
-        console.log(error);
-      } else {
-        const date = new Date();
-        if (result) {
-          patients.findOne({ pSSN: req.body.pSSN }, (error, found) => {
-            if (error) {
-              console.log(error);
-            } else {
-              if (found) {
-                patients.updateOne(
-                  { pSSN: req.body.pSSN },
-                  {
-                    $set: {
-                      isExist: true,
-                      pAddress: req.body.pAddress,
-                      pfirstNum: req.body.pNumber,
-                      roomNum: result.roomNum,
-                      arrivalDate: date,
-                    },
-                  },
-                  (error, existPatient) => {
-                    if (error) {
-                      console.log(error);
-                    } else {
-                      console.log(existPatient);
-                    }
-                  }
-                );
-              } else {
-                const patient = new patients({
-                  pName: req.body.fName + " " + req.body.lName,
-                  pSSN: req.body.pSSN,
-                  pGender: req.body.gender,
-                  pAddress: req.body.pAddress,
-                  roomNum: result.roomNum,
-                  pfirstNum: req.body.pNumber,
-                  pbirthDate: new Date(req.body.bDate),
-                  arrivalDate: date,
-                  isExist: true,
-                });
-                patient.save((err, newPatient) => {
-                  if (err) {
-                    console.log(err);
-                  } else {
-                    console.log(newPatient);
-                  }
-                });
-              }
 
-              rooms.updateOne(
-                { roomNum: result.roomNum },
-                { $set: { isBusy: true, pSSN: req.body.pSSN } },
-                (er, roomUpdated) => {
-                  if (er) {
-                    console.log(er);
-                  } else {
-                    console.log(roomUpdated);
-                  }
-                }
-              );
-              const vHistory = new history({
-                roomNum: result.roomNum,
-                arrivalDate: date,
-                patientSSN: req.body.pSSN,
-                companionInfo: {
-                  companionName: req.body.compName,
-                  companionSSN: req.body.comSSN,
-                  companionPhone: req.body.compPhone,
-                },
-              });
-
-              vHistory.save((errr, ress) => {
-                if (errr) {
-                  console.log(errr);
-                } else {
-                  console.log(ress);
-                  //when yasser prepare this page
-                }
-                let patientData = {
-                  name: req.body.fName + " " + req.body.lName,
-                  SSN: req.body.pSSN,
-                  address: req.body.pAddress,
-                  phone: req.body.pNumber,
-                  department: req.body.departments,
-                  room: result.roomNum,
-                };
-                res.render("./user/patientAdded", { patient: patientData });
-              });
-            }
-          });
-        } else {
-          res.render("./user/nurse");
-        }
-      }
-    }
-  );
-};
 
 checkPatient = function (req, res, next) {
   patients.findOne({ pSSN: req.body.SSN }, (error, patient) => {
@@ -134,4 +33,6 @@ checkPatient = function (req, res, next) {
     }
   });
 };
-module.exports = { addPatient: addPatient, checkPatient: checkPatient };
+module.exports = {
+  checkPatient: checkPatient,
+};

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="report-container">
+
+        <br>
+
+        <form action="#" method="post" class="report-form">
+
+            <div class="input-container">
+                <textarea class="report-input" placeholder="Write your report" required></textarea>
+            </div>
+
+            <div class="input-container">
+                <input type="text" class="blood-type-input" placeholder="Enter blood type" required>
+            </div>
+
+            <p>Blood Type :</p>
+            <p style="display: none;"> {{ blood_type }} </p>
+
+            <br>
+
+            <button id="confirm">Confirm</button>
+            <button id="close">Close</button>
+
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("close").addEventListener("click", function () {
+            document.querySelector(".report-container").style.display = "none";
+        })
+    </script>
+
+</body>
+
+</html>

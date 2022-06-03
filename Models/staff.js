@@ -3,7 +3,11 @@ const bCrypt = require("bcrypt");
 const staffSchema = mongoose.Schema({
   empName: {
     type: String,
-    requires: true,
+    required: true,
+  },
+  empDepartment: {
+    type: String,
+    required: false,
   },
   empSSN: {
     type: String,
@@ -13,6 +17,7 @@ const staffSchema = mongoose.Schema({
   empEmail: {
     type: String,
     required: true,
+    unique: true,
   },
   empPassword: {
     type: String,
@@ -54,6 +59,10 @@ const staffSchema = mongoose.Schema({
   empPosition: {
     type: String,
     required: false,
+  },
+  isLogged: {
+    type: Boolean,
+    default: false,
   },
 });
 
