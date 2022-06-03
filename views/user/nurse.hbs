@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/all.min.css" />
     <link rel="stylesheet" href="../CSS/style.css" />
     <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/doctor.css" />
     <link rel="stylesheet" href="../CSS/nurse.css" />
     <link rel="stylesheet" href="../CSS/Normalize.css" />
     <link rel="stylesheet" href="../CSS/bootstrap-grid.min.css" />
@@ -47,52 +48,63 @@
     </div>
 </div>
 <div class="patients">
-  <div class="sp-header">patients</div>
-  <div class="patient row" data-pNum="1">
-    <div class="name col-4">
-      <h3>Name</h3>
-      <h2 class="pa-name">Abdelrhman Yasser</h2>
-    </div>
-    <div class="age col-4">
-      <h3>Age</h3>
-      <h2 class="pa-age">21</h2>
-    </div>
-    <div class="progress col-4">
-      <h3>Progress</h3>
-      <h2 class="pa-age">85%</h2>
-    </div>
+  <div class="contains">
+    <div class="sp-header patients-refresh">patients</div>
   </div>
-  <div class="patient row" data-pNum="2">
-    <div class="name col-4">
-      <h3>Name</h3>
-      <h2 class="pa-name">Diaa Badr</h2>
+    <div class="report">
+      <div class="report-contains">
+        <div class="sp-header patients-refresh pa-name"></div>
+        <button class="report-back sec-button">Back</button>
+        <div class="first-row-container row">
+          <div class="first-row col-12 nurse-message">
+            <div class="sp-header">Doctor Message</div>
+            <p class="report-data">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam quisquam quos veritatis velit excepturi soluta et itaque ipsum est voluptatibus ut tenetur id molestias, dolore minus! Amet reiciendis dignissimos deleniti.</p>
+          </div>
+          <div class="first-row col-4">
+            <div class="sp-header">Age</div>
+            <h2 class="pa-report-age report-data">38</h2>
+          </div>
+          <div class="first-row col-7">
+            <div class="sp-header">Room No</div>
+            <h2 class="pa-report-room report-data">Room 5</h2>
+          </div>
+          
+        </div>
+          <form action="" method="get">
+            <div class="input-box">
+              <input type="text" name="report-pa-ssn" id="" class="report-pa-ssn" readonly >
+            </div>
+            <div class="input-box">
+              <span class="details">Blood Presure</span>
+              <input type="number" name="blood-presure" id="blood-presure" min="0" placeholder="Enter Blood Presure" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Blood Glucose</span>
+              <input type="number" name="blood-glucose" id="blood-glucose" min="0" placeholder="Enter Blood Glucose" required>
+            </div>
+            <div class="input-box">
+              <span class="details">Progress Ratio</span>
+                <input type="number" name="progress" id="progress" placeholder="Enter Patient Progress Ratio" min="0" max="100" required>
+            </div>
+            <label for="notes">Notes for Doctor</label>
+              <textarea
+                name="notes"
+                class="complaint-text"
+                id="text-area"
+                cols="30"
+                rows="10"
+                maxlength="300"
+              ></textarea>
+              <div class="btns">
+              <button class="button save-button">Save</button>
+              </div>
+          </form>
+      </div>
     </div>
-    <div class="age col-4">
-      <h3>Age</h3>
-      <h2 class="pa-age">22</h2>
-    </div>
-    <div class="progress col-4">
-      <h3>Progress</h3>
-      <h2 class="pa-age">67%</h2>
-    </div>
-  </div>
-  <div class="patient row" data-pNum="3">
-    <div class="name col-4">
-      <h3>Name</h3>
-      <h2 class="pa-name">Ahmed Hassan</h2>
-    </div>
-    <div class="age col-4">
-      <h3>Age</h3>
-      <h2 class="pa-age">21</h2>
-    </div>
-    <div class="progress col-4">
-      <h3>Progress</h3>
-      <h2 class="pa-age">95%</h2>
-    </div>
-  </div>
 </div>
 </body>
 <script src="../JS/all.min.js"></script>
 <script src="../JS/main.js"></script>
+<script src="../JS/nurse.js"></script>
 <script src="../JS/bootstrap.bundle.min.js"></script>
 </html>
