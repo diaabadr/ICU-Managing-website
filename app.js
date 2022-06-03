@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const profile = require("./routes/profile");
+const nurse = require("./routes/nurse");
 var app = express();
 require("./config/passport");
 const expressValidator = require("express-validator");

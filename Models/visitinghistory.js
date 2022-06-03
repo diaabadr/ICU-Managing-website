@@ -5,9 +5,9 @@ const visitingSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  vDepartment:{
-    type:String,
-    required:true,
+  vDepartment: {
+    type: String,
+    required: true,
   },
   arrivalDate: {
     type: Date,
@@ -26,8 +26,8 @@ const visitingSchema = mongoose.Schema({
     type: {
       pName: String,
       docName: String,
-      repDate: String,
-      repContent: String,
+      diagnosis: String,
+      midicines: String,
     },
     required: false,
   },

@@ -17,7 +17,6 @@ router.get("/", (req, res, next) => {
 /* GET users listing. */
 router.get("/profile", (req, res, next) => {
   const employee = req.user;
-  console.log(req.user);
   if (employee.empPosition == "Receptionist") {
     {
       res.redirect("/receptionist");

@@ -39,6 +39,12 @@ const patientSchema = mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  lastDoctor: {
+    type: String,
+  },
+  progress: {
+    type: Number,
+  },
   roomNum: {
     type: Number,
     required: true,
