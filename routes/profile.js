@@ -17,6 +17,8 @@ let flage = false;
 let message = "";
 
 router.get("/", (req, res, next) => {
+  const employee = req.user;
+  console.log(req.user);
   rooms.find(
     { isBusy: false },
     "roomNum departement",

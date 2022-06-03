@@ -10,6 +10,7 @@ const controller = require("../controller/user_controller");
 const visitors = require("../Models/visitors");
 const { updateOne } = require("../Models/Patient");
 const { config } = require("process");
+const staff = require("../Models/staff");
 let flage = false;
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -17,13 +18,25 @@ router.get("/", (req, res, next) => {
 /* GET users listing. */
 router.get("/profile", (req, res, next) => {
   const employee = req.user;
-  console.log(req.user);
   if (employee.empPosition == "Receptionist") {
     {
       res.redirect("/receptionist");
     }
   } else if (employee.empPosition == "Nurse") {
-    res.render("./user/nurse");
+    {
+      staff.updateOne(
+        { empSSN: req.user.empSSN },
+        { $set: { isLogged: true } },
+        (error, result) => {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log(result)
+            res.redirect("/nurse");
+          }
+        }
+      );
+    }
   } else if (employee.empPosition == "Doctor") {
     res.render("./user/doctor");
   } else if (employee.empPosition == "Admin") {
@@ -31,8 +44,8 @@ router.get("/profile", (req, res, next) => {
   }
 });
 router.post("/users/addVisitor", (req) => {
-  console.log("ana geeeeeeeeeeeeeeeeeeeeet")
-})
+  console.log("ana geeeeeeeeeeeeeeeeeeeeet");
+});
 
 router.get("/login", (req, res, next) => {
   var errors = req.flash("loginErrors");
@@ -69,7 +82,6 @@ function isSignin(req, res, next) {
   }
   next();
 }
-
 
 router.get("/admin", (req, res, next) => {
   res.render("./user/admin");
