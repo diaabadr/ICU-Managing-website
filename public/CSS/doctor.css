@@ -224,7 +224,8 @@ input:read-only{
     margin: 10px auto;
 }
 
-input[type="text"]{
+input[type="text"],
+input[type="number"]{
     width: 100%;
     margin-right: 10px;
     background-color: #222468;
@@ -236,7 +237,8 @@ input[type="text"]{
     height: 45px;
 }
 
-input[type="text"]::placeholder{
+input[type="text"]::placeholder,
+input[type="number"]::placeholder{
     color: rgb(120, 127, 178);
 }
 
@@ -258,6 +260,7 @@ input[type="text"]::placeholder{
     margin-top: 2%;
     resize: none;
     margin: 10px 5%;
+    
 }
 
 label{

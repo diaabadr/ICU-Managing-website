@@ -70,7 +70,7 @@ window.addEventListener("load", function (e) {
                             patient.append(prog)
                             patientsList.append(patient)
                         }
-                        let patiensHide = document.querySelector(".contains")
+            let patiensHide = document.querySelector(".contains")
             let reportShow = document.querySelector(".report")
             
             document.addEventListener("click", function (e) {
@@ -249,7 +249,7 @@ window.addEventListener("load", function (e) {
                     patiensHide.classList.remove("contains-hide")
                     reportShow.classList.remove("report-show")
                     const myTimeout = setTimeout(hideMessage, 500);
-                    document.querySelector("#blood-type").value = "";
+                    document.querySelector("#blood-type").value = "Select Blood Type";
                     document.querySelector("#blood-type").removeAttribute("disabled",true)
                     document.querySelector("#blood-type").removeAttribute("readonly","readonly")
                     document.querySelector("#ID").value = "";
