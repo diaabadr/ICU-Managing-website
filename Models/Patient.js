@@ -49,6 +49,9 @@ const patientSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  lastNurse: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("patient", patientSchema);

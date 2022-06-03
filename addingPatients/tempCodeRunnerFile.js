@@ -1,16 +1,3 @@
-const mongoose = require("mongoose");
-const Patient = require("../Models/Patient");
-const Visit = require("../Models/visitinghistory");
-const Messages = require("../Models/Messages");
-const diag = require("../Models/dailyDiagnosis");
-mongoose.connect(
-  "mongodb://127.0.0.1/ICU-Managing-website",
-  { useNewUrlParser: true },
-  (error) => {
-    if (error) console.log(error);
-    else console.log("Connected");
-  }
-);
 const patients = [
   new Patient({
     pName: "Mahmoud Samir",
@@ -37,7 +24,6 @@ const patients = [
     roomNum: 2,
     pfirstNum: "01542115220",
     lastNurse:"151210",
-    progress:70,
   }),
   new Patient({
     pName: "Mohsen Sayed",
@@ -49,7 +35,6 @@ const patients = [
     arrivalDate: new Date("2022-2-16"),
     isExist: true,
     pbloodType: "A Negative",
-    progress:50,
     roomNum: 3,
     pfirstNum: "01245678912",
     lastNurse: "151210",
@@ -199,16 +184,3 @@ for (var i = 0; i < a.length; i++) {
     }
   });
 }
-
-// diag.deleteMany({}, (error, res) => {
-//   console.log(res);
-// });
-// Messages.deleteMany({}, (error, res) => {
-//   console.log(res);
-// });
-// Patient.deleteMany({}, (error, res) => {
-//   console.log(res);
-// });
-// Visit.deleteMany({}, (error, res) => {
-//   console.log(res);
-// });

@@ -13,4 +13,9 @@ const dailySchema = mongoose.Schema({
   diagDate: {
     type: Date,
   },
+  arrivalDate: {
+    type: Date,
+  },
 });
+
+module.exports = mongoose.model("dailyDiag", dailySchema);
