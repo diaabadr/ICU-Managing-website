@@ -17,8 +17,14 @@ window.addEventListener("load", function (e) {
                     let patient = document.createElement('div')
                     if (patients[i].docMessage != "") {
                         let icon = document.createElement("i");
-                        icon.className = "message-icon fa-solid fa-message";
-                        patient.append(icon);
+                        let messageNum = document.createElement("h3");
+                        messageNum.innerHTML = patients[i].docMessage.length
+                        icon.className = "fa-solid fa-message";
+                        let messageDiv = document.createElement('div')
+                        messageDiv.className = "message-icon";
+                        messageDiv.append(messageNum);
+                        messageDiv.append(icon);
+                        patient.append(messageDiv);
                     }
                     patient.setAttribute(`data-pNum`, i)
                     patient.className = "patient patient-button row"
@@ -70,10 +76,18 @@ window.addEventListener("load", function (e) {
                                 paName.innerHTML = patients[l].name
                                 paAge.innerHTML = patients[l].age
                                 paRoom.innerHTML = patients[l].room
+                                let doctorMessage = document.createElement('div')
+                                doctorMessage.className = "docMessage";
+                                document.querySelector(".nurse-message").append(doctorMessage)
                                 if (patients[l].docMessage != "") {
                                     docMessage.style.display = "block"
+                                    for (i = 0; i < patients[l].docMessage.length; i++){
+                                        let messageP = document.createElement('p')
+                                        messageP.className = "report-data repP";
+                                        messageP.innerHTML = patients[l].docMessage[i]
+                                        document.querySelector(".docMessage").append(messageP)
+                                    }
                                     docMessage.classList.remove("nurse-message-hide")
-                                    docMessage.querySelector("p").innerHTML = patients[l].docMessage
                                 }
                             }
                         }
@@ -82,6 +96,7 @@ window.addEventListener("load", function (e) {
                     const myTimeout = setTimeout(hideMessage, 500);
                     patiensHide.classList.remove("contains-hide")
                     reportShow.classList.remove("report-show")
+                    let removeM = setTimeout(removeMessage,500)
                 }
                 })
             }
@@ -90,4 +105,7 @@ window.addEventListener("load", function (e) {
 })
 function hideMessage() {
     docMessage.style.display = "none";
+}
+function removeMessage() {
+    let repP = document.querySelector(".docMessage").remove();
 }

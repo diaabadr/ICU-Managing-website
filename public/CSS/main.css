@@ -612,3 +612,29 @@ label{
 .rec-vi-form .error{
     color: var(--main-color);
 }
+
+.done-message{
+    width: 80%;
+    height: 60px;
+    margin: auto;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00afef8a;
+    color: white;
+    font-size: var(--sec-text);
+    border-radius: var(--border-radius);
+    text-align: center;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: hide 1s ease-in-out;
+    animation-delay: 5s;
+}
+
+@keyframes hide {
+    0%   {filter: opacity(1);}
+    100% {filter: opacity(0);}
+}
