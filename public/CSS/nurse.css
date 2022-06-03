@@ -100,3 +100,15 @@ input[type="range"]{
     width: 100%;
 }
 
+.message-icon {
+    display: flex;
+    color: var(--main-color);
+    position: absolute;
+    top: 5%;
+    right: -45%;
+    transition: 0.3s;
+    pointer-events: none;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}

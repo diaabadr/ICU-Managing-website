@@ -5,6 +5,7 @@ let paProgRatio = document.querySelector(".prog-ratio")
 let paProgRatioText = document.querySelector(".prog-ratio-text")
 let nurseMessage = document.querySelector(".nurse-message")
 let messageIcon = document.querySelector(".message-icon");
+let docMessage = document.querySelector(".nurse-message");
 
 
 let doctorPatients = new XMLHttpRequest();
@@ -21,8 +22,14 @@ window.addEventListener("load", function (e) {
                     let patient = document.createElement('div')
                     if (patients[i].nuresMessage != "") {
                         let icon = document.createElement("i");
-                        icon.className = "message-icon fa-solid fa-message";
-                        patient.append(icon);
+                        let messageNum = document.createElement("h3");
+                        messageNum.innerHTML = patients[i].nuresMessage.length;
+                        icon.className = "fa-solid fa-message";
+                        let messageDiv = document.createElement("div");
+                        messageDiv.className = "message-icon";
+                        messageDiv.append(messageNum);
+                        messageDiv.append(icon);
+                        patient.append(messageDiv);
                     }
                     if (
                         patients[i].bloodType === "" ||
@@ -111,6 +118,9 @@ window.addEventListener("load", function (e) {
                             paRoom.innerHTML = patients[l].room
                             paProgRatio.style.width = patients[l].prog
                             paProgRatioText.innerHTML = patients[l].prog
+                            let doctorMessage = document.createElement("div");
+                            doctorMessage.className = "docMessage";
+                            document.querySelector(".nurse-message").append(doctorMessage)
                             var bp = []
                             var bs = []
                             for (j = 0; j < patients[l].bp.length; j++) {
@@ -236,9 +246,18 @@ window.addEventListener("load", function (e) {
                             
                             
                             if (patients[l].nuresMessage != "") {
-                                nurseMessage.style.display = "block"
-                                nurseMessage.classList.remove("nurse-message-hide")
-                                nurseMessage.querySelector("p").innerHTML = patients[l].nuresMessage
+                                docMessage.style.display = "block"
+                                for (i = 0; i < patients[l].nuresMessage.length; i++) {
+                                    let messageP = document.createElement('p')
+                                    messageP.className = "report-data repP";
+                                    messageP.innerHTML = patients[l].nuresMessage[i]
+                                    document.querySelector(".docMessage").append(messageP)
+                                }
+                                if (patients[l].nuresMessage.length === 1) {
+                                    document.querySelector(".nurse-message .sp-header").innerHTML = "Nurse Message"
+                                } else {
+                                    document.querySelector(".nurse-message .sp-header").innerHTML = "Nurse Messages"
+                                }
                             }
                             
                         }
@@ -260,7 +279,7 @@ window.addEventListener("load", function (e) {
                     document.querySelector("#medicines").removeAttribute("readonly","readonly")
                     document.querySelector("#medicines").removeAttribute("title", "Double Click to Edit")
                     document.querySelector("#medicines").removeAttribute("disabled",true)
-
+                    let removeM = setTimeout(removeMessage, 500);
                 }
             })
         }
@@ -272,5 +291,7 @@ function hideMessage() {
     nurseMessage.style.display = "none"
 }
 
-
+function removeMessage() {
+  let repP = document.querySelector(".docMessage").remove();
+}
 

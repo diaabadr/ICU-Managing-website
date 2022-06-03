@@ -101,7 +101,7 @@ body{
 .report{
     position: absolute;
     top: 0;
-    transform: translateX(150%);
+    transform: translateX(-150%);
     filter: opacity(0);
     transition: 1s;
     width: 100%;
@@ -302,8 +302,12 @@ label{
     line-height: 1.2;
     text-align: left;
     font-size: 18px;
-    padding: 0 20px;
+    padding: 20px 20px;
     margin-bottom: 20px;
+    background-color: #13153b;
+    width: 90%;
+    margin: 10px auto;
+    border-radius: var(--border-radius);
 }
 
 .nurse-message .done-btn{
@@ -313,14 +317,22 @@ label{
 }
 
 .message-icon{
+    display: flex;
     color: var(--main-color);
     position: absolute;
-    top: 25%;
-    right: -45%;
+    top: 5%;
+    right: -42%;
     transition: 0.3s;
     pointer-events: none;
     font-size: 20px;
+    justify-content: center;
+    align-items: center;
 }
+
+.message-icon h3{
+    margin-right: 10px;
+}
+
 .complele-icon{
     color: var(--main-color);
     position: absolute;

@@ -311,5 +311,9 @@ function showPassword() {
   }
 } 
 
+function hideDoneMessage() {
+  document.querySelector(".done-message").style.display = "none"
+}
 
+const timeout = setTimeout(hideDoneMessage,5800)
 

@@ -9,7 +9,7 @@
     "bloodType": "A+",
     "ID": "Dor Bard Mn Marw7a",
     "Medicines": "cometrix",
-    "nuresMessage": "Hello abdo Yasser",
+    "nuresMessage": ["Hello abdo Yasser","Hello abdo Yasser","Hello abdo Yasser","Hello abdo Yasser"],
     "bs": [125, 128, 120, 115, 118, 120, 115]
   },
   {
@@ -22,7 +22,7 @@
     "bloodType": "",
     "ID": "",
     "Medicines": "",
-    "nuresMessage": "Hello Ammar Said",
+    "nuresMessage": ["Hello Ammar Said","Hello Ammar Said","Hello Ammar Said"],
     "bs": [130, 125, 120, 128, 127, 130, 132]
   },
   {
@@ -34,7 +34,7 @@
     "bloodType": "",
     "ID": "",
     "Medicines": "",
-    "nuresMessage": "Hello Abdelrhman Yasser",
+    "nuresMessage": ["Hello Abdelrhman Yasser","Hello Abdelrhman Yasser"],
     "bs": [131, 132, 135, 130, 125, 120, 122],
     "prog": "70%"
   },
@@ -47,7 +47,7 @@
     "bloodType": "",
     "ID": "",
     "Medicines": "",
-    "nuresMessage": "",
+    "nuresMessage": [""],
     "bs": [130, 128, 125, 120, 120, 118, 116],
     "prog": "82%"
   },
@@ -60,7 +60,7 @@
     "bloodType": "",
     "ID": "",
     "Medicines": "",
-    "nuresMessage": "Hello Youssef Yasser",
+    "nuresMessage": ["Hello Youssef Yasser"],
     "bs": [128, 125, 124, 123, 122, 118, 115],
     "prog": "85%"
   },
@@ -73,7 +73,7 @@
     "bloodType": "",
     "ID": "",
     "Medicines": "",
-    "nuresMessage": "",
+    "nuresMessage": [""],
     "bs": [130, 132, 130, 140, 145, 148, 145],
     "prog": "10%"
   }
