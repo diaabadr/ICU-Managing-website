@@ -1,5 +1,4 @@
 var express = require("express");
-var promise = require("promise");
 var router = express.Router();
 const { check, validationResult } = require("express-validator");
 const passport = require("passport");
@@ -11,6 +10,8 @@ const history = require("../Models/visitinghistory");
 const visitors = require("../Models/visitors");
 const Messages = require("../Models/Messages");
 const dailyDiagnosis = require("../Models/dailyDiagnosis");
+let flage = false;
+let submitMessage = "";
 router.get("/", (req, res, next) => {
   Staff.findOne({ isLogged: true, empPosition: "Nurse" }, (error, nurse) => {
     if (error) {
@@ -74,7 +75,7 @@ router.get("/", (req, res, next) => {
                 });
               } catch (error) {}
             }
-            let messages=[]
+            let messages = [];
             for (var i = 0; i < messagesArr.length; i++) {
               let msgs = [];
               for (var j = 0; j < messagesArr[i].length; j++) {
@@ -91,7 +92,7 @@ router.get("/", (req, res, next) => {
                   (new Date() - pats[i].pbirthDate) /
                     (24 * 365 * 60 * 60 * 1000)
                 ),
-                prog: pats[i].progress,
+                prog: pats[i].progress.toString() + "%",
                 room: pats[i].roomNum,
                 bp: presArr[i],
                 bloodType: pats[i].pbloodType,
@@ -103,13 +104,94 @@ router.get("/", (req, res, next) => {
               console.log(p);
               finalArray.push(p);
             }
-            
-            res.render("./user/nurse");
+            fs.writeFile(
+              __dirname + "/../public/nursePatients.json",
+              JSON.stringify(finalArray),
+              "utf-8",
+              (err, resu) => {
+                if (err) console.log(err);
+                else {
+                  console.log(resu);
+                }
+              }
+            );
+            if (flage) {
+              res.render("./user/nurse", {
+                check: true,
+                message: submitMessage,
+              });
+            } else {
+              res.render("./user/nurse", { check: false });
+            }
           }
         }
       );
     }
   });
+});
+
+router.post("/dailyDiagnosis", (req, res, next) => {
+  patients.updateOne(
+    { pSSN: req.body.pSSN },
+    { $set: { progress: req.body.progress } },
+    (error, patUpdated) => {
+      if (error) {
+        console.log(error);
+      } else {
+        patients.findOne({ pSSN: req.body.pSSN }, (error, pat) => {
+          const diag = new dailyDiagnosis({
+            bloodPressure: req.body.bloodPressure,
+            bloodGlucose: req.body.bloodGlucose,
+            pSSN: req.body.pSSN,
+            diagDate: new Date(),
+            arrivalDate: pat.arrivalDate,
+          });
+          diag.save((error, diagnosis) => {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log("diagnosis");
+              console.log(diagnosis);
+              Messages.updateMany(
+                { isSeen: false, to: pat.lastNurse, pSSN: pat.pSSN },
+                { $set: { isSeen: true } },
+                (error, msgUpdated) => {
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    if (req.body.notes === "") {
+                      submitMessage = "Data are sent Successfully";
+                      flage = true;
+                      res.redirect("/nurse");
+                    } else {
+                      const msg = new Messages({
+                        From: pat.lastNurse,
+                        to: pat.lastDoctor,
+                        msg: req.body.notes,
+                        isSeen: false,
+                        pSSN: req.body.pSSN,
+                        arrivalDate: pat.arrivalDate,
+                      });
+                      msg.save((error, message) => {
+                        if (error) {
+                          console.log(error);
+                        } else {
+                          console.log(message);
+                          submitMessage = "Data are sent Successfully";
+                          flage = true;
+                          res.redirect("/nurse");
+                        }
+                      });
+                    }
+                  }
+                }
+              );
+            }
+          });
+        });
+      }
+    }
+  );
 });
 
 module.exports = router;

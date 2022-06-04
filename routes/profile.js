@@ -172,22 +172,7 @@ router.post("/checkout", (req, res, next) => {
   });
 });
 
-router.get("/logout", (req, res, next) => {
-  req.logOut((error, next) => {
-    if (error) {
-      return next(error);
-    } else {
-      req.user = null;
-      req.session.destroy((error, result) => {
-        if (error) {
-          console.log(error);
-        } else {
-          res.redirect("/");
-        }
-      });
-    }
-  });
-});
+
 router.get("/back", (req, res, next) => {
   res.redirect("/receptionist");
 });

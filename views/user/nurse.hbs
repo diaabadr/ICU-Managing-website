@@ -28,6 +28,10 @@
         </div>
         <div class="links">
             <ul class="links">
+              {{#if check}}
+                 <li><a href="#" class="dep">{{message}}</a></li>
+              {{/if}}
+             
             <li><a href="#" class="dep">Department</a></li>
             <li><a href="#">Contact US</a></li>
             <li><a href="#">About US</a></li>
@@ -40,7 +44,7 @@
     <div class="cancel-card-contains">
         <h2>Are You Sure?</h2>
         <div class="btns">
-            <form action="logout" method="get">
+            <form action="users/logout" method="get">
                 <button class="button log-out-btn">Log Out</button>
             </form>
             <div class="button cancel">Cancel</div>
@@ -70,17 +74,17 @@
           </div>
           
         </div>
-          <form action="" method="get">
+          <form action="nurse/dailyDiagnosis" method="post">
             <div class="input-box">
-              <input type="text" name="report-pa-ssn" id="" class="report-pa-ssn" readonly >
+              <input type="text" name="pSSN" id="" class="report-pa-ssn" readonly >
             </div>
             <div class="input-box">
               <span class="details">Blood Presure</span>
-              <input type="number" name="blood-presure" id="blood-presure" min="0" placeholder="Enter Blood Presure" required>
+              <input type="number" name="bloodPressure" id="blood-presure" min="0" placeholder="Enter Blood Presure" required>
             </div>
             <div class="input-box">
               <span class="details">Blood Glucose</span>
-              <input type="number" name="blood-glucose" id="blood-glucose" min="0" placeholder="Enter Blood Glucose" required>
+              <input type="number" name="bloodGlucose" id="blood-glucose" min="0" placeholder="Enter Blood Glucose" required>
             </div>
             <div class="input-box">
               <span class="details">Progress Ratio</span>

@@ -18,33 +18,31 @@ router.get("/", (req, res, next) => {
 /* GET users listing. */
 router.get("/profile", (req, res, next) => {
   const employee = req.user;
-  if (employee.empPosition == "Receptionist") {
-    {
-      res.redirect("/receptionist");
-    }
-  } else if (employee.empPosition == "Nurse") {
-    {
-      staff.updateOne(
-        { empSSN: req.user.empSSN },
-        { $set: { isLogged: true } },
-        (error, result) => {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(result)
+  staff.updateOne(
+    { empSSN: req.user.empSSN },
+    { $set: { isLogged: true } },
+    (error, result) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(result);
+        if (employee.empPosition == "Receptionist") {
+          {
+            res.redirect("/receptionist");
+          }
+        } else if (employee.empPosition == "Nurse") {
+          {
+            console.log(result);
             res.redirect("/nurse");
           }
+        } else if (employee.empPosition == "Doctor") {
+          res.redirect("/doctor");
+        } else if (employee.empPosition == "Admin") {
+          res.redirect("/admin");
         }
-      );
+      }
     }
-  } else if (employee.empPosition == "Doctor") {
-    res.render("./user/doctor");
-  } else if (employee.empPosition == "Admin") {
-    res.render("./user/admin");
-  }
-});
-router.post("/users/addVisitor", (req) => {
-  console.log("ana geeeeeeeeeeeeeeeeeeeeet");
+  );
 });
 
 router.get("/login", (req, res, next) => {
@@ -86,4 +84,32 @@ function isSignin(req, res, next) {
 router.get("/admin", (req, res, next) => {
   res.render("./user/admin");
 });
+
+router.get("/logout", (req, res, next) => {
+  req.logOut((error, next) => {
+    if (error) {
+      return next(error);
+    } else {
+      staff.updateOne(
+        { isLogged: true },
+        { $set: { isLogged: false } },
+        (error, result) => {
+          if (error) {
+            console.log(error);
+          } else {
+            req.user = null;
+            req.session.destroy((error, result) => {
+              if (error) {
+                console.log(error);
+              } else {
+                res.redirect("/");
+              }
+            });
+          }
+        }
+      );
+    }
+  });
+});
+
 module.exports = router;

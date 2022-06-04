@@ -39,7 +39,7 @@
     <div class="cancel-card-contains">
         <h2>Are You Sure?</h2>
         <div class="btns">
-            <form action="logout" method="get">
+            <form action="users/logout" method="get">
                 <button class="button log-out-btn">Log Out</button>
             </form>
             <div class="button cancel">Cancel</div>
@@ -85,11 +85,11 @@
       </div>
       <div id="bg">
       </div>
-      <form action="" method="get">
+      <form action="doctor/docDiagnosis" method="post">
         <div class="input-box">
             <span class="details">Blood Tybe</span>
         </div>
-        <select id="blood-type" required name="blood-type">
+        <select id="blood-type" required name="bloodType">
         <option selected="selected" hidden disabled class="option-selected">
             Select Blood Type
         </option>
@@ -103,11 +103,11 @@
             <option value="O-">O-</option>
         </select> 
         <div class="input-box">
-            <input type="text" name="report-pa-ssn" id="" class="report-pa-ssn" readonly >
+            <input type="text" name="pSSN" id="" class="report-pa-ssn" readonly >
         </div>
         <div class="input-box">
             <span class="details">Initial Diagnosis</span>
-            <input type="text" name="ID" id="ID" placeholder="Enter Initial Diagnosis" required>
+            <input type="text" name="initialDiag" id="ID" placeholder="Enter Initial Diagnosis" required>
         </div>
         <div class="input-box">
             <span class="details">Medicines</span>

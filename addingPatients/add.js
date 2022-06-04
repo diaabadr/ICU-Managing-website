@@ -20,7 +20,7 @@ const patients = [
     pAddress: "October",
     arrivalDate: new Date("2021-12-16"),
     isExist: true,
-    pbloodType: "O Negative",
+    pbloodType: "O+",
     roomNum: 1,
     pfirstNum: "01011121522",
   }),
@@ -33,11 +33,12 @@ const patients = [
     pAddress: "October",
     arrivalDate: new Date("2022-4-16"),
     isExist: true,
-    pbloodType: "O Positive",
+    pbloodType: "O+",
     roomNum: 2,
     pfirstNum: "01542115220",
     lastNurse:"151210",
     progress:70,
+    lastDoctor:"5000110"
   }),
   new Patient({
     pName: "Mohsen Sayed",
@@ -48,11 +49,12 @@ const patients = [
     pAddress: "October",
     arrivalDate: new Date("2022-2-16"),
     isExist: true,
-    pbloodType: "A Negative",
+    pbloodType: "",
     progress:50,
     roomNum: 3,
     pfirstNum: "01245678912",
     lastNurse: "151210",
+    lastDoctor:"5000110"
   }),
 ];
 // Patient.deleteMany({ pGender:"Male" }, (error, res) => {
@@ -143,6 +145,20 @@ let msgs = [
     isSeen: false,
     pSSN: "151515",
     arrivalDate: new Date("2022-4-16"),
+  }),
+  new Messages({
+    to: "5000110",
+    msg: "Ahmed",
+    isSeen: false,
+    pSSN: "151515",
+    arrivalDate: new Date("2022-4-16"),
+  }),
+  new Messages({
+    to: "5000110",
+    msg: "Mohsen ",
+    isSeen: false,
+    pSSN: "664664",
+    arrivalDate: new Date("2022-2-16"),
   }),
 ];
 

@@ -8,6 +8,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const profile = require("./routes/profile");
 const nurse = require("./routes/nurse");
+const doctor = require("./routes/doctor");
 var app = express();
 require("./config/passport");
 const expressValidator = require("express-validator");
@@ -38,6 +39,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/receptionist", profile);
 app.use("/nurse", nurse);
+app.use("/doctor", doctor);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));
