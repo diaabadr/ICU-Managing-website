@@ -36,7 +36,6 @@ const patients = [
     pAddress: "October",
     arrivalDate: new Date("2022-2-16"),
     isExist: true,
-    pbloodType: "",
     progress:50,
     roomNum: 3,
     pfirstNum: "01245678912",
@@ -69,7 +68,6 @@ for (var i = 0; i < patients.length; i++) {
     arrivalDate: arrDate,
     roomNum: rNum,
     report: {
-      diagnosis: "mareddd",
       midicines: "congestal",
     },
     vDepartment: "Medical",

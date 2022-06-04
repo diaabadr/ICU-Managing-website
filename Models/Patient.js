@@ -22,10 +22,12 @@ const patientSchema = mongoose.Schema({
   pAddress: {
     required: false,
     type: String,
+    default: "",
   },
   pbloodType: {
     type: String,
     required: false,
+    default: "",
   },
   arrivalDate: {
     type: Date,

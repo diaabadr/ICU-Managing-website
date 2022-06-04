@@ -99,7 +99,6 @@ window.addEventListener("load", function (e) {
                             }
                             if (patients[l].Medicines != "") {
                                 document.querySelector("#medicines").value = patients[l].Medicines;
-                                document.querySelector("#ID").setAttribute("disabled",true)
                                 document.querySelector("#medicines").setAttribute("readonly","readonly")
                                 document.querySelector("#medicines").setAttribute("disabled",true)
                                 document.querySelector("#medicines").setAttribute("title","Double Click to Edit")

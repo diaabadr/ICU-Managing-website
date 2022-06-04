@@ -131,67 +131,110 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/dailyDiagnosis", (req, res, next) => {
-  patients.updateOne(
-    { pSSN: req.body.pSSN },
-    { $set: { progress: req.body.progress } },
-    (error, patUpdated) => {
+  if (req.body.bloodGlucose != "") {
+    patients.updateOne(
+      { pSSN: req.body.pSSN },
+      { $set: { progress: req.body.progress } },
+      (error, patUpdated) => {
+        if (error) {
+          console.log(error);
+        } else {
+          patients.findOne({ pSSN: req.body.pSSN }, (error, pat) => {
+            const diag = new dailyDiagnosis({
+              bloodPressure: req.body.bloodPressure,
+              bloodGlucose: req.body.bloodGlucose,
+              pSSN: req.body.pSSN,
+              diagDate: new Date(),
+              arrivalDate: pat.arrivalDate,
+            });
+            diag.save((error, diagnosis) => {
+              if (error) {
+                console.log(error);
+              } else {
+                console.log("diagnosis");
+                console.log(diagnosis);
+                Messages.updateMany(
+                  { isSeen: false, to: pat.lastNurse, pSSN: pat.pSSN },
+                  { $set: { isSeen: true } },
+                  (error, msgUpdated) => {
+                    if (error) {
+                      console.log(error);
+                    } else {
+                      if (req.body.notes === "") {
+                        submitMessage = "Data are sent Successfully";
+                        flage = true;
+                        res.redirect("/nurse");
+                      } else {
+                        const msg = new Messages({
+                          From: pat.lastNurse,
+                          to: pat.lastDoctor,
+                          msg: req.body.notes,
+                          isSeen: false,
+                          pSSN: req.body.pSSN,
+                          arrivalDate: pat.arrivalDate,
+                        });
+                        msg.save((error, message) => {
+                          if (error) {
+                            console.log(error);
+                          } else {
+                            console.log(message);
+                            submitMessage = "Data are sent Successfully";
+                            flage = true;
+                            res.redirect("/nurse");
+                          }
+                        });
+                      }
+                    }
+                  }
+                );
+              }
+            });
+          });
+        }
+      }
+    );
+  } else {
+    patients.findOne({ pSSN: req.body.pSSN }, (error, pat) => {
       if (error) {
         console.log(error);
       } else {
-        patients.findOne({ pSSN: req.body.pSSN }, (error, pat) => {
-          const diag = new dailyDiagnosis({
-            bloodPressure: req.body.bloodPressure,
-            bloodGlucose: req.body.bloodGlucose,
+        if (req.body.notes === "") {
+          submitMessage = "Data are sent Successfully";
+          flage = true;
+          res.redirect("/nurse");
+        } else {
+          const msg = new Messages({
+            From: pat.lastNurse,
+            to: pat.lastDoctor,
+            msg: req.body.notes,
+            isSeen: false,
             pSSN: req.body.pSSN,
-            diagDate: new Date(),
             arrivalDate: pat.arrivalDate,
           });
-          diag.save((error, diagnosis) => {
+          msg.save((error, message) => {
             if (error) {
               console.log(error);
             } else {
-              console.log("diagnosis");
-              console.log(diagnosis);
-              Messages.updateMany(
-                { isSeen: false, to: pat.lastNurse, pSSN: pat.pSSN },
-                { $set: { isSeen: true } },
-                (error, msgUpdated) => {
-                  if (error) {
-                    console.log(error);
-                  } else {
-                    if (req.body.notes === "") {
-                      submitMessage = "Data are sent Successfully";
-                      flage = true;
-                      res.redirect("/nurse");
-                    } else {
-                      const msg = new Messages({
-                        From: pat.lastNurse,
-                        to: pat.lastDoctor,
-                        msg: req.body.notes,
-                        isSeen: false,
-                        pSSN: req.body.pSSN,
-                        arrivalDate: pat.arrivalDate,
-                      });
-                      msg.save((error, message) => {
-                        if (error) {
-                          console.log(error);
-                        } else {
-                          console.log(message);
-                          submitMessage = "Data are sent Successfully";
-                          flage = true;
-                          res.redirect("/nurse");
-                        }
-                      });
-                    }
+              Messages.updateMany({ isSeen: false, to: pat.lastNurse, pSSN: pat.pSSN },
+                { $set: { isSeen: true } },(error,up)=>{
+                  if(error)
+                  {
+                    console.log(error)
                   }
-                }
-              );
+                  else
+                  {
+                    submitMessage = "Data are sent Successfully";
+                    flage = true;
+                    res.redirect("/nurse");
+                  }
+                })
+              
             }
           });
-        });
+        }
       }
-    }
-  );
+    });
+  }
 });
 
 module.exports = router;

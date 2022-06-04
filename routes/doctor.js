@@ -136,10 +136,14 @@ router.get("/", (req, res, next) => {
 
 router.post("/docDiagnosis", (req, res, next) => {
   if (typeof req.body.bloodType == typeof undefined) {
+    console.log("blood1");
     if (typeof req.body.medicines == typeof undefined) {
+      console.log("midicine1");
       if (typeof req.body.initialDiag == typeof undefined) {
+        console.log("ID1");
         // do nothing
       } else {
+        console.log("ID done 1");
         history.updateOne(
           { pSSN: req.body.pSSN },
           { $set: { report: { diagnosis: req.body.initialDiag } } },
@@ -153,69 +157,85 @@ router.post("/docDiagnosis", (req, res, next) => {
         );
       }
     } else if (typeof req.body.initialDiag == typeof undefined) {
-      console.log("gettttttttt");
-      history.updateOne(
-        { pSSN: req.body.pSSN },
-        { $set: { report: { midicines: req.body.medicines } } },
-        (error, result) => {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log("midicine Updated");
-            console.log(result);
+      if (typeof req.body.medicines == typeof undefined) {
+        // do nothing
+      } else {
+        console.log("ID2");
+        history.updateOne(
+          { pSSN: req.body.pSSN },
+          { $set: { report: { midicines: req.body.medicines } } },
+          (error, result) => {
+            if (error) {
+              console.log(error);
+            } else {
+              console.log("midicine Updated");
+              console.log(result);
+            }
           }
-        }
-      );
+        );
+      }
     } else {
-      history.updateOne(
-        { pSSN: req.body.pSSN },
-        {
-          $set: {
-            report: {
-              diagnosis: req.body.initialDiag,
-              midicines: req.body.medicines,
-            },
-          },
-        },
-        (error, result) => {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(result);
-          }
-        }
-      );
-    }
-  } else {
-    history.updateOne(
-      { pSSN: req.body.pSSN },
-      {
-        $set: {
-          report: {
-            diagnosis: req.body.initialDiag,
-            midicines: req.body.medicines,
-          },
-        },
-      },
-      (error, result) => {
+      patients.findOne({ pSSN: req.body.pSSN }, (error, p) => {
         if (error) {
           console.log(error);
         } else {
-          console.log(result);
-          patients.updateOne(
-            { pSSN: req.body.pSSN },
-            { $set: { bloodType: req.body.bloodType } },
-            (error, resu) => {
+          history.updateOne(
+            { patientSSN: req.body.pSSN, arrivalDate: p.arrivalDate },
+            {
+              $set: {
+                report: {
+                  diagnosis: req.body.initialDiag,
+                  midicines: req.body.medicines,
+                },
+              },
+            },
+            (error, result) => {
               if (error) {
                 console.log(error);
               } else {
-                console.log(resu);
+                console.log(result);
               }
             }
           );
         }
+      });
+    }
+  } else {
+    patients.findOne({ pSSN: req.body.pSSN }, (error, p) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(req.body);
+        history.updateOne(
+          { patientSSN: req.body.pSSN, arrivalDate: p.arrivalDate },
+          {
+            $set: {
+              report: {
+                diagnosis: req.body.initialDiag,
+                midicines: req.body.medicines,
+              },
+            },
+          },
+          (error, result) => {
+            if (error) {
+              console.log(error);
+            } else {
+              patients.updateOne(
+                { pSSN: req.body.pSSN },
+                { $set: { pbloodType: req.body.bloodType } },
+                (error, resu) => {
+                  if (error) {
+                    console.log(error);
+                  } else {
+                    console.log(resu);
+                  }
+                }
+              );
+            }
+          }
+        );
       }
-    );
+    });
   }
 
   patients.findOne({ pSSN: req.body.pSSN }, (error, pat) => {
@@ -247,14 +267,14 @@ router.post("/docDiagnosis", (req, res, next) => {
             console.log(error);
           } else {
             console.log(result);
-            flage = true;
-            submitMessage = "Data are sent Successfully";
-            res.redirect("/doctor");
           }
         }
       );
     }
   });
+  flage = true;
+  submitMessage = "Data are sent Successfully";
+  res.redirect("/doctor");
 });
 
 module.exports = router;

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Receptionist</title>
     <link rel="stylesheet" href="../CSS/all.min.css" />
     <link rel="stylesheet" href="../CSS/style.css" />
@@ -15,100 +14,125 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
     />
-</head>
-<body>
-  <div class="container">
-    <div class="header">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
         <div class="logo home-btn">
-            <p class="home-btn">New Life</p>
-            <h2 class="home-btn">ICU</h2>
+          <p class="home-btn">New Life</p>
+          <h2 class="home-btn">ICU</h2>
         </div>
         <div class="links">
-            <ul class="links">
-              {{#if check}}
-                 <li><a href="#" class="dep">{{message}}</a></li>
-              {{/if}}
-             
+          <ul class="links">
+            {{#if check}}
+              <li><a href="#" class="dep">{{message}}</a></li>
+            {{/if}}
+
             <li><a href="#" class="dep">Department</a></li>
             <li><a href="#">Contact US</a></li>
             <li><a href="#">About US</a></li>
             <li><button href="#" class="log-out">Log Out</button></li>
-            </ul>
+          </ul>
         </div>
-    </div>  
-</div>
-<div class="cancel-card">
-    <div class="cancel-card-contains">
+      </div>
+    </div>
+    <div class="cancel-card">
+      <div class="cancel-card-contains">
         <h2>Are You Sure?</h2>
         <div class="btns">
-            <form action="users/logout" method="get">
-                <button class="button log-out-btn">Log Out</button>
-            </form>
-            <div class="button cancel">Cancel</div>
+          <form action="users/logout" method="get">
+            <button class="button log-out-btn">Log Out</button>
+          </form>
+          <div class="button cancel">Cancel</div>
         </div>
+      </div>
     </div>
-</div>
-<div class="patients">
-  <div class="contains">
-    <div class="sp-header patients-refresh">patients</div>
-  </div>
-    <div class="report">
-      <div class="report-contains">
-        <div class="sp-header patients-refresh pa-name"></div>
-        <button class="report-back sec-button">Back</button>
-        <div class="first-row-container row">
-          <div class="first-row col-12 nurse-message">
-            <div class="sp-header">Doctor Message</div>
-            <div class="docMessage"></div>
+    <div class="patients">
+      <div class="contains">
+        <div class="sp-header patients-refresh">patients</div>
+      </div>
+      <div class="report">
+        <div class="report-contains">
+          <div class="sp-header patients-refresh pa-name"></div>
+          <button class="report-back sec-button">Back</button>
+          <div class="first-row-container row">
+            <div class="first-row col-12 nurse-message">
+              <div class="sp-header">Doctor Message</div>
+              <div class="docMessage"></div>
+            </div>
+            <div class="first-row col-4">
+              <div class="sp-header">Age</div>
+              <h2 class="pa-report-age report-data">38</h2>
+            </div>
+            <div class="first-row col-7">
+              <div class="sp-header">Room No</div>
+              <h2 class="pa-report-room report-data">Room 5</h2>
+            </div>
+
           </div>
-          <div class="first-row col-4">
-            <div class="sp-header">Age</div>
-            <h2 class="pa-report-age report-data">38</h2>
-          </div>
-          <div class="first-row col-7">
-            <div class="sp-header">Room No</div>
-            <h2 class="pa-report-room report-data">Room 5</h2>
-          </div>
-          
-        </div>
           <form action="nurse/dailyDiagnosis" method="post">
             <div class="input-box">
-              <input type="text" name="pSSN" id="" class="report-pa-ssn" readonly >
+              <input
+                type="text"
+                name="pSSN"
+                id=""
+                class="report-pa-ssn"
+                readonly
+              />
             </div>
             <div class="input-box">
               <span class="details">Blood Presure</span>
-              <input type="number" name="bloodPressure" id="blood-presure" min="0" placeholder="Enter Blood Presure" required>
+              <input
+                type="number"
+                name="bloodPressure"
+                id="blood-presure"
+                min="0"
+                placeholder="Enter Blood Presure"
+              />
             </div>
             <div class="input-box">
               <span class="details">Blood Glucose</span>
-              <input type="number" name="bloodGlucose" id="blood-glucose" min="0" placeholder="Enter Blood Glucose" required>
+              <input
+                type="number"
+                name="bloodGlucose"
+                id="blood-glucose"
+                min="0"
+                placeholder="Enter Blood Glucose"
+              />
             </div>
             <div class="input-box">
               <span class="details">Progress Ratio</span>
-                <input type="number" name="progress" id="progress" placeholder="Enter Patient Progress Ratio" min="0" max="100" required>
+              <input
+                type="number"
+                name="progress"
+                id="progress"
+                placeholder="Enter Patient Progress Ratio"
+                min="0"
+                max="100"
+              />
             </div>
             <label for="notes">Notes for Doctor</label>
-              <textarea
-                name="notes"
-                class="complaint-text"
-                id="text-area"
-                cols="30"
-                rows="10"
-                maxlength="300"
-              ></textarea>
-              <div class="btns">
+            <textarea
+              name="notes"
+              class="complaint-text"
+              id="text-area"
+              cols="30"
+              rows="10"
+              maxlength="300"
+            ></textarea>
+            <div class="btns">
               <button class="button save-button">Save</button>
-              </div>
+            </div>
           </form>
+        </div>
       </div>
     </div>
-</div>
-</body>
-<script src="../JS/all.min.js"></script>
-<script src="../JS/main.js"></script>
-<script src="../JS/nurse.js"></script>
-<script src="../JS/bootstrap.bundle.min.js"></script>
+  </body>
+  <script src="../JS/all.min.js"></script>
+  <script src="../JS/main.js"></script>
+  <script src="../JS/nurse.js"></script>
+  <script src="../JS/bootstrap.bundle.min.js"></script>
 </html>

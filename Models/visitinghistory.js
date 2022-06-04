@@ -26,8 +26,8 @@ const visitingSchema = mongoose.Schema({
     type: {
       pName: String,
       docName: String,
-      diagnosis: String,
-      midicines: String,
+      diagnosis: { type: String, default: "" },
+      midicines: { type: String, default: "" },
     },
     required: false,
   },
