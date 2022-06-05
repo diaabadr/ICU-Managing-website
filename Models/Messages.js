@@ -3,10 +3,7 @@ const mongoose = require("mongoose");
 const Message = mongoose.Schema({
   From: {
     required: false,
-    type: {
-      docEmail: String,
-      docName: String,
-    },
+    type: String,
   },
   to: {
     type: String,
@@ -20,6 +17,12 @@ const Message = mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  pSSN: {
+    type: String,
+  },
+  arrivalDate: {
+    type: Date,
+  },
 });
 
-const mongoose = require("Message", Message);
+module.exports = mongoose.model("Message", Message);

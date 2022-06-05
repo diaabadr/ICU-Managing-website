@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const Patient = require("../Models/Patient");
 const Visit = require("../Models/visitinghistory");
-
+const Messages = require("../Models/Messages");
+const diag = require("../Models/dailyDiagnosis");
+const rooms = require("../Models/rooms");
 mongoose.connect(
   "mongodb://127.0.0.1/ICU-Managing-website",
   { useNewUrlParser: true },
@@ -19,7 +21,7 @@ const patients = [
     pAddress: "October",
     arrivalDate: new Date("2021-12-16"),
     isExist: true,
-    pbloodType: "O Negative",
+    pbloodType: "O+",
     roomNum: 1,
     pfirstNum: "01011121522",
   }),
@@ -31,10 +33,13 @@ const patients = [
     pGender: "Male",
     pAddress: "October",
     arrivalDate: new Date("2022-4-16"),
-    isExist: false,
-    pbloodType: "O Positive",
+    isExist: true,
+    pbloodType: "O+",
     roomNum: 2,
     pfirstNum: "01542115220",
+    lastNurse: "151210",
+    progress: 70,
+    lastDoctor: "5000110",
   }),
   new Patient({
     pName: "Mohsen Sayed",
@@ -44,24 +49,14 @@ const patients = [
     pGender: "Male",
     pAddress: "October",
     arrivalDate: new Date("2022-2-16"),
-    isExist: false,
-    pbloodType: "A Negative",
+    isExist: true,
+    progress: 50,
     roomNum: 3,
     pfirstNum: "01245678912",
+    lastNurse: "151210",
+    lastDoctor: "5000110",
   }),
 ];
-// Patient.deleteMany({ pGender:"Male" }, (error, res) => {
-//   if (error) console.log(error);
-//   else {
-//     console.log("done");
-//   }
-// });
-
-// Patient.find({}, (error, res) => {
-//   if (error) console.log(error);
-//   else console.log(res);
-// });
-
 var done = 0;
 const visits = [];
 console.log(patients.length);
@@ -74,6 +69,10 @@ for (var i = 0; i < patients.length; i++) {
     patientSSN: ssn,
     arrivalDate: arrDate,
     roomNum: rNum,
+    vDepartment: "Medical",
+    report: {
+      diagnosis: "",
+    },
   });
   if (!check) {
     visit.leavingDate = new Date("2022-5-5");
@@ -95,9 +94,124 @@ for (var i = 0; i < visits.length; i++) {
       console.log(result);
       done++;
     }
-    if (done == visits.length) {
-      console.log("dis");
-      mongoose.disconnect();
+  });
+}
+
+let msgs = [
+  new Messages({
+    to: "151210",
+    msg: "Mohsen elmareed",
+    isSeen: false,
+    pSSN: "664664",
+    arrivalDate: new Date("2022-2-16"),
+  }),
+  new Messages({
+    to: "151210",
+    msg: "Mohsen elmareed 2 ",
+    isSeen: false,
+    pSSN: "664664",
+    arrivalDate: new Date("2022-2-16"),
+  }),
+  new Messages({
+    to: "151210",
+    msg: "Mohsen elmareed 3",
+    isSeen: false,
+    pSSN: "664664",
+    arrivalDate: new Date("2022-2-16"),
+  }),
+  new Messages({
+    to: "151210",
+    msg: "mared 2",
+    isSeen: false,
+    pSSN: "151515",
+    arrivalDate: new Date("2022-4-16"),
+  }),
+  new Messages({
+    to: "151210",
+    msg: "mared 22 ",
+    isSeen: false,
+    pSSN: "151515",
+    arrivalDate: new Date("2022-4-16"),
+  }),
+  new Messages({
+    to: "5000110",
+    msg: "Ahmed",
+    isSeen: false,
+    pSSN: "151515",
+    arrivalDate: new Date("2022-4-16"),
+  }),
+  new Messages({
+    to: "5000110",
+    msg: "Mohsen ",
+    isSeen: false,
+    pSSN: "664664",
+    arrivalDate: new Date("2022-2-16"),
+  }),
+];
+
+let a = [
+  new diag({
+    bloodPressure: 20,
+    bloodGlucose: 30,
+    pSSN: "664664",
+    arrivalDate: new Date("2022-2-16"),
+  }),
+  new diag({
+    bloodPressure: 40,
+    bloodGlucose: 50,
+    pSSN: "664664",
+    arrivalDate: new Date("2022-2-16"),
+  }),
+  new diag({
+    bloodPressure: 50,
+    bloodGlucose: 60,
+    pSSN: "664664",
+    arrivalDate: new Date("2022-2-16"),
+  }),
+  new diag({
+    bloodPressure: 80,
+    bloodGlucose: 80,
+    pSSN: "151515",
+    arrivalDate: new Date("2022-4-16"),
+  }),
+  new diag({
+    bloodPressure: 90,
+    bloodGlucose: 90,
+    pSSN: "151515",
+    arrivalDate: new Date("2022-4-16"),
+  }),
+];
+
+for (var i = 0; i < msgs.length; i++) {
+  msgs[i].save((error, result) => {
+    if (error) console.log(error);
+    else {
+      console.log(result);
+      done++;
     }
   });
 }
+
+for (var i = 0; i < a.length; i++) {
+  a[i].save((error, result) => {
+    if (error) console.log(error);
+    else {
+      console.log(result);
+      done++;
+    }
+  });
+}
+
+// diag.deleteMany({}, (error, res) => {
+//   console.log(res);
+// });
+// Messages.deleteMany({}, (error, res) => {
+//   console.log(res);
+// });
+// Patient.deleteMany({}, (error, res) => {
+//   console.log(res);
+// });
+// Visit.deleteMany({}, (error, res) => {
+//   console.log(res);
+// });
+// rooms.updateMany({isBusy:true},{$set:{isBusy:false}},(error,res)=>{})

@@ -9,14 +9,12 @@ const rooms = require("../Models/rooms");
 const history = require("../Models/visitinghistory");
 const controller = require("../controller/user_controller");
 const visitors = require("../Models/visitors");
-const { updateOne } = require("../Models/Patient");
-const { config } = require("process");
-const { model } = require("mongoose");
-
+const users = require("./users").isSignin;
 let flage = false;
 let message = "";
 
-router.get("/", (req, res, next) => {
+router.get("/:id", users, (req, res, next) => {
+  console.log(req.user);
   rooms.find(
     { isBusy: false },
     "roomNum departement",
@@ -80,8 +78,7 @@ router.get("/", (req, res, next) => {
     res.render("./user/receptionist", { chec: false });
   }
 });
-
-router.post("/addVisitor", (req, res, next) => {
+router.post("/addVisitor", users, (req, res, next) => {
   patients.findOne(
     { roomNum: req.body.roomNum, isExist: true },
     (error, patient) => {
@@ -103,20 +100,20 @@ router.post("/addVisitor", (req, res, next) => {
               console.log(resu);
               flage = true;
               message = "Visitor added succesfully";
-              res.redirect("/receptionist");
+              res.redirect("/users/profile");
             }
           });
         } else {
           message = "Room is Empty!";
           flage = true;
-          res.redirect("/receptionist");
+          res.redirect("/users/profile");
         }
       }
     }
   );
 });
 
-router.post("/checkout", (req, res, next) => {
+router.post("/checkout", users, (req, res, next) => {
   patients.findOne({ pSSN: req.body.pSSN, isExist: true }, (error, patient) => {
     if (error) {
       console.log(error);
@@ -151,7 +148,7 @@ router.post("/checkout", (req, res, next) => {
                           console.log(updatedHistory);
                           message = "checkout successfully";
                           flage = true;
-                          res.redirect("/receptionist");
+                          res.redirect("/users/profile");
                         }
                       }
                     );
@@ -164,33 +161,18 @@ router.post("/checkout", (req, res, next) => {
       } else {
         flage = true;
         message = "There is No Patient with that SSN";
-        res.redirect("/receptionist");
+        res.redirect("/receptionist/" + req.user.id);
       }
     }
   });
 });
 
-router.get("/logout", (req, res, next) => {
-  req.logOut((error, next) => {
-    if (error) {
-      return next(error);
-    } else {
-      req.user = null;
-      req.session.destroy((error, result) => {
-        if (error) {
-          console.log(error);
-        } else {
-          res.redirect("/");
-        }
-      });
-    }
-  });
-});
-router.get("/back", (req, res, next) => {
-  res.redirect("/receptionist");
-});
-router.post("/check", controller.checkPatient);
-router.post("/addPatient", (req, res, next) => {
+// router.post("/back", users, (req, res, next) => {
+//   console.log(typeof req.user.id);
+//   res.redirect("/receptionist/" + req.user.id);
+// });
+router.post("/check", users, controller.checkPatient);
+router.post("/addPatient", users, (req, res, next) => {
   rooms.findOne(
     { isBusy: false, departement: req.body.departments },
     (error, result) => {
@@ -221,13 +203,24 @@ router.post("/addPatient", (req, res, next) => {
                       console.log(error);
                     } else {
                       console.log(existPatient);
+                      rooms.updateOne(
+                        { roomNum: result.roomNum },
+                        { $set: { isBusy: true, pSSN: req.body.pSSN } },
+                        (er, roomUpdated) => {
+                          if (er) {
+                            console.log(er);
+                          } else {
+                            console.log(roomUpdated);
+                          }
+                        }
+                      );
                     }
                   }
                 );
               } else if (found && found.isExist) {
                 message = "Patient already exist";
                 flage = true;
-                res.redirect("/receptionist");
+                res.redirect("/users/profile");
               } else {
                 const patient = new patients({
                   pName: req.body.fName + " " + req.body.lName,
@@ -245,21 +238,21 @@ router.post("/addPatient", (req, res, next) => {
                     console.log(err);
                   } else {
                     console.log(newPatient);
+                    rooms.updateOne(
+                      { roomNum: result.roomNum },
+                      { $set: { isBusy: true, pSSN: req.body.pSSN } },
+                      (er, roomUpdated) => {
+                        if (er) {
+                          console.log(er);
+                        } else {
+                          console.log(roomUpdated);
+                        }
+                      }
+                    );
                   }
                 });
               }
 
-              rooms.updateOne(
-                { roomNum: result.roomNum },
-                { $set: { isBusy: true, pSSN: req.body.pSSN } },
-                (er, roomUpdated) => {
-                  if (er) {
-                    console.log(er);
-                  } else {
-                    console.log(roomUpdated);
-                  }
-                }
-              );
               const vHistory = new history({
                 roomNum: result.roomNum,
                 arrivalDate: date,
@@ -291,7 +284,9 @@ router.post("/addPatient", (req, res, next) => {
             }
           });
         } else {
-          // res.render("");
+          flage = true;
+          message = "No Room available";
+          res.redirect("/users/profile");
         }
       }
     }

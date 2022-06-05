@@ -5,9 +5,9 @@ const visitingSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  vDepartment:{
-    type:String,
-    required:true,
+  vDepartment: {
+    type: String,
+    required: true,
   },
   arrivalDate: {
     type: Date,
@@ -23,13 +23,13 @@ const visitingSchema = mongoose.Schema({
     type: String,
   },
   report: {
+    required:false,
     type: {
-      pName: String,
-      docName: String,
-      repDate: String,
-      repContent: String,
+      pName: {type:String,default:""},
+      docName:  {type:String,default:""},
+      diagnosis: { type: String, default: "" },
+      midicines: { type: String, default: "" },
     },
-    required: false,
   },
   roomNum: {
     type: Number,

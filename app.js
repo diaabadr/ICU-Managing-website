@@ -5,8 +5,10 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var usersRouter = require("./routes/users").router;
 const profile = require("./routes/profile");
+const nurse = require("./routes/nurse");
+const doctor = require("./routes/doctor");
 var app = express();
 require("./config/passport");
 const expressValidator = require("express-validator");
@@ -17,6 +19,7 @@ const MongoStore = require("connect-mongo");
 const { config } = require("process");
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
+app.set("views/user", path.join(__dirname, "views/user"));
 app.set("view engine", "hbs");
 app.use(logger("dev"));
 app.use(express.json());
@@ -27,6 +30,12 @@ app.use(
     secret: "ICU-Managing-website_?@!",
     saveUninitialized: false,
     resave: true,
+    proxy: true,
+    path: "/",
+    store: MongoStore.create({
+      mongoUrl: "mongodb://127.0.0.1/ICU-Managing-website",
+      collectionName: "sessions",
+    }),
   })
 );
 app.use(flash());
@@ -36,6 +45,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/receptionist", profile);
+app.use("/nurse", nurse);
+app.use("/doctor", doctor);
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

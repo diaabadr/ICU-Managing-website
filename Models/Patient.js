@@ -22,10 +22,12 @@ const patientSchema = mongoose.Schema({
   pAddress: {
     required: false,
     type: String,
+    default: "",
   },
   pbloodType: {
     type: String,
     required: false,
+    default: "",
   },
   arrivalDate: {
     type: Date,
@@ -39,9 +41,18 @@ const patientSchema = mongoose.Schema({
     type: Boolean,
     required: true,
   },
+  lastDoctor: {
+    type: String,
+  },
+  progress: {
+    type: Number,
+  },
   roomNum: {
     type: Number,
     required: true,
+  },
+  lastNurse: {
+    type: String,
   },
 });
 
