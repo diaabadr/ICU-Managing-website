@@ -366,7 +366,8 @@ body{
 .col-2,
 .col-4,
 .col-3,
-.col-1{
+.col-1,
+.page-assign-staff .col-6{
     text-align: center;
 }
 
@@ -511,4 +512,298 @@ body{
 .show{
     filter: opacity(1);
 }
+/* ########################################### */
+.page-dashboard{
+    transform: rotateX(90deg);
+    transition: 0.3s;
+    display: block;
+}
 
+.page-add-staff{
+    transform: rotateX(-90deg);
+    transition: 0.3s;
+    display: none;
+}
+
+.page-assign-staff{
+    transform: rotateX(-90deg);
+    transition: 0.3s;
+    display: none;
+}
+
+.page-show{
+    transform: rotateX(0deg);
+    transition: 0.3s;
+}
+
+/* ######### form ######### */
+.container {
+    background: linear-gradient(-135deg, var(--sec-color), #fff);
+    margin-top: 80px;
+    width: 50%;
+    height: 800px;
+    border-radius: var(--border-radius);
+}
+
+.container .form-title-container {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 250px;
+}
+
+.container .form-title-container .form-title {
+    padding-left: 8px;
+}
+
+.container .form-title-container .form-title:hover {
+    background: linear-gradient(-135deg, var(--sec-color), var(--main-color));
+    border-radius: var(--border-radius);
+    font-size: 21px;
+}
+
+.form-container .form-parts .essential-details {
+    margin-left: 15px;
+}
+
+.form-container .form-parts .essential-details .input-box {
+    margin: 10px 0;
+}
+
+.form-container .form-parts .essential-details .input-box .input-name,
+.input-name  {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    padding-left: 20px;
+}
+
+.form-container .form-parts .essential-details .input-box .input-field {
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius);
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 15px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background-color: #222468;
+    color: white;
+}
+
+.gender-types{
+    display: flex;
+}
+
+.form-container .br{
+    background-color: #222468;
+    margin: 5px auto;
+}
+
+.form-container .form-parts .essential-details .input-box .input-field::placeholder{
+    color: rgba(255, 255, 255, 0.403);
+}
+
+.form-container .form-parts .essential-details .input-box .input-field:focus,
+.form-container .form-parts .essential-details .input-box .input-field:valid {
+    border: 2px solid var(--sec-color);
+}
+
+.form-container .form-parts .gender-details {
+    margin: 20px 0;
+    flex-direction: column;
+}
+
+.form-container .form-parts .gender-details .gender-type {
+    margin-right: 20px;
+}
+.form-container .form-parts .gender-details .input-name {
+    width: fit-content;
+    display: block;
+}
+
+.form-container .form-parts .starting-date-details {
+    margin: 20px 0;
+}
+
+.form-container .form-parts .starting-date-details .date-name {
+    margin-right: 20px;
+    color: white;
+}
+
+.form-container .form-parts .starting-date-details input {
+    background-color: #222468;
+    outline: none;
+    border: none;
+    height: 50px;
+    padding: 20px;
+    color: white;
+    border-radius: var(--border-radius);
+    width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+    cursor: pointer;
+}
+
+input[type="radio"]{
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+label{
+    background-color: #222468;
+    color: white;
+    transition: 0.3s;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+label:hover{
+    background-color: var(--sec-color);
+    color: var(--main-color);
+}
+
+input[type="radio"]:checked + label{
+    background-color: var(--sec-color);
+    color: var(--main-color);
+}
+
+.form-container .form-parts .button {
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+.form-container .form-parts .button input {
+    display: block;
+    margin-top: 30px;
+    width: 715px;
+    height: 50px;
+    border-radius: var(--border-radius);
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #fff;
+    background: var(--main-color);
+    text-transform: uppercase;
+}
+
+.form-container .button{
+    height: 50px;
+    margin: 0 auto !important;
+    line-height: 0;
+    outline: none;
+    border: none;
+    background-color: var(--sec-color);
+    background-image: none;
+    width: 40%;
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+.form-container .button:hover{
+    background-color: #222468;
+    color: white;
+}
+
+.form-container .form-parts .button input:hover {
+    background: linear-gradient(-135deg, var(--sec-color), var(--main-color));
+}
+
+select{
+    background-color: #222468;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.staff-dep{
+    display: none ;
+}
+/* ######### form ######### */
+
+.avaliable-staff{
+    background-color: #13143a;
+    width: 95%;
+    margin: 0 auto 10px !important;
+    border-radius: var(--border-radius);
+}
+
+.avaliable-staff .header-text{
+    color: white;
+}
+
+.ava {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 200px;
+}
+
+.ava .ava-staff{
+    cursor: pointer;
+
+}
+
+.ava .ava-staff:hover{
+    background-color: #181a46;
+}
+
+.assigned{
+    background-color: #181a46;
+}
+.assigned h2{color: var(--sec-color);}
+.assigned h3{color: white;}
+
+
+
+.ava .ava-staff:hover h2{color: var(--sec-color);}
+.ava .ava-staff:hover h3{color: white;}
+
+.assign-form .button{
+    background-image: none;
+    background-color: var(--sec-color);
+    left: 50%;
+    transform: translateX(-50);
+    margin-top: 70px;
+}
+
+.assign-form .button:hover{
+    background-image: none;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.page-assign-staff .patients{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 80px);
+    border: 3px solid #13143a;
+}
+
+.one-pat{
+    margin-bottom: 70px;
+}
+
+.hidden-inputs{
+    display: none;
+}
+
+.assign-form .error{
+    margin-top: 20px;
+}
+
+.last-patients .patient{
+    cursor: default;
+}

@@ -8,7 +8,15 @@ let col8 = document.querySelector(".col-8")
 let insights = document.querySelector(".insights")
 let complaintsContainer= document.querySelector(".complaints-container");
 let patients = document.querySelector(".messages");
-console.log(patients);
+let pageContains = document.getElementsByClassName("page-contains");
+let staffPosition = document.querySelector(".staff-position")
+let staffDep = document.querySelector(".staff-dep")
+let avaDoctor = document.getElementsByClassName("ava-doctor")
+let avaNurse = document.getElementsByClassName("ava-nurse")
+let assignedDoc = document.getElementsByClassName("assigned-doc");
+let assignedNurse = document.getElementsByClassName("assigned-nurse");
+let assignButton = document.getElementsByClassName("assign-btn");
+
 
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains('sidebar')) {
@@ -31,11 +39,17 @@ document.addEventListener("click", function (e) {
                 sidebarEle[i].classList.remove("active");
             }
         }
+        let adminPage = document.getElementsByClassName(`${e.target.getAttribute("data-sidebarEle")}`)
         e.target.classList.add("active")
+        for (i = 0; i < pageContains.length; i++){
+            pageContains[i].classList.remove("page-show");
+            setTimeout(hideDiv, 300, pageContains[i]);
+        }
+        setTimeout(showDiv2, 300, adminPage[0]);
+        setTimeout(pageRotate, 400, adminPage[0]);
     }
     if (e.target.getAttribute("data-ins") != "") {
             if (e.target.classList.contains("insight")) {
-            console.log(e.target.getAttribute("data-ins"));
             let pat = document.getElementsByClassName(`${e.target.getAttribute("data-ins")}`);
             let dash = document.querySelector(".dashboard")
             dash.classList.remove("show");
@@ -57,13 +71,11 @@ document.addEventListener("click", function (e) {
             staff[i].classList.remove("active-staff")
         }
         e.target.classList.add("active-staff")
-        console.log(`${e.target.getAttribute("data-staff")}`);
         let staffMembers = document.getElementsByClassName(`${e.target.getAttribute("data-staff")}`)
         for (i = 0; i < staffMem.length; i++){
             staffMem[i].classList.remove("active-staff-card");
         }
         staffMembers[0].classList.add("active-staff-card");
-        console.log(staffMembers[0]);
     }
 
     if (e.target.classList.contains("complaints")) {
@@ -81,6 +93,56 @@ document.addEventListener("click", function (e) {
         setTimeout(showDiv2, 450, insights);
         setTimeout(compAntiWidth, 300)
         setTimeout(compAntiHeight, 300)
+    }
+    if (e.target.classList.contains("ava-doctor")) {
+        if (e.target.classList.contains("assigned")) {
+            e.target.classList.remove("assigned");
+            assignedDoc[e.target.getAttribute("data-pa")-1].value = "";
+        } else {
+        for (i = 0; i < avaDoctor.length; i++) {
+                avaDoctor[i].classList.remove("assigned");
+            }
+            e.target.classList.add("assigned");
+            assignedDoc.value = document.querySelector(`.assigned .name h2`).innerHTML;
+            assignedDoc[e.target.getAttribute("data-pa")-1].value = e.target.querySelector(`.name h2`).innerHTML;
+        }
+    }
+    if (e.target.classList.contains("ava-nurse")) {
+        if (e.target.classList.contains("assigned")) {
+            e.target.classList.remove("assigned");
+            assignedNurse[e.target.getAttribute("data-pa") - 1].value = "";
+        } else {
+            for (i = 0; i < avaNurse.length; i++) {
+                avaNurse[i].classList.remove("assigned");
+            }
+            e.target.classList.add("assigned");
+            assignedNurse[e.target.getAttribute("data-pa")-1].value = e.target.querySelector(`.name h2`).innerHTML;
+        }
+    }
+    if (e.target.classList.contains("assign-btn")) {
+        // for (i = 0; i < assignButton.length; i++){
+        //     for (l = 0; l < assignedDoc.length; l++){
+        //         if (assignedDoc[l].index == assignButton[i].index) {
+        //             console.log(assignButton[i]);
+        //         }
+        //     }
+        // }
+
+        if ((assignedDoc.value === "")) {
+            document.querySelector(".assign-form .error").innerHTML = "Please Assign Doctor!";
+        }
+        else if ((assignedNurse.value === "")) {
+            document.querySelector(".assign-form .error").innerHTML = "Please Assign Nurse!";
+        }
+    }
+})
+document.addEventListener("change", function (e) {
+    if (e.target.classList.contains("staff-position")) {
+        if (staffPosition.value != "Receptionist") {
+            staffDep.style.display = "block"
+        } else {
+            staffDep.style.display = "none"
+        }
     }
 })
 
@@ -125,4 +187,8 @@ function compAntiHeight() {
 function finish(){
     col8.classList.remove("col-8-hide")
     insights.classList.remove("insights-hide");
+}
+
+function pageRotate(x) {
+    x.classList.add("page-show");
 }

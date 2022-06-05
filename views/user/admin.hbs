@@ -27,22 +27,22 @@
       </div>
       <div class="br prevent-click"></div>
       <div class="sidebar-eles">
-        <div class="sidebar-ele active">
+        <div class="sidebar-ele active" data-sidebarEle="page-dashboard">
           <i class="fa-solid fa-house prevent-click"></i>
           <h3 class="ele-text prevent-click">Dashboard</h3>
         </div>
-        <div class="sidebar-ele">
+        <div class="sidebar-ele" data-sidebarEle="page-add-staff">
           <i class="fa-solid fa-user-large prevent-click"></i>
           <h3 class="ele-text prevent-click">Add Staff</h3>
         </div>
-        <div class="sidebar-ele">
+        <div class="sidebar-ele" data-sidebarEle="page-assign-staff">
           <i class="fa-solid fa-stethoscope prevent-click"></i>
           <h3 class="ele-text prevent-click">Assign Staff</h3>
         </div>
       </div>
       <div class="sidebar-eles bottom">
         <div class="br prevent-click"></div>
-        <div class="sidebar-ele">
+        <div class="sidebar-ele" data-sidebarEle="page-profile">
           <i class="fa-regular fa-user prevent-click"></i>
           <h3 class="ele-text prevent-click">Profile</h3>
         </div>
@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div class="page-contains">
+    <div class="page-contains page-dashboard page-show">
       <div class="dashboard show">
         <div class="insights">
           <div class="row">
@@ -328,13 +328,13 @@
           <div class="contains">
               <div class="staff-choose row" >
                 <div class="doctor staff col-4 active-staff" data-staff="doctors">
-                  <h2 class="prevent-click">Doctor</h2>
+                  <h2 class="prevent-click">Doctors</h2>
                 </div>
                 <div class="nurse staff col-4" data-staff="nurses">
-                  <h2 class="prevent-click">Nurse</h2>
+                  <h2 class="prevent-click">Nurses</h2>
                 </div>
                 <div class="receptionist staff col-4" data-staff="receptionists">
-                  <h2 class="prevent-click" >Receptionist</h2>
+                  <h2 class="prevent-click" >Receptionists</h2>
                 </div>
               </div>
               <div class="staff-contains">
@@ -690,6 +690,502 @@
                 </div>
                 <div class="last"></div>
               </div>
+          </div>
+      </div>
+    </div>
+    <div class="page-contains page-add-staff ">
+        <div class="form-container">
+            <form action="" class="form-parts" method="get">
+                <div class="essential-details row">
+                    <div class="input-box col-6">
+                        <span class="input-name">First Name</span>
+                        <input type="text" class="input-field" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="input-box col-6">
+                        <span class="input-name">Last Name</span>
+                        <input type="text" class="input-field" placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="input-name">SSN</span>
+                        <input type="text" class="input-field" placeholder="Enter SSN" required maxlength="14" minlength="14">
+                    </div>
+                    <div class="input-box">
+                        <span class="input-name">Address</span>
+                        <input type="text" class="input-field" placeholder="Enter address" required>
+                    </div>
+                    <div class="br col-10"></div>
+                    <div class="input-box">
+                        <span class="input-name">Phone</span>
+                        <input type="text" class="input-field" placeholder="Enter phone" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="input-name">Email</span>
+                        <input type="email" class="input-field" placeholder="Enter email" required>
+                    </div>
+                    <div class="br col-10"></div>
+                    <div class="input-box">
+                        <span class="input-name">Position</span>
+                        <select id="departments" required name="departments" class="staff-position">
+                        <option selected="selected" hidden disabled class="option-selected">
+                            Select Position
+                        </option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Nurse">Nurse</option>
+                            <option value="Receptionist">Receptionist</option>
+                        </select> 
+                    </div>
+                    <div class="input-box staff-dep">
+                        <span class="input-name">Department</span>
+                        <select id="departments" required name="departments" >
+                        <option selected="selected" hidden disabled class="option-selected">
+                            Select Department
+                        </option>
+                            <option value="Medical">Medical</option>
+                            <option value="Surgical">Surgical</option>
+                            <option value="Pediatric">Pediatric</option>
+                            <option value="Neonatal">Neonatal</option>
+                        </select> 
+                    </div>
+                    <div class="input-box">
+                        <span class="input-name">Salary</span>
+                        <input type="text" class="input-field" placeholder="Enter salary" value="" required>
+                    </div>
+                <div class="row">
+                  <div class="gender-details col-2">
+                      <span class="input-name">Gender</span>
+                      <div class="gender-types">
+                        <div class="gender-type">
+                            <input type="radio" name="gender" id="male">
+                            <label for="male" class="gender-male">Male</label>
+                        </div>
+                        <div class="gender-type">
+                            <input type="radio" name="gender" id="female">
+                            <label for="female" class="gender-male">Female</label>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="starting-date-details col-10">
+                      <span class="input-name">Birth Date</span>
+                      <input type="date" name="" id="">
+                  </div>
+                </div>
+                <button class="button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="page-contains page-assign-staff">
+      <div class="patients doctor-patients">
+        <div class="contains">
+          <div class="sp-header patients-refresh">patients</div>
+            <div class="one-pat">
+              <div class="patient patient-button row">
+                <div class="first-row disable-hover col-12 row">
+                  <div class="name col-3 prevent-click">
+                    <h3 class="prevent-click">Name</h3>
+                    <h2 class="prevent-click">abdo Yasser</h2>
+                  </div>
+                  <div class="name col-3 prevent-click">
+                    <h3 class="prevent-click">Department</h3>
+                    <h2 class="prevent-click">Medical</h2>
+                  </div>
+                  <div class="name col-2 prevent-click">
+                    <h3 class="prevent-click">Room No.</h3>
+                    <h2 class="prevent-click">Room 5</h2>
+                  </div>
+                  <div class="age col-2 prevent-click">
+                    <h3 class="prevent-click">Age</h3>
+                    <h2 class="prevent-click">30</h2>
+                  </div>
+                  <div class="progress col-2 prevent-click">
+                    <h3 class="prevent-click">Gender</h3>
+                    <h2 class="prevent-click">Male</h2>
+                  </div>
+                </div>
+              </div>          
+                <div class="avaliable-staff row">
+                  <div class="progress col-6">
+                    <h3 class=" header-text">Avaliable Doctors</h3>
+                    <div class="ava">
+                      <div class="ava-staff ava-doctor patient row" data-pa="1">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Diaa</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-doctor patient row" data-pa="1">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-doctor patient row" data-pa="1">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">ALi Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress col-6">
+                    <h3 class=" header-text nursess">Avaliable Nurses</h3>
+                    <div class="ava">
+                      <div class="ava-staff ava-nurse patient row" data-pa="1">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-nurse patient row" data-pa="1">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <form action="" method="get" class="assign-form">
+                    <div class="hidden-inputs col-12">
+                      <input type="text" class="assigned-doc" placeholder="Enter First Name" required>
+                      <input type="text" class="assigned-nurse" placeholder="Enter First Name" required>
+                    </div>
+                    <h2 class="error"></h2>
+                    <button class="button assign-btn">Assign</button>
+                  </form>
+                </div>
+            </div>
+            <div class="one-pat">
+              <div class="patient patient-button row">
+                <div class="first-row disable-hover col-12 row">
+                  <div class="name col-3 prevent-click">
+                    <h3 class="prevent-click">Name</h3>
+                    <h2 class="prevent-click">abdo Yasser</h2>
+                  </div>
+                  <div class="name col-3 prevent-click">
+                    <h3 class="prevent-click">Department</h3>
+                    <h2 class="prevent-click">Medical</h2>
+                  </div>
+                  <div class="name col-2 prevent-click">
+                    <h3 class="prevent-click">Room No.</h3>
+                    <h2 class="prevent-click">Room 5</h2>
+                  </div>
+                  <div class="age col-2 prevent-click">
+                    <h3 class="prevent-click">Age</h3>
+                    <h2 class="prevent-click">30</h2>
+                  </div>
+                  <div class="progress col-2 prevent-click">
+                    <h3 class="prevent-click">Gender</h3>
+                    <h2 class="prevent-click">Male</h2>
+                  </div>
+                </div>
+              </div>          
+                <div class="avaliable-staff row">
+                  <div class="progress col-6">
+                    <h3 class=" header-text">Avaliable Doctors</h3>
+                    <div class="ava">
+                      <div class="ava-staff ava-doctor patient row" data-pa="2">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Diaa</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-doctor patient row" data-pa="2">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-doctor patient row" data-pa="2">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">ALi Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress col-6">
+                    <h3 class=" header-text nursess">Avaliable Nurses</h3>
+                    <div class="ava">
+                      <div class="ava-staff ava-nurse patient row" data-pa="2">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-nurse patient row" data-pa="2">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <form action="" method="get" class="assign-form">
+                    <div class="hidden-inputs col-12">
+                      <input type="text" class="assigned-doc" placeholder="Enter First Name" required>
+                      <input type="text" class="assigned-nurse" placeholder="Enter First Name" required>
+                    </div>
+                    <h2 class="error"></h2>
+                    <button class="button assign-btn">Assign</button>
+                  </form>
+                </div>
+            </div>
+            <div class="one-pat">
+              <div class="patient patient-button row">
+                <div class="first-row disable-hover col-12 row">
+                  <div class="name col-3 prevent-click">
+                    <h3 class="prevent-click">Name</h3>
+                    <h2 class="prevent-click">abdo Yasser</h2>
+                  </div>
+                  <div class="name col-3 prevent-click">
+                    <h3 class="prevent-click">Department</h3>
+                    <h2 class="prevent-click">Medical</h2>
+                  </div>
+                  <div class="name col-2 prevent-click">
+                    <h3 class="prevent-click">Room No.</h3>
+                    <h2 class="prevent-click">Room 5</h2>
+                  </div>
+                  <div class="age col-2 prevent-click">
+                    <h3 class="prevent-click">Age</h3>
+                    <h2 class="prevent-click">30</h2>
+                  </div>
+                  <div class="progress col-2 prevent-click">
+                    <h3 class="prevent-click">Gender</h3>
+                    <h2 class="prevent-click">Male</h2>
+                  </div>
+                </div>
+              </div>          
+                <div class="avaliable-staff row">
+                  <div class="progress col-6">
+                    <h3 class=" header-text">Avaliable Doctors</h3>
+                    <div class="ava">
+                      <div class="ava-staff ava-doctor patient row" data-pa="3">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Diaa</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-doctor patient row" data-pa="3">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-doctor patient row" data-pa="3">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">ALi Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="progress col-6">
+                    <h3 class=" header-text nursess">Avaliable Nurses</h3>
+                    <div class="ava">
+                      <div class="ava-staff ava-nurse patient row" data-pa="3">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                      <div class="ava-staff ava-nurse patient row" data-pa="3">
+                        <div class="name col-3 prevent-click">
+                            <h3 class="prevent-click">Name</h3>
+                            <h2 class="prevent-click">Abdo Yasser</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">No of Patients</h3>
+                            <h2 class="prevent-click">3</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Phone Number</h3>
+                            <h2 class="prevent-click">01112221122</h2>
+                          </div>
+                          <div class="progress col-3 prevent-click">
+                            <h3 class="prevent-click">Age</h3>
+                            <h2 class="prevent-click">35</h2>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                  <form action="" method="get" class="assign-form">
+                    <div class="hidden-inputs col-12">
+                      <input type="text" class="assigned-doc" placeholder="Enter First Name" required>
+                      <input type="text" class="assigned-nurse" placeholder="Enter First Name" required>
+                    </div>
+                    <h2 class="error"></h2>
+                    <button class="button assign-btn">Assign</button>
+                  </form>
+                </div>
+            </div>
           </div>
       </div>
     </div>
