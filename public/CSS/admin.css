@@ -1,0 +1,809 @@
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 5px;
+    --important-text: 35px;
+    --sec-text: 25px;
+    --icons-size: 45px
+}
+
+body{
+    background-image: none;
+    background-color: var(--main-color);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.sidebar{
+    height: 100%;
+    width: 100px;
+    background-color: #222468;
+    position: fixed;
+    left: 0;
+    padding: 20px;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.sidebar-show{
+    width: 300px;
+}
+
+.sidebar-logo .logo{
+    margin: auto;
+    width: fit-content;
+}
+.sidebar-logo .logo p{
+    font-size: 15px;
+    margin-bottom: -5px;
+}
+
+.sidebar-logo .logo h2{
+    font-size: 37px;
+}
+
+.sidebar-logo .logo:hover p{
+    transform:none
+}
+
+.sidebar-logo .logo:hover h2{
+    transform:none
+}
+
+.br{
+    width: 80%;
+    height: 3px;
+    background-color: var(--main-color);
+    margin: auto;
+}
+
+.sidebar-eles{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.sidebar-ele{
+    width: 90%;
+    min-height: 40px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px auto 0;
+    cursor: pointer;
+    justify-content: space-evenly;
+}
+
+.sidebar-ele svg {
+    height: 30px;
+    color: rgba(162, 171, 249, 0.322);
+    transition: 0.5s;
+}
+
+.sidebar-ele:hover svg{
+    color: var(--sec-color);
+}
+
+
+
+.sidebar .bottom {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.sidebar .bottom .sidebar-ele{
+    margin-bottom: 30px;
+}
+
+
+.sidebar-ele h3{
+    text-align: center;
+    color: var(--sec-color);
+    transition: 0.5s;
+    font-size: 15px;
+    line-height: 0;
+}
+
+.sidebar-ele h3:hover{
+    color: white;
+}
+
+.ele-text{
+    margin-left: -20px;
+    color: rgba(162, 171, 249, 0.322)!important;
+    display: none;
+    filter: opacity(0);
+    transition: 0.5s;
+}
+
+.ele-text-show{
+    filter: opacity(1);
+}
+
+.sidebar-ele:hover .ele-text {
+    color: var(--sec-color) !important;
+}
+
+.active svg{
+    color: #222468;
+}
+
+.active .ele-text{
+    color: #222468 !important;
+}
+
+.active{
+    background-color: var(--sec-color);
+    transition: 0.3s;
+    border-radius: var(--border-radius);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: default;
+}
+
+.active:hover svg{
+    color: #222468;
+}
+
+.active:hover .ele-text{
+    color: #222468 !important;
+}
+
+.prevent-click{
+    pointer-events: none;
+}
+
+.log-out{
+    margin: auto;
+    transition: 0.5s;
+}
+
+.log-out h3{
+    font-weight: 400;
+    font-size: 15px !important;
+}
+
+.log-out:hover h3 {
+    color: white;
+}
+
+/* ################################################## */
+.page-contains{
+    width: calc(100vw - 140px);
+    min-height: calc(100vh - 40px);
+    position: absolute;
+    margin: 20px;
+    left: 100px;
+}
+
+.insight{
+    display: flex;
+    background-color: #222468;
+    height: 200px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.insight svg{
+    font-size: 80px;
+    color: white;
+    transition: 0.3s;
+    cursor: default;
+    user-select: none;
+}
+
+.insight h3{
+    color: var(--sec-color);
+    font-size: var(--sec-text);
+    margin: 0;
+    text-align: center;
+    transition: 0.3s;
+    cursor: default;
+    user-select: none;
+    font-size: 25px;
+}
+
+.insight h2{
+    color: white;
+    font-size: 60px;
+    margin: 0;
+    text-align: center;
+    transition: 0.3s;
+    cursor: default;
+    user-select: none;
+}
+
+.row{
+    width: 100%;
+}
+
+.insight:hover{
+    background-color: var(--sec-color);
+}
+
+.insight:hover svg{
+    color: var(--main-color);
+}
+
+.insight:hover h3{
+    color: white;
+}
+
+.insight:hover h2{
+    color: var(--main-color);
+}
+
+.patients{
+    height: 580px;
+    margin: 20px 0;
+    background-color: #222468;
+    margin-left: 0;
+}
+
+.patient {
+    background-color: var(--main-color);
+    margin: 20px auto 10px !important;
+    border-radius: var(--border-radius);
+    transition: 0.3s;
+    cursor: pointer;
+    transform: translateX(0%);
+    width: 95%;
+}
+
+.patient-hide {
+    transform: translateX(150%);
+}
+
+.patient h3 {
+    color: var(--sec-color);
+    transition: 0.3s;
+}
+
+.patient h2 {
+    color: white;
+    transition: 0.3s;
+}
+
+.patient:hover {
+    background-color: var(--sec-color);
+}
+
+.patient:hover h3 {
+    color: white;
+}
+
+.patient:hover h2 {
+    color: var(--main-color);
+}
+
+.contains {
+    transform: translateX(0);
+    filter: opacity(100%);
+    transition: 1s;
+    max-height: 500px;
+}
+
+.sp-header {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 50px;
+    background-color: var(--sec-color);
+    color: var(--main-color);
+    border-radius: var(--border-radius);
+    width: 45%;
+    margin-top: 0;
+    margin-right: 50%;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    user-select: none;
+    transition: 0.5s;
+    min-width: fit-content;
+}
+
+.sp-header:hover {
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    width:2px;
+
+}
+
+.messages{
+    overflow-y: scroll;
+}
+
+.message {
+    color: white;
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+.complaints{
+    margin-right: 40%;
+    width: 260px;
+    cursor: pointer;
+}
+
+.last{
+    width: 100%;
+    height: 20px;
+}
+
+.dashboard{
+    filter: opacity(0);
+    transition: 0.3s;
+}
+
+.admin-back{
+    background-image: none;
+    color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin: 0;
+
+}
+
+.pat,
+.sta,
+.vis{
+    height: 92vh !important;
+    display: none;
+    transition: 0.5s;
+    filter: opacity(0);
+}
+
+.col-2,
+.col-4,
+.col-3,
+.col-1,
+.page-assign-staff .col-6{
+    text-align: center;
+}
+
+.admin-patients{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100% - 40px);
+}
+
+.upper{
+    background-color: #222468;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    height: 60.2px;
+}
+
+.admin-patients .contains{
+    margin-top: 75px;
+}
+
+.staff-choose{
+    margin: 0 auto !important;
+    width: 90%;
+    border-radius: var(--border-radius);
+}
+
+.doctor,
+.nurse,
+.receptionist{
+    text-align: center;
+    color: white;
+    background-color: var(--main-color);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.doctor:hover,
+.nurse:hover,
+.receptionist:hover{
+    color: var(--main-color);
+    background-color: var(--sec-color);
+}
+
+
+.staff-contains{
+    position: relative;
+}
+
+.doctors,
+.nurses,
+.receptionists {
+    width: 100%;
+    position: absolute;
+    left: 50%;
+}
+
+.doctors{
+    transform: translateX(150%);
+    transition: 0.3s;
+
+}
+.nurses{
+    transform: translateX(200%);
+    transition: 0.3s;
+
+}
+.receptionists{
+    transform: translateX(250%);
+    transition: 0.3s;
+
+}
+
+.none{
+    cursor: default;
+}
+
+.col-8{
+    filter: opacity(1);
+    transition: 0.3s;
+}
+
+.insights{
+    filter: opacity(1);
+    transition: 0.3s;
+}
+
+.col-8-hide{
+    filter: opacity(0);
+}
+
+.insights-hide{
+    filter: opacity(0);
+    transition-delay: 0.6s;
+}
+
+.complaints-container{
+    position: absolute;
+    right: 0;
+    transition: 0.5s;
+}
+
+.comp-back{
+    display: none;
+}
+
+.complaints-width{
+    width: 100% !important;
+    transition: 0.5s;
+}
+
+.complaints-width .comp-back{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+}
+
+.complaints-height{
+    height: 750px !important;
+    transition: 0.5s;
+}
+
+.complaints-height p{
+    font-size: 25px;
+}
+
+.active-staff{
+    color: var(--main-color);
+    background-color: var(--sec-color);
+    cursor: default;
+    transition: 0.3s;
+}
+
+.active-staff-card{
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+
+.show{
+    filter: opacity(1);
+}
+/* ########################################### */
+.page-dashboard{
+    transform: rotateX(90deg);
+    transition: 0.3s;
+    display: block;
+}
+
+.page-add-staff{
+    transform: rotateX(-90deg);
+    transition: 0.3s;
+    display: none;
+}
+
+.page-assign-staff{
+    transform: rotateX(-90deg);
+    transition: 0.3s;
+    display: none;
+}
+
+.page-show{
+    transform: rotateX(0deg);
+    transition: 0.3s;
+}
+
+/* ######### form ######### */
+.container {
+    background: linear-gradient(-135deg, var(--sec-color), #fff);
+    margin-top: 80px;
+    width: 50%;
+    height: 800px;
+    border-radius: var(--border-radius);
+}
+
+.container .form-title-container {
+    margin: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    width: 250px;
+}
+
+.container .form-title-container .form-title {
+    padding-left: 8px;
+}
+
+.container .form-title-container .form-title:hover {
+    background: linear-gradient(-135deg, var(--sec-color), var(--main-color));
+    border-radius: var(--border-radius);
+    font-size: 21px;
+}
+
+.form-container .form-parts .essential-details {
+    margin-left: 15px;
+}
+
+.form-container .form-parts .essential-details .input-box {
+    margin: 10px 0;
+}
+
+.form-container .form-parts .essential-details .input-box .input-name,
+.input-name  {
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    padding-left: 20px;
+}
+
+.form-container .form-parts .essential-details .input-box .input-field {
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius);
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 15px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+    background-color: #222468;
+    color: white;
+}
+
+.gender-types{
+    display: flex;
+}
+
+.form-container .br{
+    background-color: #222468;
+    margin: 5px auto;
+}
+
+.form-container .form-parts .essential-details .input-box .input-field::placeholder{
+    color: rgba(255, 255, 255, 0.403);
+}
+
+.form-container .form-parts .essential-details .input-box .input-field:focus,
+.form-container .form-parts .essential-details .input-box .input-field:valid {
+    border: 2px solid var(--sec-color);
+}
+
+.form-container .form-parts .gender-details {
+    margin: 20px 0;
+    flex-direction: column;
+}
+
+.form-container .form-parts .gender-details .gender-type {
+    margin-right: 20px;
+}
+.form-container .form-parts .gender-details .input-name {
+    width: fit-content;
+    display: block;
+}
+
+.form-container .form-parts .starting-date-details {
+    margin: 20px 0;
+}
+
+.form-container .form-parts .starting-date-details .date-name {
+    margin-right: 20px;
+    color: white;
+}
+
+.form-container .form-parts .starting-date-details input {
+    background-color: #222468;
+    outline: none;
+    border: none;
+    height: 50px;
+    padding: 20px;
+    color: white;
+    border-radius: var(--border-radius);
+    width: 100%;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%);
+    cursor: pointer;
+}
+
+input[type="radio"]{
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+label{
+    background-color: #222468;
+    color: white;
+    transition: 0.3s;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    cursor: pointer;
+}
+
+label:hover{
+    background-color: var(--sec-color);
+    color: var(--main-color);
+}
+
+input[type="radio"]:checked + label{
+    background-color: var(--sec-color);
+    color: var(--main-color);
+}
+
+.form-container .form-parts .button {
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+.form-container .form-parts .button input {
+    display: block;
+    margin-top: 30px;
+    width: 715px;
+    height: 50px;
+    border-radius: var(--border-radius);
+    outline: none;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #fff;
+    background: var(--main-color);
+    text-transform: uppercase;
+}
+
+.form-container .button{
+    height: 50px;
+    margin: 0 auto !important;
+    line-height: 0;
+    outline: none;
+    border: none;
+    background-color: var(--sec-color);
+    background-image: none;
+    width: 40%;
+    color: var(--main-color);
+    font-weight: 700;
+}
+
+.form-container .button:hover{
+    background-color: #222468;
+    color: white;
+}
+
+.form-container .form-parts .button input:hover {
+    background: linear-gradient(-135deg, var(--sec-color), var(--main-color));
+}
+
+select{
+    background-color: #222468;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.staff-dep{
+    display: none ;
+}
+/* ######### form ######### */
+
+.avaliable-staff{
+    background-color: #13143a;
+    width: 95%;
+    margin: 0 auto 10px !important;
+    border-radius: var(--border-radius);
+}
+
+.avaliable-staff .header-text{
+    color: white;
+}
+
+.ava {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 200px;
+}
+
+.ava .ava-staff{
+    cursor: pointer;
+
+}
+
+.ava .ava-staff:hover{
+    background-color: #181a46;
+}
+
+.assigned{
+    background-color: #181a46;
+}
+.assigned h2{color: var(--sec-color);}
+.assigned h3{color: white;}
+
+
+
+.ava .ava-staff:hover h2{color: var(--sec-color);}
+.ava .ava-staff:hover h3{color: white;}
+
+.assign-form .button{
+    background-image: none;
+    background-color: var(--sec-color);
+    left: 50%;
+    transform: translateX(-50);
+    margin-top: 70px;
+}
+
+.assign-form .button:hover{
+    background-image: none;
+    background-color: var(--main-color);
+    color: white;
+}
+
+.page-assign-staff .patients{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: calc(100vh - 80px);
+    border: 3px solid #13143a;
+}
+
+.one-pat{
+    margin-bottom: 70px;
+}
+
+.hidden-inputs{
+    display: none;
+}
+
+.assign-form .error{
+    margin-top: 20px;
+}
+
+.last-patients .patient{
+    cursor: default;
+}
