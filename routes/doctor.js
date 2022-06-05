@@ -12,126 +12,119 @@ const Messages = require("../Models/Messages");
 const dailyDiagnosis = require("../Models/dailyDiagnosis");
 let flage = false;
 let submitMessage = "";
-router.get("/", (req, res, next) => {
-  Staff.findOne({ isLogged: true, empPosition: "Doctor" }, (error, doctor) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(doctor);
-      patients.find(
-        { isExist: true, lastDoctor: doctor.empSSN },
-        async (error, pats) => {
-          if (error) {
-            console.log(error);
-          } else {
-            if (pats) {
-              console.log(pats);
-              let patientsHistory = [];
+router.get("/:id", (req, res, next) => {
+  patients.find(
+    { isExist: true, lastDoctor: req.user.empSSN },
+    async (error, pats) => {
+      if (error) {
+        console.log(error);
+      } else {
+        if (pats) {
+          console.log(pats);
+          let patientsHistory = [];
 
-              for (var i = 0; i < pats.length; i++) {
-                try {
-                  const pHistory = await history.findOne({
-                    patientSSN: pats[i].pSSN,
-                    arrivalDate: pats[i].arrivalDate,
-                  });
-                  console.log(pHistory);
-                  if (pHistory) {
-                    patientsHistory.push(pHistory);
-                  }
-                } catch (error) {}
+          for (var i = 0; i < pats.length; i++) {
+            try {
+              const pHistory = await history.findOne({
+                patientSSN: pats[i].pSSN,
+                arrivalDate: pats[i].arrivalDate,
+              });
+              console.log(pHistory);
+              if (pHistory) {
+                patientsHistory.push(pHistory);
               }
-
-              let diagnosisArr = [];
-
-              for (var i = 0; i < pats.length; i++) {
-                try {
-                  diagnosisArr[i] = await dailyDiagnosis.find({
-                    pSSN: pats[i].pSSN,
-                    arrivalDate: pats[i].arrivalDate,
-                  });
-                  // console.log(diagnosis);
-                } catch (error) {}
-              }
-              let presArr = [];
-              let gluArr = [];
-              for (var i = 0; i < diagnosisArr.length; i++) {
-                let pArr = [];
-                let gArr = [];
-                for (var j = 0; j < diagnosisArr[i].length; j++) {
-                  pArr.push(parseInt(diagnosisArr[i][j].bloodPressure));
-                  gArr.push(parseInt(diagnosisArr[i][j].bloodGlucose));
-                }
-                presArr.push(pArr);
-                gluArr.push(gArr);
-              }
-
-              let messagesArr = [];
-              for (var i = 0; i < pats.length; i++) {
-                try {
-                  messagesArr[i] = await Messages.find({
-                    to: doctor.empSSN,
-                    pSSN: pats[i].pSSN,
-                    arrivalDate: pats[i].arrivalDate,
-                    isSeen: false,
-                  });
-                } catch (error) {}
-              }
-              let messages = [];
-              for (var i = 0; i < messagesArr.length; i++) {
-                let msgs = [];
-                for (var j = 0; j < messagesArr[i].length; j++) {
-                  msgs.push(messagesArr[i][j].msg);
-                }
-                messages.push(msgs);
-              }
-              let finalArray = [];
-              for (var i = 0; i < pats.length; i++) {
-                let p = {
-                  ssn: pats[i].pSSN,
-                  name: pats[i].pName,
-                  age: parseInt(
-                    (new Date() - pats[i].pbirthDate) /
-                      (24 * 365 * 60 * 60 * 1000)
-                  ),
-                  prog: pats[i].progress.toString() + "%",
-                  room: pats[i].roomNum,
-                  bp: presArr[i],
-                  bloodType: pats[i].pbloodType,
-                  ID: patientsHistory[i].report.diagnosis,
-                  Medicines: patientsHistory[i].report.midicines,
-                  nuresMessage: messages[i],
-                  bs: gluArr[i],
-                };
-                console.log(p);
-                finalArray.push(p);
-              }
-              fs.writeFile(
-                __dirname + "/../public/doctorPatients.json",
-                JSON.stringify(finalArray),
-                "utf-8",
-                (err, resu) => {
-                  if (err) console.log(err);
-                  else {
-                    console.log(resu);
-                  }
-                }
-              );
-              if (flage) {
-                res.render("./user/doctor", {
-                  check: true,
-                  message: submitMessage,
-                });
-              } else {
-                res.render("./user/doctor", { check: false });
-              }
-            } else {
-              res.render("./user/doctor");
-            }
+            } catch (error) {}
           }
+
+          let diagnosisArr = [];
+
+          for (var i = 0; i < pats.length; i++) {
+            try {
+              diagnosisArr[i] = await dailyDiagnosis.find({
+                pSSN: pats[i].pSSN,
+                arrivalDate: pats[i].arrivalDate,
+              });
+              // console.log(diagnosis);
+            } catch (error) {}
+          }
+          let presArr = [];
+          let gluArr = [];
+          for (var i = 0; i < diagnosisArr.length; i++) {
+            let pArr = [];
+            let gArr = [];
+            for (var j = 0; j < diagnosisArr[i].length; j++) {
+              pArr.push(parseInt(diagnosisArr[i][j].bloodPressure));
+              gArr.push(parseInt(diagnosisArr[i][j].bloodGlucose));
+            }
+            presArr.push(pArr);
+            gluArr.push(gArr);
+          }
+
+          let messagesArr = [];
+          for (var i = 0; i < pats.length; i++) {
+            try {
+              messagesArr[i] = await Messages.find({
+                to: req.user.empSSN,
+                pSSN: pats[i].pSSN,
+                arrivalDate: pats[i].arrivalDate,
+                isSeen: false,
+              });
+            } catch (error) {}
+          }
+          let messages = [];
+          for (var i = 0; i < messagesArr.length; i++) {
+            console.log(patientsHistory[i].report.diagnosis);
+            let msgs = [];
+            for (var j = 0; j < messagesArr[i].length; j++) {
+              msgs.push(messagesArr[i][j].msg);
+            }
+            messages.push(msgs);
+          }
+          let finalArray = [];
+          for (var i = 0; i < pats.length; i++) {
+            let p = {
+              ssn: pats[i].pSSN,
+              name: pats[i].pName,
+              age: parseInt(
+                (new Date() - pats[i].pbirthDate) / (24 * 365 * 60 * 60 * 1000)
+              ),
+              prog: pats[i].progress.toString() + "%",
+              room: pats[i].roomNum,
+              bp: presArr[i],
+              bloodType: pats[i].pbloodType,
+              ID: patientsHistory[i].report.diagnosis,
+              Medicines: patientsHistory[i].report.midicines,
+              nuresMessage: messages[i],
+              bs: gluArr[i],
+            };
+            console.log(p);
+            finalArray.push(p);
+          }
+          fs.writeFile(
+            __dirname + "/../public/doctorPatients.json",
+            JSON.stringify(finalArray),
+            "utf-8",
+            (err, resu) => {
+              if (err) console.log(err);
+              else {
+                console.log(resu);
+                if (flage) {
+                  res.render("./user/doctor", {
+                    check: true,
+                    message: submitMessage,
+                  });
+                } else {
+                  res.render("./user/doctor", { check: false });
+                }
+              }
+            }
+          );
+        } else {
+          res.render("./user/doctor");
         }
-      );
+      }
     }
-  });
+  );
 });
 
 router.post("/docDiagnosis", (req, res, next) => {
@@ -274,7 +267,8 @@ router.post("/docDiagnosis", (req, res, next) => {
   });
   flage = true;
   submitMessage = "Data are sent Successfully";
-  res.redirect("/doctor");
+  ID = req.user.id;
+  res.redirect("/doctor/" + ID);
 });
 
 module.exports = router;

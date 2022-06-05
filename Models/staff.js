@@ -60,10 +60,6 @@ const staffSchema = mongoose.Schema({
     type: String,
     required: false,
   },
-  isLogged: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 staffSchema.methods.hashPassword = function (password) {

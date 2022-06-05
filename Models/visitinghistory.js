@@ -23,13 +23,13 @@ const visitingSchema = mongoose.Schema({
     type: String,
   },
   report: {
+    required:false,
     type: {
-      pName: String,
-      docName: String,
+      pName: {type:String,default:""},
+      docName:  {type:String,default:""},
       diagnosis: { type: String, default: "" },
       midicines: { type: String, default: "" },
     },
-    required: false,
   },
   roomNum: {
     type: Number,

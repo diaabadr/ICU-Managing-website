@@ -3,6 +3,7 @@ const Patient = require("../Models/Patient");
 const Visit = require("../Models/visitinghistory");
 const Messages = require("../Models/Messages");
 const diag = require("../Models/dailyDiagnosis");
+const rooms = require("../Models/rooms");
 mongoose.connect(
   "mongodb://127.0.0.1/ICU-Managing-website",
   { useNewUrlParser: true },
@@ -36,9 +37,9 @@ const patients = [
     pbloodType: "O+",
     roomNum: 2,
     pfirstNum: "01542115220",
-    lastNurse:"151210",
-    progress:70,
-    lastDoctor:"5000110"
+    lastNurse: "151210",
+    progress: 70,
+    lastDoctor: "5000110",
   }),
   new Patient({
     pName: "Mohsen Sayed",
@@ -49,25 +50,13 @@ const patients = [
     pAddress: "October",
     arrivalDate: new Date("2022-2-16"),
     isExist: true,
-    progress:50,
+    progress: 50,
     roomNum: 3,
     pfirstNum: "01245678912",
     lastNurse: "151210",
-    lastDoctor:"5000110"
+    lastDoctor: "5000110",
   }),
 ];
-// Patient.deleteMany({ pGender:"Male" }, (error, res) => {
-//   if (error) console.log(error);
-//   else {
-//     console.log("done");
-//   }
-// });
-
-// Patient.find({}, (error, res) => {
-//   if (error) console.log(error);
-//   else console.log(res);
-// });
-
 var done = 0;
 const visits = [];
 console.log(patients.length);
@@ -80,10 +69,10 @@ for (var i = 0; i < patients.length; i++) {
     patientSSN: ssn,
     arrivalDate: arrDate,
     roomNum: rNum,
-    report: {
-      midicines: "congestal",
-    },
     vDepartment: "Medical",
+    report: {
+      diagnosis: "",
+    },
   });
   if (!check) {
     visit.leavingDate = new Date("2022-5-5");
@@ -191,7 +180,6 @@ let a = [
     pSSN: "151515",
     arrivalDate: new Date("2022-4-16"),
   }),
-
 ];
 
 for (var i = 0; i < msgs.length; i++) {
@@ -226,3 +214,4 @@ for (var i = 0; i < a.length; i++) {
 // Visit.deleteMany({}, (error, res) => {
 //   console.log(res);
 // });
+// rooms.updateMany({isBusy:true},{$set:{isBusy:false}},(error,res)=>{})
