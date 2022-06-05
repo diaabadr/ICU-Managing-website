@@ -10,9 +10,10 @@ const history = require("../Models/visitinghistory");
 const visitors = require("../Models/visitors");
 const Messages = require("../Models/Messages");
 const dailyDiagnosis = require("../Models/dailyDiagnosis");
+const users = require("./users").isSignin;
 let flage = false;
 let submitMessage = "";
-router.get("/:id", (req, res, next) => {
+router.get("/:id",users, (req, res, next) => {
   patients.find(
     { isExist: true, lastDoctor: req.user.empSSN },
     async (error, pats) => {
@@ -127,7 +128,7 @@ router.get("/:id", (req, res, next) => {
   );
 });
 
-router.post("/docDiagnosis", (req, res, next) => {
+router.post("/docDiagnosis",users, (req, res, next) => {
   if (typeof req.body.bloodType == typeof undefined) {
     console.log("blood1");
     if (typeof req.body.medicines == typeof undefined) {
@@ -263,12 +264,11 @@ router.post("/docDiagnosis", (req, res, next) => {
           }
         }
       );
+      flage = true;
+      submitMessage = "Data are sent Successfully";
+      res.redirect("/users/profile");
     }
   });
-  flage = true;
-  submitMessage = "Data are sent Successfully";
-  ID = req.user.id;
-  res.redirect("/doctor/" + ID);
 });
 
 module.exports = router;

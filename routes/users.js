@@ -10,14 +10,9 @@ router.get("/", (req, res, next) => {
 router.get("/profile", (req, res, next) => {
   const employee = req.user;
   if (employee.empPosition == "Receptionist") {
-    {
-      res.redirect("/receptionist/" + req.user.id);
-    }
+    res.redirect("/receptionist/" + req.user.id);
   } else if (employee.empPosition == "Nurse") {
-    {
-      console.log(result);
-      res.redirect("/nurse/" + req.user.id);
-    }
+    res.redirect("/nurse/" + req.user.id);
   } else if (employee.empPosition == "Doctor") {
     res.redirect("/doctor/" + req.user.id);
   } else if (employee.empPosition == "Admin") {

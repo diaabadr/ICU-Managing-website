@@ -10,16 +10,12 @@ const history = require("../Models/visitinghistory");
 const visitors = require("../Models/visitors");
 const Messages = require("../Models/Messages");
 const dailyDiagnosis = require("../Models/dailyDiagnosis");
+const users = require("./users").isSignin;
 let flage = false;
 let submitMessage = "";
-router.get("/", (req, res, next) => {
-  Staff.findOne({ isLogged: true, empPosition: "Nurse" }, (error, nurse) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log(nurse);
+router.get("/:id",users, (req, res, next) => {
       patients.find(
-        { isExist: true, lastNurse: nurse.empSSN },
+        { isExist: true, lastNurse: req.user.empSSN },
         async (error, pats) => {
           if (error) {
             console.log(error);
@@ -68,7 +64,7 @@ router.get("/", (req, res, next) => {
             for (var i = 0; i < pats.length; i++) {
               try {
                 messagesArr[i] = await Messages.find({
-                  to: nurse.empSSN,
+                  to: req.user.empSSN,
                   pSSN: pats[i].pSSN,
                   arrivalDate: pats[i].arrivalDate,
                   isSeen: false,
@@ -126,11 +122,9 @@ router.get("/", (req, res, next) => {
           }
         }
       );
-    }
-  });
 });
 
-router.post("/dailyDiagnosis", (req, res, next) => {
+router.post("/dailyDiagnosis", users,(req, res, next) => {
   if (req.body.bloodGlucose != "") {
     patients.updateOne(
       { pSSN: req.body.pSSN },
@@ -163,7 +157,7 @@ router.post("/dailyDiagnosis", (req, res, next) => {
                       if (req.body.notes === "") {
                         submitMessage = "Data are sent Successfully";
                         flage = true;
-                        res.redirect("/nurse");
+                        res.redirect("/users/profile");
                       } else {
                         const msg = new Messages({
                           From: pat.lastNurse,
@@ -180,7 +174,7 @@ router.post("/dailyDiagnosis", (req, res, next) => {
                             console.log(message);
                             submitMessage = "Data are sent Successfully";
                             flage = true;
-                            res.redirect("/nurse");
+                            res.redirect("/users/profile");
                           }
                         });
                       }
@@ -201,7 +195,7 @@ router.post("/dailyDiagnosis", (req, res, next) => {
         if (req.body.notes === "") {
           submitMessage = "Data are sent Successfully";
           flage = true;
-          res.redirect("/nurse");
+          res.redirect("/users/profile");
         } else {
           const msg = new Messages({
             From: pat.lastNurse,
@@ -225,7 +219,7 @@ router.post("/dailyDiagnosis", (req, res, next) => {
                   {
                     submitMessage = "Data are sent Successfully";
                     flage = true;
-                    res.redirect("/nurse");
+                    res.redirect("/users/profile");
                   }
                 })
               
