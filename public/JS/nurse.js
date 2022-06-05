@@ -104,6 +104,12 @@ window.addEventListener("load", function (e) {
                     let removeM = setTimeout(removeMessage,500)
                 }
                 })
+            } else {
+                let noPatients = document.createElement('div')
+                noPatients.className = "no-patients"
+                patientsList.append(noPatients);
+                noPatients.innerHTML = "You Have No Patients"
+                document.querySelector(".patients").style.overflow = "hidden"
             }
         }
     }

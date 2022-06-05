@@ -41,11 +41,15 @@ body{
     border-radius: var(--border-radius);
     overflow-y: scroll;
     overflow-x: hidden;
-    resize:both;
-    max-width: 1000px;
+    resize: both;
+    max-width: 80%;
     min-width: 800px;
-    max-height: 800px;
+    max-height: 635px;
     min-height: 600px;
+    height: 600px;
+    width: 400px;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
 }
 
 .patient{
@@ -316,12 +320,21 @@ label{
     right: 2%;
 }
 
+.icons{
+    position: absolute;
+    top: -3%;
+    right: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 80%;
+    justify-content: center;
+}
+
 .message-icon{
     display: flex;
     color: var(--main-color);
-    position: absolute;
-    top: 5%;
-    right: -42%;
+    
     transition: 0.3s;
     pointer-events: none;
     font-size: 20px;
@@ -335,14 +348,36 @@ label{
 
 .complele-icon{
     color: var(--main-color);
-    position: absolute;
-    bottom: 25%;
-    right: -45%;
     transition: 0.3s;
     pointer-events: none;
     font-size: 20px;
+    margin-right: 3.5px;
 }
 
 .report-pa-ssn{
     display: none;
 }
+
+.no-patients{
+    text-align: center;
+    font-size: var(--sec-text);
+    color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    font-weight: 700;
+    user-select: none;
+}
+
+.report .button{
+    background-image: none;
+    background-color: #222468;
+}
+
+.report .button:hover{
+    background-image: none;
+    color: var(--main-color);
+    background-color: var(--sec-color);
+}
+
