@@ -11,9 +11,10 @@ const visitors = require("../Models/visitors");
 const Messages = require("../Models/Messages");
 const dailyDiagnosis = require("../Models/dailyDiagnosis");
 const users = require("./users").isSignin;
+const complaints=require("../Models/complaints");
 let flage = false;
 let submitMessage = "";
-router.get("/:id", (req, res, next) => {
+router.get("/:id",users, (req, res, next) => {
   patients.find({ isExist: true }, async (error, pats) => {
     if (error) {
       console.log(error);
@@ -136,6 +137,30 @@ router.get("/:id", (req, res, next) => {
         };
       }
 
+      let dayPatients=[];
+      let recentpatients=[];
+      try {
+        dayPatients=await patients.find({arrivalDate: { $lt: new Date(), $gt: strDate }});
+      } catch (error) {
+      }
+      for(let i=0; i<dayPatients.length; i++)
+      {
+        recentpatients[i]={
+          name:dayPatients[i].pName,
+          age:parseInt(
+            (new Date() - dayPatients[i].pbirthDate) / (24 * 365 * 60 * 60 * 1000)
+          ),
+          gender:dayPatients[i].pGender,
+        }
+      }
+       
+      let ourcomplaints=[],tenDaysAgo=new Date().setHours(0,0,0,0)-(24*1000*60*60*10);
+      try {
+        ourcomplaints=await complaints.find({compDate:{$lt:new Date(),$gt:tenDaysAgo}});
+      } catch (error) {
+      }
+     
+
       res.render("./user/admin", {
         hbsPatients: patintsAllData,
         doctors: hbsDoctors,
@@ -144,12 +169,15 @@ router.get("/:id", (req, res, next) => {
         employeesNumbed:
           hbsDoctors.length + hbsNurses.length + hbsRecptionists.length,
         dayVisitors: dayVisitors,
+        recentpatients:recentpatients,
+        ourcomplaints:ourcomplaints,
       });
     }
   });
 });
 
-router.post("/addingStaff", (req, res, next) => {
+
+router.post("/addingStaff",users, (req, res, next) => {
   Staff.findOne({ empEmail: req.body.empEmail }, (error, emp) => {
     if (error) {
       console.log(error);
