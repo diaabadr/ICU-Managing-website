@@ -78,3 +78,15 @@
 .left{
     border-left: solid 10px #222468;
 }
+
+.button{
+    background-color: #222468;
+    background-image: none;
+    color: white;
+    margin: 10px auto 40px;
+}
+
+.button:hover{
+    background-color: var(--sec-color);
+    color: var(--main-color);
+}
