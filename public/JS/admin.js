@@ -15,8 +15,11 @@ let avaDoctor = document.getElementsByClassName("ava-doctor")
 let avaNurse = document.getElementsByClassName("ava-nurse")
 let assignedDoc = document.getElementsByClassName("assigned-doc");
 let assignedNurse = document.getElementsByClassName("assigned-nurse");
+let assignedPat = document.getElementsByClassName("assigned-pat");
 let assignButton = document.getElementsByClassName("assign-btn");
-
+let Errors = document.getElementsByClassName("error");
+let assignForm = document.querySelector(".assign-form");
+var z = 5
 
 document.addEventListener("click", function (e) {
     if (e.target.classList.contains('sidebar')) {
@@ -100,11 +103,13 @@ document.addEventListener("click", function (e) {
             assignedDoc[e.target.getAttribute("data-pa")-1].value = "";
         } else {
         for (i = 0; i < avaDoctor.length; i++) {
-                avaDoctor[i].classList.remove("assigned");
-            }
-            e.target.classList.add("assigned");
-            assignedDoc.value = document.querySelector(`.assigned .name h2`).innerHTML;
-            assignedDoc[e.target.getAttribute("data-pa")-1].value = e.target.querySelector(`.name h2`).innerHTML;
+            avaDoctor[i].classList.remove("assigned");
+        }
+        e.target.classList.add("assigned");
+        console.log(e.target.getAttribute("data-pa"))
+        assignedDoc.value = document.querySelector(`.assigned .name h2`).innerHTML;
+            assignedDoc[e.target.getAttribute("data-pa") - 1].value = e.target.querySelector(`.name h2`).innerHTML;
+            assignedPat[e.target.getAttribute("data-pa") - 1].value = document.querySelector(`.one-pat .pa-${e.target.getAttribute("data-pa")} .name h2`).innerHTML;
         }
     }
     if (e.target.classList.contains("ava-nurse")) {
@@ -116,23 +121,23 @@ document.addEventListener("click", function (e) {
                 avaNurse[i].classList.remove("assigned");
             }
             e.target.classList.add("assigned");
-            assignedNurse[e.target.getAttribute("data-pa")-1].value = e.target.querySelector(`.name h2`).innerHTML;
+            assignedNurse[e.target.getAttribute("data-pa") - 1].value = e.target.querySelector(`.name h2`).innerHTML;
+            assignedPat[e.target.getAttribute("data-pa") - 1].value = document.querySelector(`.one-pat .pa-${e.target.getAttribute("data-pa")} .name h2`).innerHTML;
+            console.log(`${e.target.getAttribute("data-pa")}`);
+            z = `${e.target.getAttribute("data-pa")}`;
         }
     }
-    if (e.target.classList.contains("assign-btn")) {
-        // for (i = 0; i < assignButton.length; i++){
-        //     for (l = 0; l < assignedDoc.length; l++){
-        //         if (assignedDoc[l].index == assignButton[i].index) {
-        //             console.log(assignButton[i]);
-        //         }
-        //     }
-        // }
-
-        if ((assignedDoc.value === "")) {
-            document.querySelector(".assign-form .error").innerHTML = "Please Assign Doctor!";
+})
+document.addEventListener("click", function (x) {
+    if (x.target.classList.contains("assign-btn")) {
+        console.log(x.target.getAttribute("data-btn"));
+        if ((assignedDoc[x.target.getAttribute("data-btn") - 1].value === "") && (assignedNurse[x.target.getAttribute("data-btn") - 1].value === "")) {
+            Errors[x.target.getAttribute("data-btn") - 1].innerHTML = "Please Assign Staff !";
+    } else if ((assignedDoc[x.target.getAttribute("data-btn") - 1].value === "")) {
+            Errors[x.target.getAttribute("data-btn") - 1].innerHTML = "Please Assign Doctor !";
         }
-        else if ((assignedNurse.value === "")) {
-            document.querySelector(".assign-form .error").innerHTML = "Please Assign Nurse!";
+        else if ((assignedNurse[x.target.getAttribute("data-btn") - 1].value === "")) {
+            Errors[x.target.getAttribute("data-btn") - 1].innerHTML = "Please Assign Nurse !";
         }
     }
 })
