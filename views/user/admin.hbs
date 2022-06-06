@@ -81,7 +81,7 @@
               <div class="insight" data-ins="vis">
                 <div class="text prevent-click">
                   <h3 class="prevent-click">Our Visitors</h3>
-                  <h2 class="prevent-click">37</h2>
+                  <h2 class="prevent-click">{{dayVisitors.length}}</h2>
                 </div>
                 <div class="icon prevent-click">
                   <i class="fa-solid fa-users"></i>
@@ -319,28 +319,28 @@
               </div>
               <div class="receptionists staff-members">
                 {{#each receptionists}}
-                <div class="patient patient-button row">
-                  <div class="name col-2 prevent-click">
-                    <h3 class="prevent-click">Name</h3>
-                    <h2 class="prevent-click">{{this.name}}</h2>
+                  <div class="patient patient-button row">
+                    <div class="name col-2 prevent-click">
+                      <h3 class="prevent-click">Name</h3>
+                      <h2 class="prevent-click">{{this.name}}</h2>
+                    </div>
+                    <div class="progress col-4 prevent-click">
+                      <h3 class="prevent-click">Email</h3>
+                      <h2 class="prevent-click">{{this.Email}}</h2>
+                    </div>
+                    <div class="progress col-2 prevent-click">
+                      <h3 class="prevent-click">Phone Number</h3>
+                      <h2 class="prevent-click">{{this.phone}}</h2>
+                    </div>
+                    <div class="progress col-2 prevent-click">
+                      <h3 class="prevent-click">Age</h3>
+                      <h2 class="prevent-click">{{this.age}}</h2>
+                    </div>
+                    <div class="progress col-2 prevent-click">
+                      <h3 class="prevent-click">Salary</h3>
+                      <h2 class="prevent-click">{{this.Salary}}</h2>
+                    </div>
                   </div>
-                  <div class="progress col-4 prevent-click">
-                    <h3 class="prevent-click">Email</h3>
-                    <h2 class="prevent-click">{{this.Email}}</h2>
-                  </div>
-                  <div class="progress col-2 prevent-click">
-                    <h3 class="prevent-click">Phone Number</h3>
-                    <h2 class="prevent-click">{{this.phone}}</h2>
-                  </div>
-                  <div class="progress col-2 prevent-click">
-                    <h3 class="prevent-click">Age</h3>
-                    <h2 class="prevent-click">{{this.age}}</h2>
-                  </div>
-                  <div class="progress col-2 prevent-click">
-                    <h3 class="prevent-click">Salary</h3>
-                    <h2 class="prevent-click">{{this.Salary}}</h2>
-                  </div>
-                </div>
                 {{/each}}
               </div>
             </div>
@@ -354,63 +354,28 @@
             <div class="sp-header patients-refresh">Today Visitors</div>
           </div>
           <div class="contains">
-            <div class="patient patient-button row">
-              <div class="name col-3 prevent-click">
-                <h3 class="prevent-click">Name</h3>
-                <h2 class="prevent-click">Abdo Yasser</h2>
+            {{#each dayVisitors}}
+
+              <div class="patient patient-button row">
+                <div class="name col-3 prevent-click">
+                  <h3 class="prevent-click">Name</h3>
+                  <h2 class="prevent-click">{{this.name}}</h2>
+                </div>
+                <div class="progress col-3 prevent-click">
+                  <h3 class="prevent-click">Phone Number</h3>
+                  <h2 class="prevent-click">{{this.phone}}</h2>
+                </div>
+                <div class="progress col-3 prevent-click">
+                  <h3 class="prevent-click">Room No.</h3>
+                  <h2 class="prevent-click">{{this.room}}</h2>
+                </div>
+                <div class="progress col-3 prevent-click">
+                  <h3 class="prevent-click">Arrival Time</h3>
+                  <h2 class="prevent-click">{{this.arrTime}}</h2>
+                </div>
+                <div class="last"></div>
               </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Phone Number</h3>
-                <h2 class="prevent-click">01112221122</h2>
-              </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Room No.</h3>
-                <h2 class="prevent-click">Room 5</h2>
-              </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Arrival Time</h3>
-                <h2 class="prevent-click">12:05</h2>
-              </div>
-              <div class="last"></div>
-            </div>
-            <div class="patient patient-button row">
-              <div class="name col-3 prevent-click">
-                <h3 class="prevent-click">Name</h3>
-                <h2 class="prevent-click">Abdo Yasser</h2>
-              </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Phone Number</h3>
-                <h2 class="prevent-click">01112221122</h2>
-              </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Room No.</h3>
-                <h2 class="prevent-click">Room 5</h2>
-              </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Arrival Time</h3>
-                <h2 class="prevent-click">12:05</h2>
-              </div>
-              <div class="last"></div>
-            </div>
-            <div class="patient patient-button row">
-              <div class="name col-3 prevent-click">
-                <h3 class="prevent-click">Name</h3>
-                <h2 class="prevent-click">Abdo Yasser</h2>
-              </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Phone Number</h3>
-                <h2 class="prevent-click">01112221122</h2>
-              </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Room No.</h3>
-                <h2 class="prevent-click">Room 5</h2>
-              </div>
-              <div class="progress col-3 prevent-click">
-                <h3 class="prevent-click">Arrival Time</h3>
-                <h2 class="prevent-click">12:05</h2>
-              </div>
-              <div class="last"></div>
-            </div>
+            {{/each}}
             <div class="last"></div>
           </div>
         </div>
@@ -507,7 +472,12 @@
             </div>
             <div class="input-box staff-dep">
               <span class="input-name">Department</span>
-              <select id="departments" required name="departments"readonly=true>
+              <select
+                id="departments"
+                required
+                name="departments"
+                readonly="true"
+              >
                 <option
                   selected="selected"
                   hidden

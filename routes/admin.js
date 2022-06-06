@@ -116,12 +116,26 @@ router.get("/:id", (req, res, next) => {
         };
       }
       // stopped here
-      let todaysVisitors=[]
+      let strDate = new Date().setHours(0, 0, 0, 0);
+      let todaysVisitors = [];
       try {
-          todaysVisitors=await visitors.find({})
-      } catch (error) {
-          
+        todaysVisitors = await visitors.find({
+          visitingDate: { $lt: new Date(), $gt: strDate },
+        });
+      } catch (error) {}
+      let dayVisitors = [];
+      for (var i = 0; i < todaysVisitors.length; i++) {
+        dayVisitors[i] = {
+          name: todaysVisitors[i].vName,
+          phone: todaysVisitors[i].vPhone,
+          room: todaysVisitors[i].pRoom,
+          arrTime:
+            todaysVisitors[i].visitingDate.getHours().toString() +
+            ":" +
+            todaysVisitors[i].visitingDate.getMinutes().toString(),
+        };
       }
+
       res.render("./user/admin", {
         hbsPatients: patintsAllData,
         doctors: hbsDoctors,
@@ -129,6 +143,7 @@ router.get("/:id", (req, res, next) => {
         receptionists: hbsRecptionists,
         employeesNumbed:
           hbsDoctors.length + hbsNurses.length + hbsRecptionists.length,
+        dayVisitors: dayVisitors,
       });
     }
   });
