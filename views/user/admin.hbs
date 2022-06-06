@@ -141,28 +141,12 @@
                     <div
                       class="sp-header patients-refresh complaints"
                     >Complaints</div>
-
+                    {{#each ourcomplaints}}
+                      
                     <div data-pnum="0" class="patient patient-button message">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Ipsam assumenda ipsum molestiae excepturi iure
-                        dolor, nihil recusandae nulla minima nam praesentium
-                        veritatis vitae, ea id ipsa commodi rerum. Consectetur,
-                        repellendus.</p>
+                      <p>{{this.compContent}}</p>
                     </div>
-                    <div data-pnum="0" class="patient patient-button message">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Ipsam assumenda ipsum molestiae excepturi iure
-                        dolor, nihil recusandae nulla minima nam praesentium
-                        veritatis vitae, ea id ipsa commodi rerum. Consectetur,
-                        repellendus.</p>
-                    </div>
-                    <div data-pnum="0" class="patient patient-button message">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Ipsam assumenda ipsum molestiae excepturi iure
-                        dolor, nihil recusandae nulla minima nam praesentium
-                        veritatis vitae, ea id ipsa commodi rerum. Consectetur,
-                        repellendus.</p>
-                    </div>
+                    {{/each}}
                     <div class="last"></div>
                   </div>
                 </div>
