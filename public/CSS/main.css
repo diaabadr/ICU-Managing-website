@@ -325,7 +325,8 @@ div.img{
     transition: 1s;
 }
 
-label{
+label,
+.details{
     width: 70%;
     display: block;
     color: white;
@@ -529,6 +530,33 @@ label{
     display: none;
 }
 
+.ava-rooms .sp-header{
+    font-size: 18px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    color: rgb(0, 0, 0);
+}
+.ava-rooms {
+    /* background-color: rgb(255, 255, 255); */
+    padding: 20px;
+    height: 50%;
+    border-radius: var(--border-radius);
+    color: white;
+    width: 100%;
+}
+
+select{
+    cursor: pointer;
+}
+
+.ava-rooms .details,
+.ava-rooms .room-error2{
+    color: white;
+}
+
 .show-login{
     display: none;
 }
@@ -637,4 +665,9 @@ label{
 @keyframes hide {
     0%   {filter: opacity(1);}
     100% {filter: opacity(0);}
+}
+
+.ava-rooms {
+    margin-left: -7%;
+    margin-right: 7%;
 }
