@@ -36,21 +36,12 @@ const staffSchema = mongoose.Schema({
     required: true,
   },
   empAddress: {
+    type: String,
     required: true,
-    type: {
-      houseNo: { type: Number },
-      street: { type: String },
-      city: { type: String },
-    },
   },
   empPhone: {
     type: String,
     required: true,
-  },
-  empID: {
-    type: String,
-    required: true,
-    unique: true,
   },
   isFirstTime: {
     type: Boolean,
@@ -60,6 +51,10 @@ const staffSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+  empBirthDate:{
+    type:Date,
+    required:true,
+  }
 });
 
 staffSchema.methods.hashPassword = function (password) {

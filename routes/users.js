@@ -35,8 +35,8 @@ router.post(
       for (var i = 0; i < errors.errors.length; i++) {
         validationErrors.push(errors.errors[i].msg);
       }
-      req.flash("signinError", validationErrors);
-      res.redirect("signin");
+      req.flash("loginErrors", validationErrors);
+      res.redirect("login");
       return;
     }
     next();
