@@ -23,10 +23,10 @@ const visitingSchema = mongoose.Schema({
     type: String,
   },
   report: {
-    required:false,
+    required: false,
     type: {
-      pName: {type:String,default:""},
-      docName:  {type:String,default:""},
+      pName: { type: String, default: "" },
+      docName: { type: String, default: "" },
       diagnosis: { type: String, default: "" },
       midicines: { type: String, default: "" },
     },
@@ -41,7 +41,7 @@ const visitingSchema = mongoose.Schema({
     type: {
       companionName: String,
       companionSSN: String,
-      companionPhone: String,
+      companionPhone: { type: String, default: "__" },
     },
   },
 });
