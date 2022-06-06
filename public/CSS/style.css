@@ -266,7 +266,8 @@ option{
     font-weight: 700;
 }
 
-.room-error{
+.room-error,
+.room-error2{
     margin-top: 10px !important;
     margin-bottom: -10px !important;
 }

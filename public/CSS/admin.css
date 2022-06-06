@@ -796,6 +796,12 @@ select{
     margin-bottom: 70px;
 }
 
+.one-pat .patient{
+    margin-bottom: 0 !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 .hidden-inputs{
     display: none;
 }

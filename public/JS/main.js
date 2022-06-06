@@ -110,6 +110,8 @@ let searchError = document.querySelector(".search-error");
 let checkOutError = document.querySelector(".checkout-error");
 let searchReasult = document.getElementById("result");
 
+
+
 let myRequest = new XMLHttpRequest();
 
 myRequest.open("GET", "../../mydata.json", true);
@@ -119,31 +121,33 @@ myRequest.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
     if (JSON.parse(this.responseText).length != 0) {
       var patient = JSON.parse(this.responseText);
-      searchSSN.addEventListener("input", function () {
-        searchReasult.innerHTML = "";
-        searchError.innerHTML = "";
-        for (i = 0; i < patient.length; i++) {
-          if (
-            patient[i].name.includes(searchSSN.value) &&
-            searchSSN.value != ""
-          ) {
-            console.log(searchSSN.value);
-            console.log(patient[i].name);
-            const result = document.createElement("div");
-            result.id = `search-result`;
-            result.className = `result ${i}`;
-            result.innerHTML = patient[i].name;
-            searchReasult.append(result);
-            searchReasult.style.display = "block";
+      if (searchSSN != null) {
+        searchSSN.addEventListener("input", function () {
+          searchReasult.innerHTML = "";
+          searchError.innerHTML = "";
+          for (i = 0; i < patient.length; i++) {
+            if (
+              patient[i].name.includes(searchSSN.value) &&
+              searchSSN.value != ""
+            ) {
+              console.log(searchSSN.value);
+              console.log(patient[i].name);
+              const result = document.createElement("div");
+              result.id = `search-result`;
+              result.className = `result ${i}`;
+              result.innerHTML = patient[i].name;
+              searchReasult.append(result);
+              searchReasult.style.display = "block";
+            }
           }
-        }
-        document.addEventListener("click", function (e) {
-          if (e.target.classList.contains("result")) {
-            searchSSN.value = e.target.innerHTML;
-            searchReasult.style.display = "none";
-          }
+          document.addEventListener("click", function (e) {
+            if (e.target.classList.contains("result")) {
+              searchSSN.value = e.target.innerHTML;
+              searchReasult.style.display = "none";
+            }
+          });
         });
-      });
+      }
 
       function patientcheck() {
         var found = false;
@@ -262,20 +266,22 @@ let companion = document.getElementById("companion");
 let companionBtn = document.querySelector(".rec-form-btn-change");
 let companionData = document.querySelector(".companion-data");
 
-companion.addEventListener("change", function () {
-  if (this.checked) {
-    console.log("Checkbox is checked..");
-    companionData.style.display = "block";
-  } else {
-    console.log("Checkbox is not checked..");
-    companionData.style.display = "none";
-  }
-});
+if (companion != null) {
+  companion.addEventListener("change", function () {
+    if (this.checked) {
+      companionData.style.display = "block";
+    } else {
+      companionData.style.display = "none";
+    }
+  });
+}
 
 let checkRoom = document.getElementById("departments");
 let roomError = document.querySelector(".room-error");
-let checkRooms = new XMLHttpRequest();
+let roomError2 = document.querySelector(".room-error2");
+let checkRoom2 = document.getElementById("departments2");
 
+let checkRooms = new XMLHttpRequest();
 checkRooms.open("GET", "../../availableRooms.json", true);
 checkRooms.send();
 
@@ -283,21 +289,40 @@ checkRooms.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
     if (this.responseText != "") {
       var Rooms = JSON.parse(this.responseText);
-      checkRoom.addEventListener("change", function () {
-        var rooms = 0;
-        for (i = 0; i < Rooms.length; i++) {
-          if (checkRoom.value === Rooms[i].departement) {
-            rooms += 1;
+      if (checkRoom != null) {
+        checkRoom.addEventListener("change", function () {
+          var rooms = 0;
+          for (i = 0; i < Rooms.length; i++) {
+            if (checkRoom.value === Rooms[i].departement) {
+              rooms += 1;
+            }
           }
-        }
-        if (rooms === 0) {
-          roomError.innerHTML = "No Room Avaliable";
-        } else if (rooms === 1) {
-          roomError.innerHTML = rooms + " Room Avaliable";
-        } else {
-          roomError.innerHTML = rooms + " Rooms Avaliable";
-        }
-      });
+          if (rooms === 0) {
+            roomError.innerHTML = "No Room Avaliable";
+          } else if (rooms === 1) {
+            roomError.innerHTML = rooms + " Room Avaliable";
+          } else {
+            roomError.innerHTML = rooms + " Rooms Avaliable";
+          }
+        });
+      }
+      if (checkRoom2 != null) {
+        checkRoom2.addEventListener("change", function () {
+          var rooms2 = 0;
+          for (i = 0; i < Rooms.length; i++) {
+            if (checkRoom2.value === Rooms[i].departement) {
+              rooms2 += 1;
+            }
+          }
+          if (rooms2 === 0) {
+            roomError2.innerHTML = "No Room Avaliable";
+          } else if (rooms2 === 1) {
+            roomError2.innerHTML = rooms2 + " Room Avaliable";
+          } else {
+            roomError2.innerHTML = rooms2 + " Rooms Avaliable";
+          }
+        });
+      }
     }
   }
 };
@@ -312,7 +337,9 @@ function showPassword() {
 } 
 
 function hideDoneMessage() {
-  document.querySelector(".done-message").style.display = "none"
+  if (document.querySelector(".done-message") != null) {
+    document.querySelector(".done-message").style.display = "none";
+  }
 }
 
 const timeout = setTimeout(hideDoneMessage,5800)

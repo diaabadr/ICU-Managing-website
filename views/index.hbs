@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>New Life</title>
     <link rel="stylesheet" href="CSS/all.min.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
     <link rel="stylesheet" href="CSS/main.css" />
     <link rel="stylesheet" href="CSS/Normalize.css" />
     <link rel="stylesheet" href="CSS/bootstrap-grid.min.css" />
@@ -72,7 +73,7 @@
       <div class="show-visitor">
         <div class="row">
           <h2>VISITOR</h2>
-          <div class="col-5 complaint">
+          <div class="col-6 complaint">
             <form action="complaint" method="post">
               <label for="complaint">Have a Complaint?</label>
               <textarea
@@ -90,7 +91,7 @@
               />
             </form>
           </div>
-          <div class="col-2 or">or</div>
+          <div class="col-1"></div>
           <div class="col-5 patient">
             <form action="checkSSN" method="post">
               <label for="patient">Check Your Patient</label>
@@ -105,6 +106,22 @@
               />
               <input type="submit" value="Check" class="button patient-btn" />
             </form>
+            <div class="ava-rooms">
+              <div class="sp-header">Check Avaliable Rooms</div>
+              <div class="input-box">
+                  <span class="details">Search in Departments</span>
+                  <select id="departments2" required name="departments">
+                  <option selected="selected" hidden disabled class="option-selected">
+                      Select Department
+                  </option>
+                      <option value="Medical">Medical</option>
+                      <option value="Surgical">Surgical</option>
+                      <option value="Pediatric">Pediatric</option>
+                      <option value="Neonatal">Neonatal</option>
+                  </select> 
+                  <div class="error room-error2"></div>
+              </div>
+            </div>
           </div>
           <div class="sec-button back">Back</div>
         </div>

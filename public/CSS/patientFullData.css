@@ -1,0 +1,80 @@
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 5px;
+    --important-text: 35px;
+    --sec-text: 25px;
+}
+
+.data-report{
+    width: 90%;
+    margin: auto;
+}
+
+.patients .sp-header{
+    margin-right: 80%;
+}
+
+.patients{
+    overflow: hidden;
+}
+
+.container{
+    width: 50%;
+    height: 50px;
+    margin-top: 0;
+    background-image: none;
+}
+
+.pa-data{
+    justify-content: space-evenly;
+    width: 90%;
+    margin: 0 auto !important;
+}
+
+.sp-header{
+    cursor: default;
+}
+
+.data{
+    display: flex;
+    background-color: var(--main-color);
+    height: 200px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-bottom: 20px;
+    flex-direction: column;
+    cursor: default;
+}
+
+.data h3{
+    color: var(--sec-color);
+    font-size: var(--sec-text);
+    margin: 0;
+    text-align: center;
+    transition: 0.3s;
+    cursor: default;
+    user-select: none;
+    font-size: 25px;
+}
+
+.data h2{
+    color: white;
+    font-size: 60px;
+    margin: 0;
+    text-align: center;
+    transition: 0.3s;
+    cursor: default;
+    user-select: none;
+}
+
+.right{
+    border-right: solid 10px #222468;
+}
+
+.left{
+    border-left: solid 10px #222468;
+}
