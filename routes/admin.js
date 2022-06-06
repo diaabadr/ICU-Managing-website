@@ -136,6 +136,23 @@ router.get("/:id", (req, res, next) => {
         };
       }
 
+      let dayPatients=[];
+      let recentpatients=[];
+      try {
+        dayPatients=await patients.find({arrivalDate: { $lt: new Date(), $gt: strDate }});
+      } catch (error) {
+      }
+      for(let i=0; i<dayPatients.length; i++)
+      {
+        recentpatients[i]={
+          name:dayPatients[i].pName,
+          age:parseInt(
+            (new Date() - dayPatients[i].pbirthDate) / (24 * 365 * 60 * 60 * 1000)
+          ),
+          gender:dayPatients[i].pGender,
+        }
+      }
+
       res.render("./user/admin", {
         hbsPatients: patintsAllData,
         doctors: hbsDoctors,
@@ -144,10 +161,12 @@ router.get("/:id", (req, res, next) => {
         employeesNumbed:
           hbsDoctors.length + hbsNurses.length + hbsRecptionists.length,
         dayVisitors: dayVisitors,
+        recentpatients:recentpatients,
       });
     }
   });
 });
+
 
 router.post("/addingStaff", (req, res, next) => {
   Staff.findOne({ empEmail: req.body.empEmail }, (error, emp) => {

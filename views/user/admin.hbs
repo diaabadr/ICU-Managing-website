@@ -109,51 +109,24 @@
                 <div class="patients doctor-patients">
                   <div class="contains">
                     <div class="sp-header patients-refresh">recent patients</div>
+                   {{#each recentpatients }}
+                      
                     <div data-pnum="0" class="patient patient-button row">
                       <div class="name col-4 prevent-click">
                         <h3 class="prevent-click">Name</h3>
-                        <h2 class="prevent-click">abdo Yasser</h2>
+                        <h2 class="prevent-click">{{this.name}}</h2>
                       </div>
                       <div class="age col-4 prevent-click">
                         <h3 class="prevent-click">Age</h3>
-                        <h2 class="prevent-click">30</h2>
+                        <h2 class="prevent-click">{{this.age}}</h2>
                       </div>
                       <div class="progress col-4 prevent-click"><h3
                           class="prevent-click"
                         >Gender</h3>
-                        <h2 class="prevent-click">Male</h2>
+                        <h2 class="prevent-click">{{this.gender}}</h2>
                       </div>
                     </div>
-                    <div data-pnum="0" class="patient patient-button row">
-                      <div class="name col-4 prevent-click">
-                        <h3 class="prevent-click">Name</h3>
-                        <h2 class="prevent-click">abdo Yasser</h2>
-                      </div>
-                      <div class="age col-4 prevent-click">
-                        <h3 class="prevent-click">Age</h3>
-                        <h2 class="prevent-click">30</h2>
-                      </div>
-                      <div class="progress col-4 prevent-click"><h3
-                          class="prevent-click"
-                        >Gender</h3>
-                        <h2 class="prevent-click">Male</h2>
-                      </div>
-                    </div>
-                    <div data-pnum="0" class="patient patient-button row">
-                      <div class="name col-4 prevent-click">
-                        <h3 class="prevent-click">Name</h3>
-                        <h2 class="prevent-click">abdo Yasser</h2>
-                      </div>
-                      <div class="age col-4 prevent-click">
-                        <h3 class="prevent-click">Age</h3>
-                        <h2 class="prevent-click">30</h2>
-                      </div>
-                      <div class="progress col-4 prevent-click"><h3
-                          class="prevent-click"
-                        >Gender</h3>
-                        <h2 class="prevent-click">Male</h2>
-                      </div>
-                    </div>
+                      {{/each}}
 
                   </div>
                 </div>
