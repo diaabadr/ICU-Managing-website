@@ -145,7 +145,9 @@ document.addEventListener("change", function (e) {
     if (e.target.classList.contains("staff-position")) {
         if (staffPosition.value != "Receptionist") {
             staffDep.style.display = "block"
+            staffDep.setAttribute('readonly',false)
         } else {
+            staffDep.setAttribute('readonly',true)
             staffDep.style.display = "none"
         }
     }
