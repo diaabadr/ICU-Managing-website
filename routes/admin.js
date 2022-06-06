@@ -11,15 +11,14 @@ const visitors = require("../Models/visitors");
 const Messages = require("../Models/Messages");
 const dailyDiagnosis = require("../Models/dailyDiagnosis");
 const users = require("./users").isSignin;
-const complaints=require("../Models/complaints");
+const complaints = require("../Models/complaints");
 let flage = false;
 let submitMessage = "";
-router.get("/:id",users, (req, res, next) => {
+router.get("/:id", users, (req, res, next) => {
   patients.find({ isExist: true }, async (error, pats) => {
     if (error) {
       console.log(error);
     } else {
-      console.log(pats);
       let Histories = [];
       for (var i = 0; i < pats.length; i++) {
         try {
@@ -69,7 +68,7 @@ router.get("/:id",users, (req, res, next) => {
         doctors = await Staff.find({ empPosition: "Doctor" });
       } catch (error) {}
       let hbsDoctors = [];
-      console.log(doctors);
+
       for (var i = 0; i < doctors.length; i++) {
         hbsDoctors[i] = {
           name: doctors[i].empName,
@@ -137,29 +136,137 @@ router.get("/:id",users, (req, res, next) => {
         };
       }
 
-      let dayPatients=[];
-      let recentpatients=[];
+      let dayPatients = [];
+      let recentpatients = [];
       try {
-        dayPatients=await patients.find({arrivalDate: { $lt: new Date(), $gt: strDate }});
-      } catch (error) {
-      }
-      for(let i=0; i<dayPatients.length; i++)
-      {
-        recentpatients[i]={
-          name:dayPatients[i].pName,
-          age:parseInt(
-            (new Date() - dayPatients[i].pbirthDate) / (24 * 365 * 60 * 60 * 1000)
+        dayPatients = await patients.find({
+          arrivalDate: { $lt: new Date(), $gt: strDate },
+        });
+      } catch (error) {}
+      for (let i = 0; i < dayPatients.length; i++) {
+        recentpatients[i] = {
+          name: dayPatients[i].pName,
+          age: parseInt(
+            (new Date() - dayPatients[i].pbirthDate) /
+              (24 * 365 * 60 * 60 * 1000)
           ),
-          gender:dayPatients[i].pGender,
-        }
+          gender: dayPatients[i].pGender,
+        };
       }
-       
-      let ourcomplaints=[],tenDaysAgo=new Date().setHours(0,0,0,0)-(24*1000*60*60*10);
+
+      let ourcomplaints = [],
+        tenDaysAgo = new Date().setHours(0, 0, 0, 0) - 24 * 1000 * 60 * 60 * 10;
       try {
-        ourcomplaints=await complaints.find({compDate:{$lt:new Date(),$gt:tenDaysAgo}});
-      } catch (error) {
+        ourcomplaints = await complaints.find({
+          compDate: { $lt: new Date(), $gt: tenDaysAgo },
+        });
+      } catch (error) {}
+      let patwithoutDoc = [];
+      try {
+        patwithoutDoc = await patients.find({
+          lastDoctor: "__",
+          lastNurse: "__",
+        });
+      } catch (error) {}
+      let patDeparts = [];
+      for (var i = 0; i < patwithoutDoc.length; i++) {
+        try {
+          patDeparts[i] = await history.findOne(
+            {
+              patientSSN: patwithoutDoc[i].pSSN,
+              arrivalDate: patwithoutDoc[i].arrivalDate,
+            },
+            "vDepartment"
+          );
+        } catch (error) {}
       }
-     
+
+      let availDocs = [];
+      for (var i = 0; i < patDeparts.length; i++) {
+        try {
+          availDocs[i] = await Staff.find({
+            empDepartment: patDeparts[i].vDepartment,
+            empPosition: "Doctor",
+          });
+        } catch (error) {}
+      }
+
+      let docPatsNum = [];
+      for (var i = 0; i < availDocs.length; i++) {
+        try {
+          docPatsNum[i] = await patients.find({
+            isExist: true,
+            lastDoctor: availDocs[i].empSSN,
+          });
+        } catch (error) {}
+      }
+      let docs = [];
+      for (var i = 0; i < availDocs.length; i++) {
+        let arr = [];
+        for (var j = 0; j < availDocs[i].length; j++) {
+          arr[j] = {
+            dName: availDocs[i][j].empName,
+            pNums: docPatsNum[i].length,
+            dPhone: availDocs[i][j].empPhone,
+            age: parseInt(
+              (new Date() - availDocs[i][j].empBirthDate) /
+                (24 * 365 * 60 * 60 * 1000)
+            ),
+          };
+        }
+        docs[i] = arr;
+      }
+
+      let availNurses = [];
+      for (var i = 0; i < patDeparts.length; i++) {
+        try {
+          availNurses[i] = await Staff.find({
+            empDepartment: patDeparts[i].vDepartment,
+            empPosition: "Nurse",
+          });
+        } catch (error) {}
+      }
+      let NursesPatsNum = [];
+      for (var i = 0; i < availNurses.length; i++) {
+        try {
+          NursesPatsNum[i] = await patients.find({
+            isExist: true,
+            lastNurse: availNurses[i].empSSN,
+          });
+        } catch (error) {}
+      }
+      let Nurse = [];
+      for (var i = 0; i < availNurses.length; i++) {
+        let arr = [];
+        for (var j = 0; j < availNurses[i].length; j++) {
+          arr[j] = {
+            nName: availNurses[i][j].empName,
+            pNums: NursesPatsNum[i].length,
+            nPhone: availNurses[i][j].empPhone,
+            age: parseInt(
+              (new Date() - availNurses[i][j].empBirthDate) /
+                (24 * 365 * 60 * 60 * 1000)
+            ),
+          };
+        }
+        Nurse[i] = arr;
+      }
+
+      let ournewPats = [];
+      for (var i = 0; i < patwithoutDoc.length; i++) {
+        ournewPats[i] = {
+          name: patwithoutDoc[i].pName,
+          department: patDeparts[i].vDepartment,
+          room: patwithoutDoc[i].roomNum,
+          age: parseInt(
+            (new Date() - patwithoutDoc[i].pbirthDate) /
+              (24 * 365 * 60 * 60 * 1000)
+          ),
+          gender: patwithoutDoc[i].pGender,
+          availableDocs: docs[i],
+          availableNurses: Nurse[i],
+        };
+      }
 
       res.render("./user/admin", {
         hbsPatients: patintsAllData,
@@ -169,15 +276,15 @@ router.get("/:id",users, (req, res, next) => {
         employeesNumbed:
           hbsDoctors.length + hbsNurses.length + hbsRecptionists.length,
         dayVisitors: dayVisitors,
-        recentpatients:recentpatients,
-        ourcomplaints:ourcomplaints,
+        recentpatients: recentpatients,
+        ourcomplaints: ourcomplaints,
+        ournewPats: ournewPats,
       });
     }
   });
 });
 
-
-router.post("/addingStaff",users, (req, res, next) => {
+router.post("/addingStaff", users, (req, res, next) => {
   Staff.findOne({ empEmail: req.body.empEmail }, (error, emp) => {
     if (error) {
       console.log(error);
@@ -212,7 +319,6 @@ router.post("/addingStaff",users, (req, res, next) => {
                   console.log(error);
                 } else {
                   // successfully added
-                  console.log(newOne);
                   res.redirect("/users/profile");
                 }
               });
@@ -226,6 +332,55 @@ router.post("/addingStaff",users, (req, res, next) => {
         req.flash("signupError", "This Email already exist");
         res.redirect("/users/profile");
       }
+    }
+  });
+});
+
+router.post("/assignStaff",users, (req, res, next) => {
+  console.log(req.body);
+  Staff.findOne({ empName: req.body.nurseName }, (error, Nur) => {
+    if (error) {
+      console.log(error);
+    } else {
+      Staff.findOne({ empName: req.body.docName }, (error, doct) => {
+        if (error) {
+          console.log(error);
+        } else {
+          patients.updateOne(
+            { roomNum: req.body.pRoom, isExist: true },
+            { $set: { lastDoctor: doct.empSSN, lastNurse: Nur.empSSN } },
+            (error, patien) => {
+              if (error) {
+                console.log(error);
+              } else {
+                patients.findOne(
+                  { roomNum: req.body.pRoom, isExist: true },
+                  (error, patientt) => {
+                    if (error) {
+                      console.log(error);
+                    } else {
+                      history.updateOne(
+                        {
+                          patientSSN: patientt.empSSN,
+                          arrivalDate: patientt.arrivalDate,
+                        },
+                        { $set: { docSSN: doct.empSSN, nurseSSN: Nur.empSSN } },
+                        (error, hist) => {
+                          if (error) {
+                            console.log(error);
+                          } else {
+                            res.redirect("/users/profile");
+                          }
+                        }
+                      );
+                    }
+                  }
+                );
+              }
+            }
+          );
+        }
+      });
     }
   });
 });

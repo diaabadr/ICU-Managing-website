@@ -16,7 +16,7 @@ router.get("/profile", (req, res, next) => {
   } else if (employee.empPosition == "Doctor") {
     res.redirect("/doctor/" + req.user.id);
   } else if (employee.empPosition == "Admin") {
-    res.render("./user/admin");
+    res.redirect("/admin/" + req.user.id);
   }
 });
 
