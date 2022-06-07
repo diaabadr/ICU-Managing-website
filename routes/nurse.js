@@ -112,6 +112,7 @@ router.get("/:id",users, (req, res, next) => {
               }
             );
             if (flage) {
+              flage=false;
               res.render("./user/nurse", {
                 check: true,
                 message: submitMessage,

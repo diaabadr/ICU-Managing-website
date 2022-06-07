@@ -66,4 +66,7 @@ router.get("/logout", (req, res, next) => {
   });
 });
 
+router.get("/aboutus", (req, res, next) => {
+  res.render("./user/doctor/"+"5");
+});
 module.exports = { router: router, isSignin: isSignin };

@@ -73,6 +73,7 @@ router.get("/:id", users, (req, res, next) => {
     }
   );
   if (flage) {
+    flage=false;
     res.render("./user/receptionist", { chec: true, message: message });
   } else {
     res.render("./user/receptionist", { chec: false });
@@ -198,6 +199,7 @@ router.post("/addPatient", users, (req, res, next) => {
                       arrivalDate: date,
                       lastDoctor: "__",
                       lastNurse: "__",
+                      progress: 0,
                     },
                   },
                   (error, existPatient) => {
@@ -236,6 +238,7 @@ router.post("/addPatient", users, (req, res, next) => {
                   isExist: true,
                   lastDoctor: "__",
                   lastNurse: "__",
+                  progress: 0,
                 });
                 patient.save((err, newPatient) => {
                   if (err) {
@@ -272,6 +275,10 @@ router.post("/addPatient", users, (req, res, next) => {
                   companionName: req.body.compName,
                   companionSSN: req.body.comSSN,
                   companionPhone: req.body.compPhone,
+                },
+                report: {
+                  diagnosis: "",
+                  midicines: "",
                 },
               });
               vHistory.save((errr, ress) => {

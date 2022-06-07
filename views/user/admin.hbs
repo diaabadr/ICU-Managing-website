@@ -29,7 +29,9 @@
         </div>
     </div>
 </div>
-
+ {{#if check}}
+        <div class="done-message">{{message}}</div>
+    {{/if}}
     <div class="sidebar">
       <div class="sidebar-logo home-btn">
         <div class="logo home-btn">
@@ -359,6 +361,7 @@
         </div>
       </div>
     </div>
+    </div>
     <div class="page-contains page-add-staff">
       <div class="form-container">
         <form action="/admin/addingStaff" class="form-parts" method="post">
@@ -615,7 +618,7 @@
                   />
                 </div>
                 <h2 class="error err-1"></h2>
-                <button class="button assign-btn" data-btn="1">Assign</button>
+                <button class="button assign-btn" data-btn={{this.index}}>Assign</button>
               </form>
             </div>
           </div>
