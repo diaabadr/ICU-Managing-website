@@ -1,0 +1,99 @@
+:root {
+    --main-color: #2e3192;
+    --sec-color: #00aeef;
+    --border-radius: 5px;
+    --important-text: 35px;
+    --sec-text: 25px;
+    --icons-size: 45px
+}
+
+body{
+    background-image: linear-gradient(45deg, #222468, var(--main-color));
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.about{
+    width: 90%;
+    margin: 20px auto;
+}
+
+.about-dep{
+    height: 83vh;
+}
+
+.dep-image,
+.dep-text{
+    margin-top: 10%;
+}
+
+p{
+    color: white;
+    font-size: var(--sec-text);
+    text-transform: capitalize;
+    line-height: 1.5;
+}
+p span{
+    color: var(--sec-color);
+    font-weight: 700;
+    font-size: var(--important-text);
+    
+}
+
+.sp-header{
+    color: white;
+}
+
+.aboutUs{
+    background-color: white;
+    position: relative;
+    height: 100vh;
+}
+
+.aboutUs .sp-header{
+    margin-top: 40px !important;
+    color: #222468;
+}
+
+.team-img{
+    width: 80%;
+    margin: auto ;
+}
+
+img{
+    width: 100%;
+}
+
+.team-cards{
+    width: 90%;
+    margin: auto !important;
+    height: 0%;
+    
+}
+
+.team-card{
+    top: 50%;
+    transform: translateY(50%);
+    transition: 0.3s;
+    height: fit-content;
+    cursor: default;
+}
+
+.team-card:hover{
+    background-color: #eee;
+    transform: translateY(35%);
+}
+
+.team-data h2{
+    color: #222468;
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.team-data h3{
+    color: var(--sec-color);
+    font-weight: 300;
+    margin-top: 0;
+}

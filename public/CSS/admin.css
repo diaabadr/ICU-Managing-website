@@ -17,7 +17,7 @@ body{
 .sidebar{
     height: 100%;
     width: 100px;
-    background-color: #222468;
+    background-image: linear-gradient(45deg,#222468,var(--main-color));
     position: fixed;
     left: 0;
     padding: 20px;

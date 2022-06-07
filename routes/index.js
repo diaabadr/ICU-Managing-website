@@ -8,7 +8,7 @@ router.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
 });
 router.post("/checkSSN", (req, res, next) => {
-    res.render("./user/patientFullData");
+    res.render("./user/about");
   // console.log(req.body.SSN);
   // patients.findOne({ pSSN: req.body.SSN }, (error, patient) => {
   //   if (error) {

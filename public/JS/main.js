@@ -246,21 +246,23 @@ myRequest.onreadystatechange = function () {
 
 
 window.onscroll = function () {
-  if (patientCardHide.classList.contains("scroll")) {
-    if (this.scrollY > 700) {
-      patientCardHide.classList.add("rec-pa-card-hide");
-    } else {
-      patientCardHide.classList.remove("rec-pa-card-hide");
+  if (patientCardHide != null) {
+    if (patientCardHide.classList.contains("scroll")) {
+      if (this.scrollY > 700) {
+        patientCardHide.classList.add("rec-pa-card-hide");
+      } else {
+        patientCardHide.classList.remove("rec-pa-card-hide");
+      }
     }
-  }
-  if (visitorCardShow.classList.contains("scroll")) {
-    if (this.scrollY > 700) {
-      visitorCardShow.classList.add("rec-vi-card-show");
-    } else {
-      visitorCardShow.classList.remove("rec-vi-card-show");
+    if (visitorCardShow.classList.contains("scroll")) {
+      if (this.scrollY > 700) {
+        visitorCardShow.classList.add("rec-vi-card-show");
+      } else {
+        visitorCardShow.classList.remove("rec-vi-card-show");
+      }
     }
-  }
-};
+  };
+}
 
 let companion = document.getElementById("companion");
 let companionBtn = document.querySelector(".rec-form-btn-change");
