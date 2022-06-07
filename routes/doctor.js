@@ -74,7 +74,6 @@ router.get("/:id",users, (req, res, next) => {
           }
           let messages = [];
           for (var i = 0; i < messagesArr.length; i++) {
-            console.log(patientsHistory[i].report.diagnosis);
             let msgs = [];
             for (var j = 0; j < messagesArr[i].length; j++) {
               msgs.push(messagesArr[i][j].msg);

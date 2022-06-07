@@ -191,22 +191,31 @@ router.get("/:id", users, (req, res, next) => {
         } catch (error) {}
       }
 
-      let docPatsNum = [];
+      let docpat = [];
       for (var i = 0; i < availDocs.length; i++) {
-        try {
-          docPatsNum[i] = await patients.find({
-            isExist: true,
-            lastDoctor: availDocs[i].empSSN,
-          });
-        } catch (error) {}
+        var arr2 = [];
+        docpat[i] = new Array(availDocs[i].length);
+        for (var j = 0; j < availDocs[i].length; j++) {
+          try {
+            arr2 = await patients.find({
+              isExist: true,
+              lastDoctor: availDocs[i][j].empSSN,
+            });
+          } catch (error) {}
+          console.log(arr2.length);
+
+          docpat[i][j] = arr2.length;
+        }
       }
       let docs = [];
+
       for (var i = 0; i < availDocs.length; i++) {
         let arr = [];
+
         for (var j = 0; j < availDocs[i].length; j++) {
           arr[j] = {
             dName: availDocs[i][j].empName,
-            pNums: docPatsNum[i].length,
+            pNums: docpat[i][j],
             dPhone: availDocs[i][j].empPhone,
             age: parseInt(
               (new Date() - availDocs[i][j].empBirthDate) /
@@ -228,20 +237,27 @@ router.get("/:id", users, (req, res, next) => {
       }
       let NursesPatsNum = [];
       for (var i = 0; i < availNurses.length; i++) {
-        try {
-          NursesPatsNum[i] = await patients.find({
-            isExist: true,
-            lastNurse: availNurses[i].empSSN,
-          });
-        } catch (error) {}
+        var arr2 = [];
+        NursesPatsNum [i]= new Array(availNurses[i].length);
+        for (var j = 0; j < availNurses[i].length; j++) {
+          try {
+            arr2 = await patients.find({
+              isExist: true,
+              lastNurse: availNurses[i][j].empSSN,
+            });
+          } catch (error) {}
+          NursesPatsNum[i][j] = arr2.length;
+        }
       }
       let Nurse = [];
+
       for (var i = 0; i < availNurses.length; i++) {
         let arr = [];
+
         for (var j = 0; j < availNurses[i].length; j++) {
           arr[j] = {
             nName: availNurses[i][j].empName,
-            pNums: NursesPatsNum[i].length,
+            pNums: NursesPatsNum[i][j],
             nPhone: availNurses[i][j].empPhone,
             age: parseInt(
               (new Date() - availNurses[i][j].empBirthDate) /
@@ -263,11 +279,16 @@ router.get("/:id", users, (req, res, next) => {
               (24 * 365 * 60 * 60 * 1000)
           ),
           gender: patwithoutDoc[i].pGender,
+          index: (i + 1).toString(),
           availableDocs: docs[i],
           availableNurses: Nurse[i],
         };
       }
-
+      let check = false;
+      if (flage) {
+        check = true;
+        flage = false;
+      }
       res.render("./user/admin", {
         hbsPatients: patintsAllData,
         doctors: hbsDoctors,
@@ -279,6 +300,8 @@ router.get("/:id", users, (req, res, next) => {
         recentpatients: recentpatients,
         ourcomplaints: ourcomplaints,
         ournewPats: ournewPats,
+        check: check,
+        message: submitMessage,
       });
     }
   });
@@ -318,25 +341,28 @@ router.post("/addingStaff", users, (req, res, next) => {
                 if (error) {
                   console.log(error);
                 } else {
-                  // successfully added
+                  submitMessage = "Employee added successfully";
+                  flage = true;
                   res.redirect("/users/profile");
                 }
               });
             } else {
-              req.flash("signupError", "This SSN already exist");
+              submitMessage = "This SSN already exist";
+              flage = true;
               res.redirect("/users/profile");
             }
           }
         });
       } else {
-        req.flash("signupError", "This Email already exist");
+        submitMessage = "This Email already exist";
+        flage = true;
         res.redirect("/users/profile");
       }
     }
   });
 });
 
-router.post("/assignStaff",users, (req, res, next) => {
+router.post("/assignStaff", users, (req, res, next) => {
   console.log(req.body);
   Staff.findOne({ empName: req.body.nurseName }, (error, Nur) => {
     if (error) {
@@ -369,6 +395,8 @@ router.post("/assignStaff",users, (req, res, next) => {
                           if (error) {
                             console.log(error);
                           } else {
+                            submitMessage = "Staff assigned Successfully";
+                            flage = true;
                             res.redirect("/users/profile");
                           }
                         }

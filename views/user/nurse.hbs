@@ -27,10 +27,6 @@
         </div>
         <div class="links">
           <ul class="links">
-            {{#if check}}
-              <li><a href="#" class="dep">{{message}}</a></li>
-            {{/if}}
-
             <li><a href="#" class="dep">Department</a></li>
             <li><a href="#">Contact US</a></li>
             <li><a href="#">About US</a></li>
@@ -39,6 +35,9 @@
         </div>
       </div>
     </div>
+    {{#if check}}
+        <div class="done-message">{{message}}</div>
+    {{/if}}
     <div class="cancel-card">
       <div class="cancel-card-contains">
         <h2>Are You Sure?</h2>

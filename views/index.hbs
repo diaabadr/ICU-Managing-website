@@ -27,11 +27,14 @@
           <ul class="links">
             <li><a href="">Department</a></li>
             <li><a href="">Contact US</a></li>
-            <li><a href="">About US</a></li>
+            <li><a href="http://localhost:3000/aboutus#ayhaga">About US</a></li>
           </ul>
         </div>
       </div>
     </div>
+    {{#if check}}
+      <div class="done-message">{{message}}</div>
+    {{/if}}
     <div class="home-body">
       <div class="img col-5">
         <img src="images/nurse.png" class="image" alt="" />
@@ -57,8 +60,13 @@
           <label for="password">Password</label>
           <input required type="password" name="password" id="password" />
           <div class="show-pass">
-          <input type="checkbox" onclick="showPassword()" name="show-pass" id="show-pass">
-          <label for="show-pass">Show Password</label>
+            <input
+              type="checkbox"
+              onclick="showPassword()"
+              name="show-pass"
+              id="show-pass"
+            />
+            <label for="show-pass">Show Password</label>
           </div>
           <button
             type="submit"
@@ -97,7 +105,7 @@
               <label for="patient">Check Your Patient</label>
               <input
                 type="text"
-                name="SSN"
+                name="pSSN"
                 id="patient"
                 placeholder="Enter Patient SSN"
                 required
@@ -109,17 +117,22 @@
             <div class="ava-rooms">
               <div class="sp-header">Check Avaliable Rooms</div>
               <div class="input-box">
-                  <span class="details">Search in Departments</span>
-                  <select id="departments2" required name="departments">
-                  <option selected="selected" hidden disabled class="option-selected">
-                      Select Department
+                <span class="details">Search in Departments</span>
+                <select id="departments2" required name="departments">
+                  <option
+                    selected="selected"
+                    hidden
+                    disabled
+                    class="option-selected"
+                  >
+                    Select Department
                   </option>
-                      <option value="Medical">Medical</option>
-                      <option value="Surgical">Surgical</option>
-                      <option value="Pediatric">Pediatric</option>
-                      <option value="Neonatal">Neonatal</option>
-                  </select> 
-                  <div class="error room-error2"></div>
+                  <option value="Medical">Medical</option>
+                  <option value="Surgical">Surgical</option>
+                  <option value="Pediatric">Pediatric</option>
+                  <option value="Neonatal">Neonatal</option>
+                </select>
+                <div class="error room-error2"></div>
               </div>
             </div>
           </div>
