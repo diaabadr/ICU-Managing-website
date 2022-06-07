@@ -106,7 +106,7 @@ router.post("/checkSSN", (req, res, next) => {
 });
 
 router.get("/aboutus", (req, res, next) => {
-  res.render("./user/patientFullData");
+  res.render("./user/about");
 });
 router.post("/complaint", (req, res, next) => {
   if (req.body.Complaints != "") {
