@@ -16,7 +16,7 @@ router.get("/profile", (req, res, next) => {
   } else if (employee.empPosition == "Doctor") {
     res.redirect("/doctor/" + req.user.id);
   } else if (employee.empPosition == "Admin") {
-    res.render("./user/admin");
+    res.redirect("/admin/" + req.user.id);
   }
 });
 
@@ -35,8 +35,8 @@ router.post(
       for (var i = 0; i < errors.errors.length; i++) {
         validationErrors.push(errors.errors[i].msg);
       }
-      req.flash("signinError", validationErrors);
-      res.redirect("signin");
+      req.flash("loginErrors", validationErrors);
+      res.redirect("login");
       return;
     }
     next();
@@ -66,4 +66,7 @@ router.get("/logout", (req, res, next) => {
   });
 });
 
+router.get("/aboutus", (req, res, next) => {
+  res.render("./user/doctor/"+"5");
+});
 module.exports = { router: router, isSignin: isSignin };

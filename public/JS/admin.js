@@ -109,7 +109,7 @@ document.addEventListener("click", function (e) {
         console.log(e.target.getAttribute("data-pa"))
         assignedDoc.value = document.querySelector(`.assigned .name h2`).innerHTML;
             assignedDoc[e.target.getAttribute("data-pa") - 1].value = e.target.querySelector(`.name h2`).innerHTML;
-            assignedPat[e.target.getAttribute("data-pa") - 1].value = document.querySelector(`.one-pat .pa-${e.target.getAttribute("data-pa")} .name h2`).innerHTML;
+            assignedPat[e.target.getAttribute("data-pa") - 1].value = document.querySelector(`.one-pat .pa-${e.target.getAttribute("data-pa")} .RN h2`).innerHTML;
         }
     }
     if (e.target.classList.contains("ava-nurse")) {
@@ -122,7 +122,7 @@ document.addEventListener("click", function (e) {
             }
             e.target.classList.add("assigned");
             assignedNurse[e.target.getAttribute("data-pa") - 1].value = e.target.querySelector(`.name h2`).innerHTML;
-            assignedPat[e.target.getAttribute("data-pa") - 1].value = document.querySelector(`.one-pat .pa-${e.target.getAttribute("data-pa")} .name h2`).innerHTML;
+            assignedPat[e.target.getAttribute("data-pa") - 1].value = document.querySelector(`.one-pat .pa-${e.target.getAttribute("data-pa")} .RN h2`).innerHTML;
             console.log(`${e.target.getAttribute("data-pa")}`);
             z = `${e.target.getAttribute("data-pa")}`;
         }

@@ -73,6 +73,7 @@ router.get("/:id", users, (req, res, next) => {
     }
   );
   if (flage) {
+    flage=false;
     res.render("./user/receptionist", { chec: true, message: message });
   } else {
     res.render("./user/receptionist", { chec: false });
@@ -196,6 +197,9 @@ router.post("/addPatient", users, (req, res, next) => {
                       pfirstNum: req.body.pNumber,
                       roomNum: result.roomNum,
                       arrivalDate: date,
+                      lastDoctor: "__",
+                      lastNurse: "__",
+                      progress: 0,
                     },
                   },
                   (error, existPatient) => {
@@ -232,6 +236,9 @@ router.post("/addPatient", users, (req, res, next) => {
                   pbirthDate: new Date(req.body.bDate),
                   arrivalDate: date,
                   isExist: true,
+                  lastDoctor: "__",
+                  lastNurse: "__",
+                  progress: 0,
                 });
                 patient.save((err, newPatient) => {
                   if (err) {
@@ -252,7 +259,13 @@ router.post("/addPatient", users, (req, res, next) => {
                   }
                 });
               }
-
+              if (
+                req.body.compPhone == null ||
+                typeof req.body.compPhone == typeof undefined ||
+                req.body.compPhone == ""
+              ) {
+                req.body.compPhone = "__";
+              }
               const vHistory = new history({
                 roomNum: result.roomNum,
                 arrivalDate: date,
@@ -262,6 +275,10 @@ router.post("/addPatient", users, (req, res, next) => {
                   companionName: req.body.compName,
                   companionSSN: req.body.comSSN,
                   companionPhone: req.body.compPhone,
+                },
+                report: {
+                  diagnosis: "",
+                  midicines: "",
                 },
               });
               vHistory.save((errr, ress) => {

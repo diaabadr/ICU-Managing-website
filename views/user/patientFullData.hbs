@@ -1,6 +1,5 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,8 +17,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
       <div class="header">
         <div class="logo home-btn">
@@ -35,100 +34,102 @@
       </div>
     </div>
     <div class="data-report">
-        <div class="patients doctor-patients messages">
-            <div class="contains">
-                <div class="sp-header patients-refresh complaints">Patient Data</div>
-                <div class="pa-data row">
-                    <div class="data-name data col-8 right">
-                        <h3>Name</h3>
-                        <h2>Abelrhman Yasser</h2>
-                    </div>
-                    <div class="data data-age col-2 right left">
-                        <h3>Age</h3>
-                        <h2>22</h2>
-                    </div>
-                    <div class="data data-gender col-2 left">
-                        <h3>Gender</h3>
-                        <h2>Male</h2>
-                    </div>
-                    <div class="data data-adress col-6 right">
-                        <h3>Address</h3>
-                        <h2>Shikh Zaid - 6 October</h2>
-                    </div>
-                    <div class="data data-phone col-6 left">
-                        <h3>Phone</h3>
-                        <h2>01211035528</h2>
-                    </div>
-                </div>
+      <div class="patients doctor-patients messages">
+        <div class="contains">
+          <div class="sp-header patients-refresh complaints">Patient Data</div>
+          <div class="pa-data row">
+            <div class="data-name data col-8 right">
+              <h3>Name</h3>
+              <h2>{{patient.pName}}</h2>
             </div>
+            <div class="data data-age col-2 right left">
+              <h3>Age</h3>
+              <h2>{{age}}</h2>
+            </div>
+            <div class="data data-gender col-2 left">
+              <h3>Gender</h3>
+              <h2>{{patient.pGender}}</h2>
+            </div>
+            <div class="data data-adress col-6 right">
+              <h3>Address</h3>
+              <h2>{{patient.pAddress}}</h2>
+            </div>
+            <div class="data data-phone col-6 left">
+              <h3>Phone</h3>
+              <h2>{{patient.pfirstNum}}</h2>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <div class="data-report">
-        <div class="patients doctor-patients messages">
-            <div class="contains">
-                <div class="sp-header patients-refresh complaints">Hospital Data</div>
-                <div class="pa-data row">
-                    <div class="data-name data col-5 right">
-                        <h3>Department</h3>
-                        <h2>Medical</h2>
-                    </div>
-                    <div class="data data-age col-2 right left">
-                        <h3>Room No</h3>
-                        <h2>2</h2>
-                    </div>
-                    <div class="data data-gender col-5 left">
-                        <h3>Arrival Date</h3>
-                        <h2>May 12 2022</h2>
-                    </div>
-                    <div class="data data-adress col-6 right">
-                        <h3>Doctor Name</h3>
-                        <h2>Abdelrhman Yasser</h2>
-                    </div>
-                    <div class="data data-phone col-6 left">
-                        <h3>Nurse Name</h3>
-                        <h2>Diaa Badr</h2>
-                    </div>
-                </div>
+      <div class="patients doctor-patients messages">
+        <div class="contains">
+          <div class="sp-header patients-refresh complaints">Hospital Data</div>
+          <div class="pa-data row">
+            <div class="data-name data col-5 right">
+              <h3>Department</h3>
+              <h2>{{patientReport.vDepartment}}</h2>
             </div>
+            <div class="data data-age col-2 right left">
+              <h3>Room No</h3>
+              <h2>{{patient.roomNum}}</h2>
+            </div>
+            <div class="data data-gender col-5 left">
+              <h3>Arrival Date</h3>
+              <h2>{{arrDate}}</h2>
+            </div>
+            <div class="data data-adress col-6 right">
+              <h3>Doctor Name</h3>
+              <h2>{{doc.empName}}</h2>
+            </div>
+            <div class="data data-phone col-6 left">
+              <h3>Nurse Name</h3>
+              <h2>{{nurse.empName}}</h2>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <div class="data-report">
-        <div class="patients doctor-patients messages">
-            <div class="contains">
-                <div class="sp-header patients-refresh complaints">Medical Data</div>
-                <div class="pa-data row">
-                    <div class="data-name data col-5 right">
-                        <h3>Diagnosis</h3>
-                        <h2>Mareed</h2>
-                    </div>
-                    <div class="data data-age col-5 right left">
-                        <h3>Medicines</h3>
-                        <h2>Cometrix</h2>
-                    </div>
-                    <div class="data data-gender col-2 left">
-                        <h3>Blood Tybe</h3>
-                        <h2>A+</h2>
-                    </div>
-                    <div class="data data-adress col-4 right">
-                        <h3>Last Blood Presure</h3>
-                        <h2>120</h2>
-                    </div>
-                    <div class="data data-phone col-4 left right">
-                        <h3>Last Blood Glocuse</h3>
-                        <h2>130</h2>
-                    </div>
-                    <div class="data data-phone col-4 left">
-                        <h3>Progrss</h3>
-                        <h2>78%</h2>
-                    </div>
-                </div>
+      <div class="patients doctor-patients messages">
+        <div class="contains">
+          <div class="sp-header patients-refresh complaints"id="ayhaga">Medical Data</div>
+          <div class="pa-data row">
+            <div class="data-name data col-5 right">
+              <h3>Diagnosis</h3>
+              <h2>{{patientReport.report.diagnosis}}</h2>
             </div>
+            <div class="data data-age col-5 right left">
+              <h3>Medicines</h3>
+              <h2>{{patientReport.report.midicines}}</h2>
+            </div>
+            <div class="data data-gender col-2 left">
+              <h3>Blood Tybe</h3>
+              <h2>{{patient.bloodType}}</h2>
+            </div>
+            <div class="data data-adress col-4 right">
+              <h3>Last Blood Presure</h3>
+              <h2>{{diags.bloodPressure}}</h2>
+            </div>
+            <div class="data data-phone col-4 left right">
+              <h3>Last Blood Glocuse</h3>
+              <h2>{{diags.bloodGlucose}}</h2>
+            </div>
+            <div class="data data-phone col-4 left">
+              <h3>Progrss</h3>
+              <h2>{{patient.progress}}%</h2>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="button">Back</div>
+    <form action="/" method="get">
+      <button class="button">Back</button>
+    </form>
     <div class="last"></div>
-</body>
-<script src="../JS/all.min.js"></script>
-<script src="../JS/main.js"></script>
-<script src="../JS/bootstrap.bundle.min.js"></script>
+  </body>
+  <script src="../JS/all.min.js"></script>
+  <script src="../JS/main.js"></script>
+  <script src="../JS/bootstrap.bundle.min.js"></script>
 </html>
