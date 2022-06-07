@@ -199,3 +199,12 @@ function finish(){
 function pageRotate(x) {
     x.classList.add("page-show");
 }
+
+myRequest.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+        if (JSON.parse(this.responseText).length != 0) {
+            var patient = JSON.parse(this.responseText);
+            document.querySelector(".ern").innerHTML = patient.length * 20 + "K"
+        }
+    }
+}

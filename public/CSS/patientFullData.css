@@ -12,11 +12,18 @@
 }
 
 .patients .sp-header{
-    margin-right: 80%;
+    margin-right: 75%;
+    width: 20%;
+    transition: 0.3s;
+}
+
+.patients .sp-header:hover{
+    width: 100%;
 }
 
 .patients{
     overflow: hidden;
+    height: fit-content;
 }
 
 .container{
@@ -39,7 +46,7 @@
 .data{
     display: flex;
     background-color: var(--main-color);
-    height: 200px;
+    height: 120px;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
@@ -58,17 +65,17 @@
     transition: 0.3s;
     cursor: default;
     user-select: none;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .data h2{
     color: white;
-    font-size: 60px;
     margin: 0;
     text-align: center;
     transition: 0.3s;
     cursor: default;
     user-select: none;
+    font-size: 35px;
 }
 
 .right{
