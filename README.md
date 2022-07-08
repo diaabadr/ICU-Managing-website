@@ -118,9 +118,21 @@ To get a local copy up and running follow these simple example steps.
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+This project has 4 Interfaces.
+1. Patients Families Interface
+This interface give the user some features:
+- [] Make a complaint
+- [] Check his patient status
+- [] Check if there are available rooms before going to the hospital
+[![Product Name Screen Shot][generalUser]](https://example.com)
+>- Check his patient status
+[![Product Name Screen Shot][Patient]](https://example.com)
+>- Search for available rooms based on the Department
+[![Product Name Screen Shot][Check1]](https://example.com)
+[![Product Name Screen Shot][Check2]](https://example.com)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+
+
 
 
 
@@ -195,3 +207,7 @@ Don't forget to give the project a star! Thanks!
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/diaa-badr-b164661b9/
 [product-screenshot]: ./public/images/projectphoto.png
+[generalUser]: ./public/images/genuser.png
+[Check1]: ./public/images/check1.png
+[Check2]: ./public/images/check2.png
+[Patient]: ./public/images/patient.png
