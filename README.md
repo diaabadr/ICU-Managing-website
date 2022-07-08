@@ -1,6 +1,5 @@
 <div id="top"></div>
 
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -17,10 +16,10 @@
   <p align="center">
     project_description
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <a href="https://drive.google.com/file/d/1t9r6h8G3tB9nNJ5UeBeBm1CkLRuPEGaR/view?usp=sharing"><strong>Explore ER Model »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://drive.google.com/file/d/12-1FNUrpwY_I_W4lMm-7E9sLdMx11GyH/view">Demo Video</a>
     ·
     <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
     ·
