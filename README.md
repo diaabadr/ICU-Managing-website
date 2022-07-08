@@ -23,7 +23,7 @@
 > **Note**
 > You can add any staff members with your admin account.
 >- Open your account and choose Add Employee from the left
->- their accounts can be opened using the email you entered on adding employee Form.
+>- Their accounts can be opened using the email you entered on adding employee Form - 
 >- and the password will be the first password the employee type when he open his account.
 >- There are 3 interfaces based on the Job Type (Receptionist - Doctor - Nurse - Admin).
 >- Every account have features based on the his Job duties.
