@@ -156,6 +156,12 @@ Thanks goes to these wonderful people.
 
 </table>
 
+## Contact
+
+Diaa Badr - Backend Developer(https://twitter.com/twitter_handle) - diaabadr82@gmail.com
+
+Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+
 ## Contributing
 
 Any contributions you make are **greatly appreciated**.
@@ -174,11 +180,7 @@ Don't forget to give the project a star! Thanks!
 
 <!-- CONTACT -->
 
-## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
