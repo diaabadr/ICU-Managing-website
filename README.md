@@ -107,6 +107,7 @@ To get a local copy up and running follow these simple example steps.
    > - > - Email: maryammegahed@admin.com.
    > - > - Password: your first password will be considered the account password.
 10. Run the project
+
     ```sh
     nodemon
     ```
@@ -148,6 +149,7 @@ This interface gives the Doctor some features to help him on his Job:
 >- Assign Patient Daily Diagnosis (Blood Pressure - Blood Glucose)
 >- Send Notes to the Doctor.
 <!-- ROADMAP -->
+
 
 ## Roadmap
 
