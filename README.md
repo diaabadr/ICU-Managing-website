@@ -130,7 +130,7 @@ This interface gives the user some features:
 
 >- Search for available rooms based on the Department
 2. Receptionist Account Interface
-This interface gives the Receptionist some features to help him on his Job:
+- [ ] This interface gives the Receptionist some features to help him on his Job:
 >- Adding Patient.
 >- Checkout Patient.
 >- Search for a Patient room.
