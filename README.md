@@ -119,34 +119,34 @@ To get a local copy up and running follow these simple example steps.
 ## Usage
 
 ### This project has 5 Interfaces.
-##### 1. Patients Families Interface  
+#### 1. Patients Families Interface  
 This interface gives the user some features:  
 >- Make a complaint
 >- Check his patient status
 >- Check if there are available rooms before going to the hospital
 >- Check his patient status
 >- Search for available rooms based on the Department
-2. Receptionist Account Interface  
+#### 2. Receptionist Account Interface  
 This interface gives the Receptionist some features to help him on his Job:
 >- Adding Patient.
 >- Checkout Patient.
 >- Search for a Patient room.
 >- Adding Visitors Data.
-3. Doctor Account Interface  
+#### 3. Doctor Account Interface  
 This interface gives the Doctor some features to help him on his Job:
 >- See his patients.
 >- Follow his patients progress.
 >- Assign Patient Data (Blood Type - Diagnosis - Medicine).
 >- Send Notes to the Nurse.
 
-4. Nurse account Interface  
+#### 4. Nurse account Interface  
 This interface gives the Nurse some features to help him on his Job:
 >- See his patients
 >- Follow the Doctor rules.
 >- Assign Patient Daily Diagnosis (Blood Pressure - Blood Glucose)
 >- Send Notes to the Doctor.
 <!-- ROADMAP -->
-5. Admin account Interface  
+#### 5. Admin account Interface  
 This interface gives the Doctor some features to help him on his Job:
 >- See His Employees Data (Doctors -Nurses - Receptionists)
 >- See all Patients Data.
