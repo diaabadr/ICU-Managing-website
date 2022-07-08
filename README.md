@@ -58,7 +58,6 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
@@ -155,6 +154,7 @@ Thanks goes to these wonderful people.
      <td align="center"><a href="https://www.linkedin.com/in/abdelrhmanyasser/"><img src="./public/images/Yasser.jpg" width="100px;" alt="Abdelrahman yasser"/><br /><sub><b>Abdelrahman yasser</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=Abdelrhman012" title="Code" >💻</a></td>
 
 </table>
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Contact
 ### Backend Developers
@@ -162,7 +162,7 @@ Thanks goes to these wonderful people.
 - Maryam Megahed: maryam.megahed45@gmail.com
 ### Frontend Developers
 - Abdelrahman Yasser: abdelrhmanyaser78@gmail.com
-
+<p align="right">(<a href="#top">back to top</a>)</p>
 ## Contributing
 
 Any contributions you make are **greatly appreciated**.
@@ -183,11 +183,10 @@ Don't forget to give the project a star! Thanks!
 
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
