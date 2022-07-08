@@ -121,9 +121,9 @@ To get a local copy up and running follow these simple example steps.
 This project has 4 Interfaces.
 1. Patients Families Interface
 This interface give the user some features:
-- [] Make a complaint
-- [] Check his patient status
-- [] Check if there are available rooms before going to the hospital
+- [ ] Make a complaint
+- [ ] Check his patient status
+- [ ] Check if there are available rooms before going to the hospital
 [![Product Name Screen Shot][generalUser]](https://example.com)
 >- Check his patient status
 [![Product Name Screen Shot][Patient]](https://example.com)
