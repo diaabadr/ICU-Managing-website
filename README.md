@@ -11,8 +11,8 @@
   <a href="https://github.com/github_username/repo_name">
     <img src="./public/images/logooo.png" alt="Logo" width="140" height="140">
   </a>
-<div>
-<h3 align="center">ICU Managing Website</h3>
+
+<h3 align="center" margin-top="0">ICU Managing Website</h3>
   <p align="center">
     <br />
     <a href="https://drive.google.com/file/d/1t9r6h8G3tB9nNJ5UeBeBm1CkLRuPEGaR/view?usp=sharing"><strong>Explore ER Model »</strong></a>
