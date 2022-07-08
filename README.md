@@ -113,7 +113,7 @@ To get a local copy up and running follow these simple example steps.
    > - > - Password: your first password will be considered the account password.
 10. Run the project   
     ```sh
-   nodemon
+    nodemon
     ```
 11. Now open http://127.0.0.1:3000 on the browser.   
 
@@ -151,7 +151,7 @@ Thanks goes to these wonderful people.
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/diaa-badr-b164661b9/"><img src="./public/images/dada.png" width="100px;" alt="Donavon West"/><br /><sub><b>Diaa Badr</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=donavon" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/diaa-badr-b164661b9/"><img src="./public/images/dada.jpg" width="100px;" alt="Donavon West"/><br /><sub><b>Diaa Badr</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=donavon" title="Code">💻</a></td>
 </table>
 
 ## Contributing
