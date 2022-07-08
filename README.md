@@ -44,7 +44,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#usage">Contributors</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#contributing">Contributing</a></li>
@@ -135,30 +134,36 @@ This interface gives the Receptionist some features to help him on his Job:
 >- Adding Patient.
 >- Checkout Patient.
 >- Search for a Patient room.
->- Adding Visitors Data
+>- Adding Visitors Data.
 3. Doctor Account Interface
 This interface gives the Doctor some features to help him on his Job:
->- See his patients
->- Follow his patients progress
->- Assign Patient Data (Blood Type - Diagnosis - Medicine)
+>- See his patients.
+>- Follow his patients progress.
+>- Assign Patient Data (Blood Type - Diagnosis - Medicine).
 >- Send Notes to the Nurse.
 
-4. Nurse 
+4. Nurse account Interface 
+This interface gives the Nurse some features to help him on his Job:
 >- See his patients
 >- Follow the Doctor rules.
 >- Assign Patient Daily Diagnosis (Blood Pressure - Blood Glucose)
 >- Send Notes to the Doctor.
 <!-- ROADMAP -->
-
-
+5. Admin account Interface
+This interface gives the Doctor some features to help him on his Job:
+>- See His Employees Data (Doctors -Nurses - Receptionists)
+>- See all Patients Data.
+>- See Visitors Data.
+>- See hospital profits.
+>- Adding new Employee.
+>- Assign Doctor and Nurse to To monitor a specific patient.
+<!-- 
 ## Roadmap
 
 - [ ] Feature 1
 - [ ] Feature 2
 - [ ] Feature 3
-  - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+  - [ ] Nested Feature -->
 
 
 
