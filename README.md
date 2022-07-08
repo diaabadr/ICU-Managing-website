@@ -157,8 +157,11 @@ Thanks goes to these wonderful people.
 </table>
 
 ## Contact
-
-Diaa Badr - Backend Developer(https://twitter.com/twitter_handle) - diaabadr82@gmail.com
+### Backend Developers
+Diaa Badr: diaabadr82@gmail.com
+Maryam Megahed: maryam.megahed45@gmail.com
+### Frontend Developers
+Abdelrahman Yasser: abdelrhmanyaser78@gmail.com
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
