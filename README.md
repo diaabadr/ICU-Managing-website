@@ -16,7 +16,7 @@
   <p align="center">
   Website for Managing hospital Data
     <br />
-    <a href="https://drive.google.com/file/d/1t9r6h8G3tB9nNJ5UeBeBm1CkLRuPEGaR/view?usp=sharing"margin-top=5 px >Explore ER Model »</strong></a>
+    <a href="https://drive.google.com/file/d/1t9r6h8G3tB9nNJ5UeBeBm1CkLRuPEGaR/view?usp=sharing"margin-top=5 px ><strong>Explore ER Model »</strong></a>
     <br />
     <br />
     <a href="https://drive.google.com/file/d/12-1FNUrpwY_I_W4lMm-7E9sLdMx11GyH/view">Demo Video</a>
@@ -77,7 +77,7 @@ To get a local copy up and running follow these simple example steps.
 ### Installation
 
 1. Install express js and npm. <a href="https://www.youtube.com/watch?v=NrAU04kRvmM">Video May Help!</a>
-2. Install mongodb. <a href="https://www.youtube.com/watch?v=xGuS195qhcs&list=PLGhZWewM_75LQf3KvHo6HHSclmDyDazl7&index=28"><strong>Video May Help!</a>
+2. Install mongodb. <a href="https://www.youtube.com/watch?v=xGuS195qhcs&list=PLGhZWewM_75LQf3KvHo6HHSclmDyDazl7&index=28">Video May Help!</a>
 3. Clone the repo
    ```sh
    git clone https://github.com/DiaaBadr/ICU-Managing-website.git
