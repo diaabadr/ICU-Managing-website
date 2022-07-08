@@ -8,10 +8,10 @@
 3. open project folder on vs code
 4. open new Terminal
 6. in the terminal, type:
->-1. npm install (press enter)
->-2. npm install nodemon -g (press enter)
->-3. node addingPatients/addingRooms (press enter)
->-4. node addingStaff/add (press enter)
+>- 1. npm install (press enter)
+>- 2. npm install nodemon -g (press enter)
+>- 3. node addingPatients/addingRooms (press enter)
+>- 4. node addingStaff/add (press enter)
 >
 > **Note**
 > Now You have an Admin account
