@@ -161,7 +161,7 @@ Thanks goes to these wonderful people.
 - Diaa Badr: diaabadr82@gmail.com
 - Maryam Megahed: maryam.megahed45@gmail.com
 ### Frontend Developers
-Abdelrahman Yasser: abdelrhmanyaser78@gmail.com
+- Abdelrahman Yasser: abdelrhmanyaser78@gmail.com
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
 
