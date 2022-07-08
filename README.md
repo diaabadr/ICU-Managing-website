@@ -12,7 +12,7 @@
     <img src="./public/images/logooo.png" alt="Logo" width="140" height="140">
   </a>
 
-<h3 align="center" margin-top="0">ICU Managing Website</h3>
+<h3 align="center" >ICU Managing Website</h3>
   <p align="center">
   Website for Managing hospital Data
     <br />
