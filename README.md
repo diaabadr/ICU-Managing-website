@@ -9,7 +9,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="./public/images/logoo.png" alt="Logo" width="80" height="80">
+    <img src="./public/images/logoo.png" alt="Logo" width="120" height="120">
   </a>
 
 <h3 align="center">ICU Managing Website</h3>
