@@ -230,7 +230,7 @@ Don't forget to give the project a star! Thanks!
 [Check1]: ./public/images/check1.png
 [Check2]: ./public/images/check2.png
 [Patient]: ./public/images/patient.png
-[Pats]:  ./public/images/patients.png
-[blood]:  ./public/images/blood.png
-[data]:  ./public/images/report.png
-[Notes]:  ./public/images/notes.png
+[Pats]:  ./public/images/patients1.png
+[blood]:  ./public/images/blood1.png
+[data]:  ./public/images/report1.png
+[Notes]:  ./public/images/notes1.png
