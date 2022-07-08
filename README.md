@@ -23,9 +23,9 @@
     <br />
     <a href="https://drive.google.com/file/d/12-1FNUrpwY_I_W4lMm-7E9sLdMx11GyH/view">Demo Video</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/diaabadr/ICU-Managing-website/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/diaabadr/ICU-Managing-website/issues">Request Feature</a>
   </p>
 </div>
 
