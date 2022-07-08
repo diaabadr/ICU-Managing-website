@@ -65,8 +65,8 @@
 
 ### Built With
 
-- [![Node JS][node.js]][node-url]
-- [![MongoDB][MongoDB]][mongo-url]
+- [![Node JS]][node-url]
+- [![MongoDB]][mongo-url]
 
 - [![Angular][angular.io]][angular-url]
 - [![Svelte][svelte.dev]][svelte-url]
