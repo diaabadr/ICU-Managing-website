@@ -15,7 +15,7 @@
 >
 > **Note**
 > Now You have an Admin account
->-Email (maryammegahed@admin.com)
+>- Email (maryammegahed@admin.com)
 >-5. cd <project original path) (اللي كان موجود قبل ما نغير لفايل اضافة الاستاف) (press enter)
 >- nodemon (press enter)
 >- open http://127.0.0.1:3000/ in the browser 
