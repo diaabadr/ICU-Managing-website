@@ -120,10 +120,9 @@ To get a local copy up and running follow these simple example steps.
 
 ### This project has 5 Interfaces.
 1. Patients Families Interface
-> This interface gives the user some features:
-
->> Make a complaint
->> Check his patient status
+> This interface gives the user some features:  
+>> Make a complaint  
+>> Check his patient status  
 >> Check if there are available rooms before going to the hospital
 >> Check his patient status
 >> Search for available rooms based on the Department
