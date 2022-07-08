@@ -21,8 +21,9 @@
 >- open http://127.0.0.1:3000 in the browser.
 
 > **Note**
-> You can add any staff members with your admin account and open their accounts using the email you entered on adding employee Form.
-
+> You can add any staff members with your admin account.
+> Open your account and choose add Employee from the left
+> their accounts can be opened using the email you entered on adding employee Form.
 > and the password will be the first password the employee type when he open his account.
 > There are 3 interfaces based on the account (Receptionist - Doctor - Nurse - Admin).
 > Every account have features based on the Employee duties.
