@@ -12,6 +12,7 @@
 >-2. npm install nodemon -g (press enter)
 >-3. node addingPatients/addingRooms (press enter)
 >-4. node addingStaff/add (press enter)
+>
 > **Note**
 > Now You have an Admin account
 >-Email (maryammegahed@admin.com)
