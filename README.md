@@ -1,12 +1,9 @@
 <div id="top"></div>
 
-
-
-
-
-                                                  
 [![Contributors][contributors-shield]][contributors-url]
+
 [![Issues][issues-shield]][issues-url]
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
