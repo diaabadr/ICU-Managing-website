@@ -119,7 +119,7 @@ To get a local copy up and running follow these simple example steps.
 ## Usage
 
 ### This project has 5 Interfaces.
-#### Patients Families Interface  
+#### 1. Patients Families Interface  
 This interface gives the user some features:  
 >- Make a complaint
 >- Check his patient status
