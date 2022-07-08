@@ -72,7 +72,7 @@
 
 ## Getting Started
 
-This is an example the steps of how you sett up the project locally.
+The steps of how you set up the project locally.
 To get a local copy up and running follow these simple example steps.
 
 ### Installation
@@ -120,12 +120,13 @@ To get a local copy up and running follow these simple example steps.
 
 ### This project has 4 Interfaces.
 1. Patients Families Interface
-This interface give the user some features:
+This interface gives the user some features:
 - [ ] Make a complaint
 - [ ] Check his patient status
 - [ ] Check if there are available rooms before going to the hospital
 
 [![Product Name Screen Shot][generalUser]](https://example.com)
+
 >- Check his patient status
 
 [![Product Name Screen Shot][Patient]](https://example.com)
@@ -136,10 +137,23 @@ This interface give the user some features:
 
 [![Product Name Screen Shot][Check2]](https://example.com)
 
+2. Doctor Account Interface
+This interface gives the doctor some features to help him on his Job:
+- [ ] See his patients
 
+[![Product Name Screen Shot][Pats]](https://example.com)
 
+-[ ] Follow his patients progress
 
+[![Product Name Screen Shot][blood]](https://example.com)
 
+- [ ] Assign Patient Data (Blood Type - Diagnosis - Medicine)
+
+[![Product Name Screen Shot][data]](https://example.com)
+
+- [ ] Send Notes to the nurse and see her Notes
+
+[![Product Name Screen Shot][Notes]](https://example.com)
 
 <!-- ROADMAP -->
 
@@ -216,3 +230,7 @@ Don't forget to give the project a star! Thanks!
 [Check1]: ./public/images/check1.png
 [Check2]: ./public/images/check2.png
 [Patient]: ./public/images/patient.png
+[Pats]:  ./public/images/patients.png
+[blood]:  ./public/images/blood.png
+[data]:  ./public/images/report.png
+[Notes]:  ./public/images/notes.png
