@@ -71,11 +71,6 @@
 >- CSS
 >- Handlebars
 
-- [![Angular][angular.io]][angular-url]
-- [![Svelte][svelte.dev]][svelte-url]
-- [![Laravel][laravel.com]][laravel-url]
-- [![Bootstrap][bootstrap.com]][bootstrap-url]
-- [![JQuery][jquery.com]][jquery-url]
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -83,33 +78,46 @@
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
+This is an example the steps of how you sett up the project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Install express js and npm. (https://www.youtube.com/watch?v=NrAU04kRvmM) video may help.
+2. Install mongodb (https://www.youtube.com/watch?v=xGuS195qhcs&list=PLGhZWewM_75LQf3KvHo6HHSclmDyDazl7&index=28) video may help
+3. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/DiaaBadr/ICU-Managing-website.git
    ```
-3. Install NPM packages
+4. Open the project on vs Code.
+5. Open the terminal
+6. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+7. Install nodemon
+   ```sh
+   npm install nodemon -g
    ```
+8. Add Rooms
+   ```sh
+   node addingPatients/addingRooms
+   ```
+9. Add Rooms
+   ```sh
+   node addingStaff/add
+   ```
+   > **Note**
+   > Now You have an Admin account
+   >
+   > - > - Email: maryammegahed@admin.com.
+   > - > - Password: your first password will be considered the account password.
+10. Run the project   
+    ```sh
+   nodemon
+   ```
+11. Now open http://127.0.0.1:3000 on the browser.   
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -191,15 +199,3 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/diaa-badr-b164661b9/
 [product-screenshot]: ./public/images/projectphoto.png
-[node.js]: https://img.shields.io/badge/nodeJS-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[node-url]: https://nodejs.org/en/
-[MongoDB]: https:https://img.shields.io/badge/MongoDB-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[mongo-url]: https://nodejs.org/en/
-[svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[svelte-url]: https://svelte.dev/
-[laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[laravel-url]: https://laravel.com
-[bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[bootstrap-url]: https://getbootstrap.com
-[jquery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[jquery-url]: https://jquery.com
