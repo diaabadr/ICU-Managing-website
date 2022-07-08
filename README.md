@@ -155,7 +155,7 @@ This interface gives the Doctor some features to help him on his Job:
 >- Adding new Employee.
 >- Assign Doctor and Nurse to To monitor a specific patient.
 
-   > **For Extra details**
+   > **For Extra details check**
    >  <a href="https://drive.google.com/file/d/12-1FNUrpwY_I_W4lMm-7E9sLdMx11GyH/view">Demo Video</a>
 <!-- 
 ## Roadmap
