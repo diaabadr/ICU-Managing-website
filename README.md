@@ -127,9 +127,14 @@ This interface give the user some features:
 
 [![Product Name Screen Shot][generalUser]](https://example.com)
 >- Check his patient status
+
 [![Product Name Screen Shot][Patient]](https://example.com)
+
 >- Search for available rooms based on the Department
-[![Product Name Screen Shot][Check1]](https://example.com) [![Product Name Screen Shot][Check2]](https://example.com)
+
+[![Product Name Screen Shot][Check1]](https://example.com)
+
+[![Product Name Screen Shot][Check2]](https://example.com)
 
 
 
