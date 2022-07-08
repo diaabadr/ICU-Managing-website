@@ -118,43 +118,35 @@ To get a local copy up and running follow these simple example steps.
 
 ## Usage
 
-### This project has 4 Interfaces.
+### This project has 5 Interfaces.
 1. Patients Families Interface
 This interface gives the user some features:
 - [ ] Make a complaint
 - [ ] Check his patient status
 - [ ] Check if there are available rooms before going to the hospital
-
-[![Product Name Screen Shot][generalUser]](https://example.com)
-
 >- Check his patient status
 
-[![Product Name Screen Shot][Patient]](https://example.com)
+
 
 >- Search for available rooms based on the Department
-
-[![Product Name Screen Shot][Check1]](https://example.com)
-
-[![Product Name Screen Shot][Check2]](https://example.com)
-
-2. Doctor Account Interface
-This interface gives the doctor some features to help him on his Job:
+2. Receptionist Account Interface
+This interface gives the Receptionist some features to help him on his Job:
+- [ ] Adding Patient.
+- [ ] Checkout Patient.
+- [ ] Search for a Patient room.
+-[ ] Adding Visitors Data
+3. Doctor Account Interface
+This interface gives the Doctor some features to help him on his Job:
 - [ ] See his patients
-
-[![Product Name Screen Shot][Pats]](https://example.com)
-
--[ ] Follow his patients progress
-
-[![Product Name Screen Shot][blood]](https://example.com)
-
+- [ ] Follow his patients progress
 - [ ] Assign Patient Data (Blood Type - Diagnosis - Medicine)
+- [ ] Send Notes to the Nurse.
 
-[![Product Name Screen Shot][data]](https://example.com)
-
-- [ ] Send Notes to the nurse and see her Notes
-
-[![Product Name Screen Shot][Notes]](https://example.com)
-
+4. Nurse 
+- [ ] See his patients
+- [ ] Follow the Doctor rules.
+- [ ] Assign Patient Daily Diagnosis (Blood Pressure - Blood Glucose)
+- [ ] Send Notes to the Doctor.
 <!-- ROADMAP -->
 
 ## Roadmap
