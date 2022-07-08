@@ -67,7 +67,7 @@
 > - CSS
 > - Handlebars
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- GETTING STARTED -->
 
@@ -113,7 +113,7 @@ To get a local copy up and running follow these simple example steps.
     ```
 11. Now open http://127.0.0.1:3000 on the browser.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- USAGE EXAMPLES -->
 
@@ -123,7 +123,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- ROADMAP -->
 
@@ -136,7 +136,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- CONTRIBUTING -->
 
@@ -154,7 +154,8 @@ Thanks goes to these wonderful people.
      <td align="center"><a href="https://www.linkedin.com/in/abdelrhmanyasser/"><img src="./public/images/Yasser.jpg" width="100px;" alt="Abdelrahman yasser"/><br /><sub><b>Abdelrahman yasser</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=Abdelrhman012" title="Code" >💻</a></td>
 
 </table>
-<p align="right">(<a href="#top">back to top</a>)</p>
+
+
 
 ## Contact
 ### Backend Developers
@@ -162,7 +163,7 @@ Thanks goes to these wonderful people.
 - Maryam Megahed: maryam.megahed45@gmail.com
 ### Frontend Developers
 - Abdelrahman Yasser: abdelrhmanyaser78@gmail.com
-<p align="right">(<a href="#top">back to top</a>)</p>
+
 ## Contributing
 
 Any contributions you make are **greatly appreciated**.
