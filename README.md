@@ -15,9 +15,9 @@
 >
 > **Note**
 > Now You have an Admin account
->- Email: maryammegahed@admin.com.
+>- >- Email: maryammegahed@admin.com.
 >- Password: your first password will be considered the account password.
->- nodemon (press enter)
+>- Now finally type (nodemon) int the terminal and press enter to run the project.
 >- open http://127.0.0.1:3000/ in the browser 
 - :memo: **Note:** You can find the users data who are in the database in file add.js.
 - :memo: **Note:** Every time you pull any modification make (npm install) in the terminal to check that all packages are downloaded.
