@@ -202,7 +202,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [contributors-url]: https://github.com/diaabadr/ICU-Managing-website/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
 [forks-url]: https://github.com/github_username/repo_name/network/members
-[issues-shield]: https://img.shields.io/github/Issues/DiaaBadr/ICU-Managing-Website.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/DiaaBadr/ICU-Managing-Website.svg?style=for-the-badge
 [issues-url]: https://github.com/diaabadr/ICU-Managing-website/issues
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
 [license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
