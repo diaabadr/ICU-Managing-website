@@ -65,8 +65,11 @@
 
 ### Built With
 
-- [![Node JS]][node-url]
-- [![MongoDB]][mongo-url]
+>- Node JS
+>- MongoDB
+>- HTML
+>- CSS
+>- Handlebars
 
 - [![Angular][angular.io]][angular-url]
 - [![Svelte][svelte.dev]][svelte-url]
