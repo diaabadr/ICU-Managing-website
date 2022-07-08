@@ -76,7 +76,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-1. Install express js and npm. (https://www.youtube.com/watch?v=NrAU04kRvmM) video may help.
+1. Install express js and npm.<a href="https://www.youtube.com/watch?v=NrAU04kRvmM">video may help</a>
 2. Install mongodb (https://www.youtube.com/watch?v=xGuS195qhcs&list=PLGhZWewM_75LQf3KvHo6HHSclmDyDazl7&index=28) video may help
 3. Clone the repo
    ```sh
