@@ -15,8 +15,8 @@
 >
 > **Note**
 > Now You have an Admin account
->- Email (maryammegahed@admin.com)
->-5. cd <project original path) (اللي كان موجود قبل ما نغير لفايل اضافة الاستاف) (press enter)
+>- Email: maryammegahed@admin.com.
+>- Password: your first password will be considered the account password.
 >- nodemon (press enter)
 >- open http://127.0.0.1:3000/ in the browser 
 - :memo: **Note:** You can find the users data who are in the database in file add.js.
