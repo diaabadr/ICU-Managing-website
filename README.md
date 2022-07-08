@@ -163,8 +163,6 @@ Thanks goes to these wonderful people.
 ### Frontend Developers
 - Abdelrahman Yasser: abdelrhmanyaser78@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
-
 ## Contributing
 
 Any contributions you make are **greatly appreciated**.
