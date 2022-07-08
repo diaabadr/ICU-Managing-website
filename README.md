@@ -153,7 +153,7 @@ Thanks goes to these wonderful people.
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/diaa-badr-b164661b9/"><img src="./public/images/dada.jpg" width="100px;" alt="Diaa Badr"/><br /><sub><b>Diaa Badr</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=diaabadr" title="Code">💻</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/abdelrhmanyasser/"><img src="./public/images/Yasser.jpg" width="100px;" alt="Abdelrahman yasser"/><br /><sub><b>Abdelrahman yasser</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=Abdelrhman012" title="Code">💻</a></td>
-     <td align="center"><a href="https://www.linkedin.com/in/maryam-megahed-129333203/"><img src="./public/images/maryammegahed.jpeg" width="100px;" alt="Maryam Megahed"/><br /><sub><b>Maryam Megahed</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=MaryamMegahed" title="Code">💻</a></td>
+     <td align="center"><a href="https://www.linkedin.com/in/maryam-megahed-129333203/"><img src="./public/images/maryammmegahed.jpeg" width="100px;" alt="Maryam Megahed"/><br /><sub><b>Maryam Megahed</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=MaryamMegahed" title="Code">💻</a></td>
 
 </table>
 
