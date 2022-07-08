@@ -116,7 +116,7 @@ To get a local copy up and running follow these simple example steps.
 10. Run the project   
     ```sh
    nodemon
-   ```
+    ```
 11. Now open http://127.0.0.1:3000 on the browser.   
 
 <p align="right">(<a href="#top">back to top</a>)</p>
