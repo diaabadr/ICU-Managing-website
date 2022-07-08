@@ -63,12 +63,11 @@
 
 ### Built With
 
->- Node JS
->- MongoDB
->- HTML
->- CSS
->- Handlebars
-
+> - Node JS
+> - MongoDB
+> - HTML
+> - CSS
+> - Handlebars
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -78,7 +77,6 @@
 
 This is an example the steps of how you sett up the project locally.
 To get a local copy up and running follow these simple example steps.
-
 
 ### Installation
 
@@ -111,11 +109,11 @@ To get a local copy up and running follow these simple example steps.
    >
    > - > - Email: maryammegahed@admin.com.
    > - > - Password: your first password will be considered the account password.
-10. Run the project   
+10. Run the project
     ```sh
     nodemon
     ```
-11. Now open http://127.0.0.1:3000 on the browser.   
+11. Now open http://127.0.0.1:3000 on the browser.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -143,7 +141,9 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTRIBUTING -->
+
 ## Contributors ✨
+
 Thanks goes to these wonderful people.
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -151,7 +151,7 @@ Thanks goes to these wonderful people.
 <!-- markdownlint-disable -->
 <table>
   <tr>
-    <td align="center"><a href="https://www.linkedin.com/in/diaa-badr-b164661b9/"><img src="./public/images/dada.jpg" width="100px;" alt="Donavon West"/><br /><sub><b>Diaa Badr</b></sub></a><br /><a href="https://github.com/codesandbox/codesandbox-client/commits?author=donavon" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/diaa-badr-b164661b9/"><img src="./public/images/dada.jpg" width="100px;" alt="Diaa Badr"/><br /><sub><b>Diaa Badr</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=diaabadr" title="Code">💻</a></td>
 </table>
 
 ## Contributing
@@ -181,8 +181,6 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
-
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
