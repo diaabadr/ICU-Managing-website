@@ -179,8 +179,6 @@ This interface gives the Doctor some features to help him on his Job:
      <td align="center"><a href="https://www.linkedin.com/in/maryam-megahed-129333203/"><img src="./public/images/maryammegahed.jpeg" width="100px;" alt="Maryam Megahed"/><br /><sub><b>Maryam Megahed</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=MaryamMegahed" title="Code">💻</a></td>
    
     
-     <td align="center"><a href="https://www.linkedin.com/in/ahmedhassan187/"><img src="./public/images/Ahmed.jpeg" width="100px;" alt="Ahmed Hassan"/><br /><sub><b>Ahmed Hassan</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=ahmedhassan187" title="Code">💻</a></td>
-    
 
  
  <td align="center"><a href="https://www.linkedin.com/in/abdelrhmanyasser/"><img src="./public/images/Yasser.jpg" width="100px;" alt="Abdelrahman Yasser"/><br /><sub><b>Abdelrahman Yasser</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=Abdelrhman012" title="Code" >💻</a></td>
@@ -188,7 +186,7 @@ This interface gives the Doctor some features to help him on his Job:
 
 
       
-      <td align="center"><a href="https://www.linkedin.com/in/abdelrahman-yousef-47076621a//"><img src="./public/images/abdelrahman.jpeg" width="100px;" alt="Abdelrahman Youssef"/><br /><sub><b>Abdelrahman Youssef</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=Abdelrahman-Yousef" title="Code" >💻</a></td>
+
       
   </tr>
 </table>
