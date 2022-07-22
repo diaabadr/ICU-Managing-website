@@ -201,9 +201,6 @@ This interface gives the Doctor some features to help him on his Job:
 ### Frontend Developers
 - Abdelrahman Yasser: abdelrhmanyaser78@gmail.com
 - Abdelrahman Youssef: slim2001.msn@gmail.com
-- ش
-- ش
-
 ## Contributing
 
 Any contributions you make are **greatly appreciated**.
