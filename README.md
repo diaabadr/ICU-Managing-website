@@ -185,7 +185,7 @@ This interface gives the Doctor some features to help him on his Job:
       
       <td align="center"><a href="https://www.linkedin.com/in/abdelrahman-yousef-47076621a//"><img src="./public/images/abdelrahman.jpeg" width="100px;" alt="Abdelrahman Youssef"/><br /><sub><b>Abdelrahman Youssef</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=Abdelrahman-Yousef" title="Code" >💻</a></td>
       
-       <td align="center"><a href="https://www.linkedin.com/in/maryam-megahed-129333203/"><img src="./public/images/maryammegahed.jpeg" width="100px;" alt="Maryam Megahed"/><br /><sub><b>Maryam Megahed</b></sub></a><br /><a href="https://github.com/diaabadr/ICU-Managing-website/commits?author=MaryamMegahed" title="Code">💻</a></td>
+  </tr>
 </table>
 
 
