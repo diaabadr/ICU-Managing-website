@@ -44,7 +44,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#usage">Contributors</a></li>
+    <li><a href="#usage">Collaborators</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#contributing">Contributing</a></li>
   </ol>
@@ -169,7 +169,7 @@ This interface gives the Doctor some features to help him on his Job:
 
 <!-- CONTRIBUTING -->
 
-## Contributors 
+##  Collaborators 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
