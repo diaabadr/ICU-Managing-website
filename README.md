@@ -59,7 +59,7 @@
 
 ### Built With
 
-> - Node JS
+> - Express JS
 > - MongoDB
 > - HTML
 > - CSS
