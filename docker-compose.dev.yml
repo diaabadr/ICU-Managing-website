@@ -1,0 +1,24 @@
+version: '3'
+services:
+  express-app:
+    build: 
+      context: .
+      target: development
+    volumes:
+      - ./src:/app/src:ro
+    environment:
+      - NODE-ENV=Development
+    command: npm run start:dev 
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+      - mongo-db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example  
+
+
+
+volumes:
+  mongo-db:   

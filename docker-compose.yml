@@ -1,0 +1,18 @@
+version: '3'
+services:
+  express-app:
+    container_name: express-app-container
+    image: node
+    ports:
+    - "8000:8000"  
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/sites-enabled/default.conf  
+    depends_on:
+      - express-app  
+
+
+ 
