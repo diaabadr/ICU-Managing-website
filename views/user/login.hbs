@@ -25,23 +25,28 @@
         </div>
         <div class="links">
           <ul class="links">
-         <li><a href="http://localhost:8000/aboutus">Department</a></li>
-            <li><a href="http://localhost:8000/aboutus#ayhaga">About US</a></li>
+            <li><a href="http://18.212.57.146:8000//aboutus">Department</a></li>
+            <li><a href="http://18.212.57.146:8000//aboutus#ayhaga">About US</a></li>
           </ul>
         </div>
       </div>
       <div class="login-page">
         <div class="show-login">
           <h2>LOGIN</h2>
-            <p class="error">{{errorMessages}}</p>
+          <p class="error">{{errorMessages}}</p>
           <form action="login" method="post" class="login-form">
             <label for="email">Email</label>
             <input required type="email" name="email" id="email" />
             <label for="password">Password</label>
             <input required type="password" name="password" id="password" />
             <div class="show-pass">
-            <input type="checkbox" onclick="showPassword()" name="show-pass" id="show-pass">
-            <label for="show-pass">Show Password</label>
+              <input
+                type="checkbox"
+                onclick="showPassword()"
+                name="show-pass"
+                id="show-pass"
+              />
+              <label for="show-pass">Show Password</label>
             </div>
             <button
               type="submit"
