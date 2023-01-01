@@ -62,12 +62,14 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-mongoose.connect(
-  "mongodb://127.0.0.1/ICU-Managing-website",
-  { useNewUrlParser: true },
-  (error) => {
-    if (error) console.log(error);
-    else console.log("Database Connected Successfully");
-  }
-);
+const dbURI =
+  "mongodb+srv://diaabadr8:diaabadr8@cluster0.wfeeump.mongodb.net/?retryWrites=true&w=majority";
+
+mongoose
+  .connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected"))
+  .catch((err) => console.log(err));
 module.exports = app;
