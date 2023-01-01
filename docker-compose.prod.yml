@@ -7,4 +7,4 @@ services:
     environment:
       - NODE_ENV=Production  
     command: npm start
-    
+

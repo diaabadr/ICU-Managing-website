@@ -18,12 +18,15 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const MongoStore = require("connect-mongo");
 const { config } = require("process");
+app.listen(8000, () => console.log("I am listening"));
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("views/user", path.join(__dirname, "views/user"));
 app.set("view engine", "hbs");
 app.use(logger("dev"));
 app.use(express.json());
+const dbURI =
+  "mongodb+srv://diaabadr8:diaabadr8@cluster0.wfeeump.mongodb.net/?retryWrites=true&w=majority";
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(
@@ -34,7 +37,7 @@ app.use(
     proxy: true,
     path: "/",
     store: MongoStore.create({
-      mongoUrl: "mongodb://127.0.0.1/ICU-Managing-website",
+      mongoUrl: dbURI,
       collectionName: "sessions",
     }),
   })
@@ -62,8 +65,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-const dbURI =
-  "mongodb+srv://diaabadr8:diaabadr8@cluster0.wfeeump.mongodb.net/?retryWrites=true&w=majority";
 
 mongoose
   .connect(dbURI, {
